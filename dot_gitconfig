@@ -3,7 +3,6 @@
 	autocrlf = input
 	fscache = true
 	symlinks = false
-	fsmonitor = true
 
 [user]
 	email = 73636812+ShyamGadde@users.noreply.github.com
