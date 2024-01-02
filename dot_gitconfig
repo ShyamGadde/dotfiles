@@ -1,7 +1,8 @@
 [core]
 	editor = code --wait
 	autocrlf = input
-	fscache = true
+	fscache = false
+	fsmonitor = false
 	symlinks = false
 
 [user]
