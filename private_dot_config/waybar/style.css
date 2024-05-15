@@ -1,0 +1,76 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+  font-size: 12px;
+}
+
+@import "themes/catppuccin-mocha.css";
+
+window#waybar {
+  background: @crust;
+}
+
+tooltip {
+  background: @crust;
+  border: 1px solid @blue;
+}
+
+tooltip label {
+  color: @text;
+}
+
+#workspaces button {
+  color: @text;
+  box-shadow: none;
+  text-shadow: none;
+  padding: 0 5px;
+}
+
+#workspaces button.active {
+  background: @blue;
+  color: @base;
+}
+
+#battery,
+#bluetooth,
+#clock,
+#pulseaudio,
+#tray,
+#cpu,
+#memory,
+#custom-notification,
+#window,
+#workspaces {
+  color: @text;
+  background: @crust;
+  opacity: 0.9;
+  margin: 4px 0;
+}
+
+#custom-notification {
+  color: @mauve;
+}
+
+#workspaces {
+  background-color: @base;
+  padding: 0;
+}
+
+#battery.charging {
+  color: @yellow;
+}
+
+#tray {
+  background-color: @mantle;
+  padding: 0 10px;
+}
+
+.modules-left {
+  margin-left: 10px;
+}
+
+.modules-right {
+  margin-right: 15px;
+}
