@@ -1,0 +1,431 @@
+{
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  "extensions.ignoreRecommendations": true,
+  // =====================
+  // Code runner
+  // =====================
+  "code-runner.runInTerminal": true,
+  "code-runner.executorMap": {
+    "ahk": "autohotkey",
+    "applescript": "osascript",
+    "autoit": "autoit3",
+    "bat": "cmd /c",
+    "c": "cd $dir && gcc $fileName -o $fileNameWithoutkExt && $dir$fileNameWithoutExt",
+    "clojure": "lein exec",
+    "coffeescript": "coffee",
+    "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "crystal": "crystal",
+    "csharp": "scriptcs",
+    "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+    "dart": "dart",
+    "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fsharp": "fsi",
+    "go": "go run",
+    "groovy": "groovy",
+    "haskell": "runhaskell",
+    "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    "javascript": "node",
+    "julia": "julia",
+    "kit": "kitc --run",
+    "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+    "lisp": "sbcl --script",
+    "lua": "lua",
+    "nim": "nim compile --verbosity:0 --hints:off --run",
+    "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "ocaml": "ocaml",
+    "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+    "perl": "perl",
+    "perl6": "perl6",
+    "php": "php",
+    "powershell": "powershell -ExecutionPolicy ByPass -File",
+    "python": "python -u",
+    "r": "Rscript",
+    "racket": "racket",
+    "ruby": "ruby",
+    "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+    "sass": "sass --style expanded",
+    "scala": "scala",
+    "scheme": "csi -script",
+    "scss": "scss --style expanded",
+    "shellscript": "bash",
+    "swift": "swift",
+    "typescript": "ts-node",
+    "v": "v run",
+    "vbscript": "cscript //Nologo"
+  },
+  // =====================
+  // Copilot
+  // =====================
+  "accessibility.voice.keywordActivation": "quickChat",
+  "inlineChat.mode": "live",
+  // =====================
+  // Emmet
+  // =====================
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  // =====================
+  // Error Lens
+  // =====================
+  "errorLens.fontStyleItalic": true,
+  // =====================
+  // Even Better TOML
+  // =====================
+  "evenBetterToml.formatter.trailingNewline": true,
+  // ================================
+  // GitHub Pull Requests and Issues
+  // ================================
+  "githubPullRequests.pullBranch": "never",
+  // ================================
+  // GitLens
+  // ================================
+  "gitlens.blame.fontFamily": "'Monaspace Xenon'",
+  // ========================
+  // Highlight Matching Tag
+  // ========================
+  "highlight-matching-tag.showPath": false,
+  "highlight-matching-tag.showRuler": false,
+  "highlight-matching-tag.highlightSelfClosing": true,
+  "highlight-matching-tag.highlightFromContent": true,
+  // ========================
+  // Indent Rainbow
+  // ========================
+  "indentRainbow.colorOnWhiteSpaceOnly": true,
+  "indentRainbow.indicatorStyle": "light",
+  // ========================
+  // Inline SQL
+  // ========================
+  "inlineSQL.dbDriver": "mysql",
+  "inlineSQL.dbPassword": "",
+  "inlineSQL.dbPort": 3306,
+  "inlineSQL.dbUser": "root",
+  "inlineSQL.lintSQLFiles": true,
+  "inlineSQL.enableDBIntegration": true,
+  // ========================
+  // Jupyter Notebook
+  // ========================
+  "jupyter.askForKernelRestart": false,
+  "notebook.lineNumbers": "on",
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "notebook.editorOptionsCustomizations": {},
+  "notebook.output.textLineLimit": 500,
+  // ========================
+  // LeetCode
+  // ========================
+  "leetcode.defaultLanguage": "python3",
+  "leetcode.filePath": {
+    "default": {
+      "folder": "${id}. ${name}",
+      "filename": "solution.${ext}"
+    }
+  },
+  "leetcode.nodePath": ".nvm/versions/node/v21.6.0/bin/node",
+  "leetcode.workspaceFolder": "/home/shyam/workspace/leetcode",
+  "leetcode.showDescription": "Both",
+  "leetcode.hint.configWebviewMarkdown": false,
+  "leetcode.hint.commentDescription": false,
+  "leetcode.hint.commandShortcut": false,
+  "leetcode.showLocked": true,
+  // ========================
+  // Markdown
+  // ========================
+  "markdown.extension.print.theme": "dark",
+  "markdown.extension.toc.orderedList": true,
+  // ========================
+  // Paste Image
+  // ========================
+  "pasteImage.basePath": "${currentFileDir}/assets",
+  "pasteImage.path": "${currentFileDir}/assets",
+  // ========================
+  // Pieces
+  // ========================
+  "pieces.code-lens": false,
+  // ========================
+  // Project Manager
+  // ========================
+  "projectManager.git.baseFolders": ["$home/workspace"],
+  "projectManager.sortList": "Recent",
+  // ========================
+  // Sourcery
+  // ========================
+  "sourcery.token": "user_sNW4378iYuuqfIxtyBokBHzcmPOJlSD3ZsT4y_VWzagk8_9ZvaMmS48WzDM",
+  "sourcery.codeLens": false,
+  // ========================
+  // Surround
+  // ========================
+  "surround.custom": {
+    "surround.with.tryExcept": {
+      "label": "try/except",
+      "description": "Surrounds the selection with a try/except block",
+      "snippet": "try:\n\t${TM_SELECTED_TEXT}\nexcept ${1:Exception}:\n\t${2:pass}",
+      "languageIds": ["python"]
+    }
+  },
+  // ========================
+  // Todo Tree
+  // ========================
+  "todo-tree.general.showActivityBarBadge": true,
+  "todo-tree.general.tags": ["TODO:", "FIXME:"],
+  "todo-tree.highlights.customHighlight": {
+    "FIXME:": {
+      "icon": "flame",
+      "background": "#f00",
+      "iconColour": "#f00",
+      "foreground": "#fff"
+    },
+    "TODO:": {
+      "icon": "check",
+      "background": "#0f0",
+      "iconColour": "#0f0",
+      "foreground": "#000"
+    }
+  },
+  // ========================
+  // VSIntellicode
+  // ========================
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  // ========================
+  // Terminal
+  // ========================
+  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+  "terminal.integrated.fontSize": 17,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.env.windows": {},
+  "terminal.integrated.env.linux": {},
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.external.windowsExec": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+  // ========================
+  // Editor settings
+  // ========================
+  //---
+  //"editor.fontFamily": "'CaskaydiaCove Nerd Font', Consolas, 'Courier New', monospace",
+  //"editor.fontLigatures": "'calt', 'ss01', 'ss19'",
+  //---
+  //"editor.fontFamily": "'VictorMono Nerd Font', monospace",
+  //"editor.fontWeight": "600",
+  //---
+  //"editor.fontFamily": "'FiraCode Nerd Font', monospace",
+  //"editor.fontLigatures": "'cv01', 'cv02', 'cv14', 'zero', 'ss03', 'ss05', 'cv31', 'cv30', 'ss08'",
+  //---
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+  "editor.fontLigatures": "'calt', 'ss19', 'cv02', 'cv04', 'cv05', 'cv06', 'cv07', 'cv08', 'cv09', 'cv10', 'cv11', 'cv12', 'cv17', 'cv18', 'cv19', 'cv20'",
+  "editor.inlayHints.fontFamily": "'Monaspace Xenon'",
+  "editor.inlineSuggest.fontFamily": "'Monocraft'",
+  "editor.fontSize": 15,
+  "editor.lineHeight": 24,
+  "editor.guides.bracketPairs": "active",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.lineNumbers": "on",
+  "editor.suggestSelection": "first",
+  "editor.wordWrap": "on",
+  "editor.linkedEditing": true,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "comment"
+          //"keyword",
+          //"storage.type",
+          //"storage.modifier",
+          //"entity.name.function",
+          //"entity.name.tag.doctype",
+          //"entity.other.attribute-name",
+          //"variable.language.this"
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      }
+    ]
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "editor.accessibilitySupport": "off",
+  "editor.inlineSuggest.enabled": true,
+  "editor.inlayHints.enabled": "onUnlessPressed",
+  "editor.codeLens": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.showFoldingControls": "always",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "editor.stickyScroll.enabled": true,
+  "editor.formatOnType": true,
+  // =====================
+  // Cursor
+  // =====================
+  "editor.cursorBlinking": "phase",
+  "editor.cursorWidth": 3,
+  "editor.cursorSmoothCaretAnimation": "on",
+  // =====================
+  // Files
+  // =====================
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  // =====================
+  // Minimap
+  // =====================
+  "editor.minimap.scale": 2,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.autohide": true,
+  "editor.minimap.enabled": false,
+  // =====================
+  // Source Control
+  // =====================
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "scm.defaultViewMode": "tree",
+  "github.gitProtocol": "ssh",
+  "git.mergeEditor": true,
+  // =====================
+  // Zen mode
+  // =====================
+  "zenMode.hideLineNumbers": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorCustomizations": {},
+  "workbench.editor.wrapTabs": true,
+  "workbench.sideBar.location": "right",
+  "workbench.editorAssociations": {
+    "*.png": "imagePreview.previewEditor",
+    "*.md": "default"
+  },
+  "workbench.startupEditor": "readme",
+  "workbench.tree.enableStickyScroll": true,
+  "explorer.compactFolders": false,
+  "window.titleBarStyle": "custom",
+  "window.menuBarVisibility": "compact",
+  "window.commandCenter": true,
+  //"window.density.editorTabHeight": "compact",
+  // =====================
+  // JavaScript
+  // =====================
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "javascript.suggest.paths": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+  "javascript.format.semicolons": "insert",
+  //"javascript.inlayHints.parameterNames.enabled": "all",
+  // "javascript.inlayHints.variableTypes.enabled": true,
+  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  //"javascript.inlayHints.parameterTypes.enabled": true,
+  //"javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.referencesCodeLens.enabled": true,
+  "javascript.referencesCodeLens.showOnAllFunctions": true,
+  // =====================
+  // TypeScript
+  // =====================
+  "typescript.suggest.paths": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+  "typescript.format.semicolons": "insert",
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.implementationsCodeLens.enabled": true,
+  //"js/ts.implicitProjectConfig.checkJs": true,
+  // =====================
+  // HTML
+  // =====================
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "html.format.indentInnerHtml": true,
+  "html.format.templating": true,
+  // =====================
+  // CSS
+  // =====================
+  "[css]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "css.format.spaceAroundSelectorSeparator": true,
+  "css.lint.compatibleVendorPrefixes": "warning",
+  "css.lint.zeroUnits": "warning",
+  // =====================
+  // JSON
+  // =====================
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  // =====================
+  // Python
+  // =====================
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+    //"editor.rulers": [88]
+  },
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  //"python.analysis.inlayHints.callArgumentNames": true,
+  "python.analysis.inlayHints.pytestParameters": true,
+  // =====================
+  // PHP
+  // =====================
+  "[php]": {
+    "editor.tabSize": 2
+  },
+  // =====================
+  // Markdown
+  // =====================
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
+  "markdown.preview.fontFamily": "'Recursive Mono Casual Static', apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
+  // =====================
+  // Dockerfile
+  // =====================
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  // ==========================
+  // Miscelleneous settings
+  // ==========================
+  "telemetry.telemetryLevel": "off",
+  "explorer.confirmDragAndDrop": false,
+  "security.workspace.trust.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "reactSnippets.settings.importReactOnTop": false,
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  }
+}
