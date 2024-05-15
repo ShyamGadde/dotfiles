@@ -99,7 +99,7 @@ eval "$(zoxide init --cmd cd zsh)"
 export NVM_COMPLETION=true
 export NVM_LAZY_LOAD=true
 export NVM_LAZY_LOAD_EXTRA_COMMANDS=('code', 'vi', 'vim', 'nvim')
-source $ZDOTDIR/plugins/zsh-nvm/zsh-nvm.plugin.zsh
+source $ZDOTDIR/plugins/zsh-nvm.plugin.zsh
 
 # Arch Linux command-not-found support, you must have package pkgfile installed
 # https://wiki.archlinux.org/index.php/Pkgfile#.22Command_not_found.22_hook
