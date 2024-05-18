@@ -138,4 +138,3 @@ source $ZDOTDIR/keybinds.zsh
 
 # Load aliases
 source $ZDOTDIR/aliases.zsh
-source $ZDOTDIR/aliases/docker-compose.zsh
