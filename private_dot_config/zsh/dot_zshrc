@@ -134,6 +134,8 @@ export FZF_DEFAULT_COMMAND="fd --type f"
 # Setting up aliases for Copilot in the CLI
 eval "$(gh copilot alias -- zsh)"
 
-source $ZDOTDIR/aliases.zsh
-
 source $ZDOTDIR/keybinds.zsh
+
+# Load aliases
+source $ZDOTDIR/aliases.zsh
+source $ZDOTDIR/aliases/docker-compose.zsh
