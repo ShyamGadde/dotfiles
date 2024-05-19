@@ -75,15 +75,36 @@ return {
         -- When you move your cursor, the highlights will be cleared (the second autocommand).
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client.server_capabilities.documentHighlightProvider then
+          local highlight_augroup = vim.api.nvim_create_augroup('user-lsp-highlight', { clear = false })
           vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
             buffer = event.buf,
+            group = highlight_augroup,
             callback = vim.lsp.buf.document_highlight,
           })
 
           vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
             buffer = event.buf,
+            group = highlight_augroup,
             callback = vim.lsp.buf.clear_references,
           })
+
+          vim.api.nvim_create_autocmd('LspDetach', {
+            group = vim.api.nvim_create_augroup('user-lsp-detach', { clear = true }),
+            callback = function(event2)
+              vim.lsp.buf.clear_references()
+              vim.api.nvim_clear_autocmds { group = 'user-lsp-highlight', buffer = event2.buf }
+            end,
+          })
+        end
+
+        -- The following autocommand is used to enable inlay hints in your
+        -- code, if the language server you are using supports them
+        --
+        -- This may be unwanted, since they displace some of your code
+        if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+          map('<leader>th', function()
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+          end, '[T]oggle Inlay [H]ints')
         end
       end,
     })
@@ -109,7 +130,8 @@ return {
       -- Some languages (like typescript) have entire language plugins that can be useful:
       --    https://github.com/pmizio/typescript-tools.nvim
       -- But for many setups, the LSP (`tsserver`) will work just fine
-      tsserver = {},
+
+      bashls = {},
 
       lua_ls = {
         -- cmd = {...},
@@ -125,7 +147,37 @@ return {
           },
         },
       },
-      pyright = {},
+
+      pyright = {
+        settings = {
+          pyright = {
+            disableOrganizeImports = true,
+          },
+          python = {
+            analysis = {
+              -- Ignore all files for analysis to exclusively use Ruff for linting
+              ignore = { '*' },
+            },
+          },
+        },
+      },
+
+      ruff_lsp = {
+        on_attach = function(client)
+          if client.name == 'ruff_lsp' then
+            -- Disable hover in favor of Pyright
+            client.server_capabilities.hoverProvider = false
+          end
+        end,
+        init_options = {
+          settings = {
+            -- Any extra CLI arguments for `ruff` go here.
+            args = {},
+          },
+        },
+      },
+
+      tsserver = {},
     }
 
     require('mason').setup()
@@ -136,10 +188,12 @@ return {
     -- Formatters
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
+      'shfmt',
     })
     -- Linters
     vim.list_extend(ensure_installed, {
       'markdownlint', -- Used to lint markdown files
+      'shellcheck',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
