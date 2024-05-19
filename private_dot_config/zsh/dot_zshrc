@@ -124,13 +124,6 @@ HISTORY_SUBSTRING_SEARCH_FUZZY=1
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
 export FZF_DEFAULT_COMMAND="fd --type f"
 
-# Load Mcfly
-#export MCFLY_FUZZY=true
-#export MCFLY_RESULTS=20
-#export MCFLY_INTERFACE_VIEW=BOTTOM
-#export MCFLY_RESULTS_SORT=LAST_RUN
-#eval "$(mcfly init zsh)"
-
 # Setting up aliases for Copilot in the CLI
 eval "$(gh copilot alias -- zsh)"
 
