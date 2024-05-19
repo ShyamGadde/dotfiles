@@ -18,9 +18,9 @@ return {
       'python',
       'ruby',
       'typescript',
-      'yaml',
       'vim',
       'vimdoc',
+      'yaml',
     },
     -- Autoinstall languages that are not installed
     auto_install = true,
@@ -40,6 +40,7 @@ return {
     ---@diagnostic disable-next-line: missing-fields
     require('nvim-treesitter.configs').setup(opts)
 
+    -- TODO: Find a better way to do this (maybe ftplugin?)
     vim.filetype.add {
       pattern = { ['.*/hypr/.*%.conf'] = 'hyprlang' },
     }
