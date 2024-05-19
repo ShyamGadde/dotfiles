@@ -1,4 +1,6 @@
-pfetch
+if [[ -f /usr/bin/pfetch ]]
+    pfetch
+fi
 
 # Zsh Options
 setopt append_history       # Immediately append history instead of overwriting
