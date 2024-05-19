@@ -1,4 +1,4 @@
-if [[ -f /usr/bin/pfetch ]]
+if [[ -f /usr/bin/pfetch ]]; then
     pfetch
 fi
 
