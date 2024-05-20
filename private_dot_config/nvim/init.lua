@@ -53,7 +53,7 @@ require('lazy').setup('plugins', {
     enabled = true,
   },
   change_detection = {
-    notify = false,
+    notify = true,
   },
 })
 

@@ -172,7 +172,7 @@ return {
         init_options = {
           settings = {
             -- Any extra CLI arguments for `ruff` go here.
-            args = { '--select', 'I' },
+            -- args = { '--select', 'I' },
           },
         },
       },
@@ -187,11 +187,12 @@ return {
     local ensure_installed = vim.tbl_keys(servers or {})
     -- Formatters
     vim.list_extend(ensure_installed, {
-      'stylua', -- Used to format Lua code
       'shfmt',
+      'stylua', -- Used to format Lua code
     })
     -- Linters
     vim.list_extend(ensure_installed, {
+      'codespell',
       'markdownlint', -- Used to lint markdown files
       'shellcheck',
     })
