@@ -5,7 +5,7 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
     'MunifTanjim/nui.nvim',
-    -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    '3rd/image.nvim', -- image support in preview window
     {
       's1n7ax/nvim-window-picker',
       version = '2.*',
@@ -33,6 +33,7 @@ return {
     { '<leader>nf', '<cmd>Neotree filesystem reveal right<CR>', desc = '[N]eoTree reveal [F]ilesystem' },
     { '<leader>nb', '<cmd>Neotree buffers reveal right<CR>', desc = '[N]eoTree reveal [B]uffers' },
     { '<leader>ng', '<cmd>Neotree git_status reveal right<CR>', desc = '[N]eoTree reveal [G]it Status' },
+    { '<leader>ns', '<cmd>Neotree document_symbols reveal right<CR>', desc = '[N]eoTree reveal Document [S]ymbols' },
   },
   opts = {
     close_if_last_window = true,
@@ -56,6 +57,9 @@ return {
     },
     window = {
       position = 'right',
+      mappings = {
+        ['P'] = { 'toggle_preview', config = { use_float = true, use_image_nvim = true } },
+      },
     },
     filesystem = {
       follow_current_file = {
