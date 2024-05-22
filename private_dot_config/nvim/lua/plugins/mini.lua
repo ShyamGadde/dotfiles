@@ -27,9 +27,6 @@ return {
         },
       }
 
-      -- Extend f, F, t, T to work on multiple lines.
-      require('mini.jump').setup()
-
       require('mini.move').setup()
 
       require('mini.surround').setup()
