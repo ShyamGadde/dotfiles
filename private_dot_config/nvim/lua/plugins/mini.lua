@@ -32,8 +32,6 @@ return {
 
       require('mini.move').setup()
 
-      require('mini.splitjoin').setup()
-
       require('mini.surround').setup()
     end,
   },
