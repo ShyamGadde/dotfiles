@@ -43,7 +43,7 @@ return {
       diagnostics = {
         symbols = {
           hint = '󰌵',
-          info = ' ',
+          info = ' ',
           warn = ' ',
           error = ' ',
         },
