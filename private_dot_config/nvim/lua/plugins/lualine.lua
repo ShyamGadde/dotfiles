@@ -31,7 +31,16 @@ return {
           path = 1,
         },
       },
-      lualine_x = { 'encoding', 'fileformat', 'filetype' },
+      lualine_x = {
+        {
+          'searchcount',
+          maxcount = 999,
+          timeout = 500,
+        },
+        'encoding',
+        'fileformat',
+        'filetype',
+      },
       lualine_y = {
         {
           require('lazy.status').updates,
