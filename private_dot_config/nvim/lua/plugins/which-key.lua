@@ -10,16 +10,15 @@ return {
     require('which-key').register {
       ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
       ['<leader>d'] = { name = '[D]ebug', _ = 'which_key_ignore' },
-      ['<leader>n'] = { name = '[N]eoTree', _ = 'which_key_ignore' },
-      ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-      ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-      ['<leader>ss'] = { name = '[S]earch [S]ymbols', _ = 'which_key_ignore' },
-      ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
       ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+      ['<leader>n'] = { name = '[N]eoTree', _ = 'which_key_ignore' },
+      ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+      ['<leader>ss'] = { name = 'Search [S]ymbols', _ = 'which_key_ignore' },
+      ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
     }
     -- visual mode
     require('which-key').register({
-      ['<leader>h'] = { 'Git [H]unk' },
+      ['<leader>g'] = { '[G]it' },
     }, { mode = 'v' })
   end,
 }
