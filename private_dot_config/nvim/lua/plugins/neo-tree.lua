@@ -37,7 +37,6 @@ return {
   },
   opts = {
     close_if_last_window = true,
-    enable_normal_mode_for_inputs = true,
     enable_cursor_hijack = true, -- If enabled neotree will keep the cursor on the first letter of the filename when moving in the tree.
     default_component_configs = {
       diagnostics = {
