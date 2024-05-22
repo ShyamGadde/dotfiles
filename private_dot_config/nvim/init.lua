@@ -50,7 +50,8 @@ require('lazy').setup('plugins', {
     },
   },
   checker = {
-    enabled = true,
+    enabled = false,
+    concurrency = 1, -- set to 1 to check for updates very slowly
   },
   change_detection = {
     notify = true,

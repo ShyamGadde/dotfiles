@@ -3,6 +3,7 @@ return {
     -- NOTE: Yes, you can install new plugins here!
     'mfussenegger/nvim-dap',
     -- NOTE: And you can specify dependencies as well
+    lazy = true,
     dependencies = {
       -- Creates a beautiful debugger UI
       {
@@ -11,6 +12,13 @@ return {
       },
       -- Required dependency for nvim-dap-ui
       'nvim-neotest/nvim-nio',
+      -- Add virtual text support
+      {
+        'theHamsta/nvim-dap-virtual-text',
+        opts = {
+          virt_text_pos = 'eol',
+        },
+      },
 
       -- Installs the debug adapters for you
       'williamboman/mason.nvim',
@@ -78,6 +86,9 @@ return {
   -- Add debuggers
   {
     'leoluz/nvim-dap-go',
+    dependencies = {
+      'mfussenegger/nvim-dap',
+    },
     ft = 'go',
     opts = {
       delve = {
@@ -89,6 +100,9 @@ return {
   },
   {
     'mfussenegger/nvim-dap-python',
+    dependencies = {
+      'mfussenegger/nvim-dap',
+    },
     ft = 'python',
     config = function()
       require('dap-python').setup()
