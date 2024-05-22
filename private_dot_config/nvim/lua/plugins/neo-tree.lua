@@ -30,10 +30,10 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '<leader>nf', '<cmd>Neotree filesystem reveal right<CR>', desc = '[N]eoTree reveal [F]ilesystem' },
-    { '<leader>nb', '<cmd>Neotree buffers reveal right<CR>', desc = '[N]eoTree reveal [B]uffers' },
-    { '<leader>ng', '<cmd>Neotree git_status reveal right<CR>', desc = '[N]eoTree reveal [G]it Status' },
-    { '<leader>ns', '<cmd>Neotree document_symbols reveal right<CR>', desc = '[N]eoTree reveal Document [S]ymbols' },
+    { '<leader>nf', '<cmd>Neotree focus filesystem reveal right<CR>', desc = '[N]eoTree reveal [F]ilesystem' },
+    { '<leader>nb', '<cmd>Neotree focus buffers reveal right<CR>', desc = '[N]eoTree reveal [B]uffers' },
+    { '<leader>ng', '<cmd>Neotree focus git_status reveal right<CR>', desc = '[N]eoTree reveal [G]it Status' },
+    { '<leader>ns', '<cmd>Neotree focus document_symbols reveal right<CR>', desc = '[N]eoTree reveal Document [S]ymbols' },
   },
   opts = {
     close_if_last_window = true,

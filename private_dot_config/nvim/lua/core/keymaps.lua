@@ -33,12 +33,12 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Center cursor
-vim.keymap.set({ 'n', 'v' }, 'k', 'kzz')
-vim.keymap.set({ 'n', 'v' }, 'j', 'jzz')
-vim.keymap.set({ 'n', 'v' }, '<C-u>', '<C-u>zz')
-vim.keymap.set({ 'n', 'v' }, '<C-d>', '<C-d>zz')
-vim.keymap.set({ 'n', 'v' }, '<C-f>', '<C-f>zz')
-vim.keymap.set({ 'n', 'v' }, '<C-b>', '<C-b>zz')
+-- center cursor
+-- vim.keymap.set({ 'n', 'v' }, 'k', 'kzz')
+-- vim.keymap.set({ 'n', 'v' }, 'j', 'jzz')
+-- vim.keymap.set({ 'n', 'v' }, '<c-u>', '<c-u>zz')
+-- vim.keymap.set({ 'n', 'v' }, '<c-d>', '<c-d>zz')
+-- vim.keymap.set({ 'n', 'v' }, '<c-f>', '<c-f>zz')
+-- vim.keymap.set({ 'n', 'v' }, '<c-b>', '<c-b>zz')
 
 -- vim: ts=2 sts=2 sw=2 et
