@@ -2,9 +2,33 @@
 -- For more options, you can see `:help option-list`
 local opt = vim.opt
 
+-- Session Management
+opt.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+
 -- Make line numbers default
 opt.number = true
 opt.relativenumber = true
+
+-- Configure tabs and spaces
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.autoindent = true
+vim.bo.softtabstop = 2
+
+-- Appearance
+opt.termguicolors = true
+opt.background = 'dark'
+vim.diagnostic.config {
+  float = { border = 'rounded' }, -- add border to diagnostic popups
+}
+
+-- Backspace
+opt.backspace = 'indent,eol,start'
+
+-- Folding
+opt.foldmethod = 'expr'
+opt.foldexpr = 'nvim_treesitter#foldexpr()' -- Utilize Treesitter folds
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 opt.mouse = 'a'
@@ -49,18 +73,12 @@ opt.inccommand = 'split'
 opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+opt.scrolloff = 10
 
 -- Set highlight on search
 opt.hlsearch = true
 
 -- Don't have `o` add a comment
 opt.formatoptions:remove 'o'
-
--- Configure tabs and spaces
-opt.expandtab = true
-opt.tabstop = 2
-opt.softtabstop = 2
-opt.shiftwidth = 2
 
 -- vim: ts=2 sts=2 sw=2 et
