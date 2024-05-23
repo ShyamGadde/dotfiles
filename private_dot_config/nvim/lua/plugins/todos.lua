@@ -14,6 +14,6 @@ return {
       require('todo-comments').jump_prev()
     end, { desc = 'Previous todo comment' })
 
-    vim.keymap.set('n', '<leader>st', '<cmd> TodoTelescope <CR>', { desc = 'Search [T]odos' })
+    vim.keymap.set('n', '<leader>ft', '<cmd> TodoTelescope <CR>', { desc = 'Find in [T]odos' })
   end,
 }
