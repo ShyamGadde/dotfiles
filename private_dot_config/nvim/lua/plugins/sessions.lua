@@ -1,7 +1,9 @@
 return {
-  -- 'Shatur/neovim-session-manager',
-  -- dependencies = {
-  --   'nvim-lua/plenary.nvim',
+  -- {
+  --   'Shatur/neovim-session-manager',
+  --   dependencies = {
+  --     'nvim-lua/plenary.nvim',
+  --   },
+  --   opts = {},
   -- },
-  -- opts = {},
 }
