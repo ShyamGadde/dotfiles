@@ -27,8 +27,8 @@ vim.diagnostic.config {
 opt.backspace = 'indent,eol,start'
 
 -- Folding
-opt.foldmethod = 'expr'
-opt.foldexpr = 'nvim_treesitter#foldexpr()' -- Utilize Treesitter folds
+-- opt.foldmethod = 'expr'
+-- opt.foldexpr = 'nvim_treesitter#foldexpr()' -- Utilize Treesitter folds
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 opt.mouse = 'a'
