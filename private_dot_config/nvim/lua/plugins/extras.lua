@@ -13,7 +13,7 @@ return {
     'szw/vim-maximizer',
     config = function()
       -- Vim-maximizer
-      vim.keymap.set('n', '<leader>m', ':MaximizerToggle<CR>') -- toggle maximize tab
+      vim.keymap.set('n', '<leader>m', '<cmd> MaximizerToggle! <CR>') -- toggle maximize tab
     end,
   },
 }
