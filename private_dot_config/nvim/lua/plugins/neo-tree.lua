@@ -28,12 +28,13 @@ return {
       end,
     },
   },
+  lazy = false,
   cmd = 'Neotree',
   keys = {
-    { '<leader>nf', '<cmd> Neotree focus filesystem reveal <CR>', desc = '[N]eoTree reveal [F]ilesystem' },
-    { '<leader>nb', '<cmd> Neotree focus buffers reveal <CR>', desc = '[N]eoTree reveal [B]uffers' },
-    { '<leader>ng', '<cmd> Neotree focus git_status reveal <CR>', desc = '[N]eoTree reveal [G]it Status' },
-    { '<leader>ns', '<cmd> Neotree focus document_symbols reveal <CR>', desc = '[N]eoTree reveal Document [S]ymbols' },
+    { '<leader>nf', '<cmd> Neotree focus filesystem reveal <CR>', desc = 'NeoTree: [F]ilesystem' },
+    { '<leader>nb', '<cmd> Neotree focus buffers reveal <CR>', desc = 'NeoTree: [B]uffers' },
+    { '<leader>ng', '<cmd> Neotree focus git_status reveal <CR>', desc = 'NeoTree: [G]it Status' },
+    { '<leader>ns', '<cmd> Neotree focus document_symbols reveal <CR>', desc = 'NeoTree: Document [S]ymbols' },
     { '\\', '<cmd> Neotree toggle <CR>', desc = 'NeoTree toggle' },
   },
   opts = {
@@ -84,4 +85,11 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    -- Recommended settings to disable default netrw file explorer
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
+
+    require('neo-tree').setup(opts)
+  end,
 }

@@ -10,13 +10,24 @@ return {
         'rcarriga/nvim-dap-ui',
         opts = {},
       },
+
       -- Required dependency for nvim-dap-ui
       'nvim-neotest/nvim-nio',
+
       -- Add virtual text support
       {
         'theHamsta/nvim-dap-virtual-text',
         opts = {
           virt_text_pos = 'eol',
+          commented = true,
+          -- Customize virtual text
+          display_callback = function(variable, buf, stackframe, node, options)
+            if options.virt_text_pos == 'inline' then
+              return ' = ' .. variable.value
+            else
+              return variable.name .. ' = ' .. variable.value
+            end
+          end,
         },
       },
 

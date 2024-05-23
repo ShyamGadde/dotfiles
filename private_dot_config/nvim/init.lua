@@ -19,6 +19,15 @@ require 'core.autocmds'
 -- [[ Install `lazy.nvim` plugin manager ]]
 require 'core.bootstrap-lazy'
 
+-- [[ Set additional filetypes ]]
+vim.filetype.add {
+  pattern = {
+    ['.*%.hl'] = 'hyprlang',
+    ['hypr.*%.conf'] = 'hyprlang',
+    ['.*/hypr/.*%.conf'] = 'hyprlang',
+  },
+}
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run

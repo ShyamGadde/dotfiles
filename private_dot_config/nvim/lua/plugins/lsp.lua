@@ -1,6 +1,7 @@
 -- LSP Configuration & Plugins
 return {
   'neovim/nvim-lspconfig',
+  event = 'VeryLazy',
   dependencies = {
     -- Automatically install LSPs and related tools to stdpath for Neovim
     'williamboman/mason.nvim',
@@ -8,7 +9,6 @@ return {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
     -- Useful status updates for LSP.
-    -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
     'j-hui/fidget.nvim',
 
     -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -16,6 +16,14 @@ return {
     { 'folke/neodev.nvim', opts = {} },
   },
   config = function()
+    -- Globally configure all LSP floating preview popups (like hover, signature help, etc)
+    local open_floating_preview = vim.lsp.util.open_floating_preview
+    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+      opts = opts or {}
+      opts.border = opts.border or 'rounded' -- Set border to rounded
+      return open_floating_preview(contents, syntax, opts, ...)
+    end
+
     --  This function gets run when an LSP attaches to a particular buffer.
     --    That is to say, every time a new file is opened that is associated with
     --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
@@ -197,19 +205,6 @@ return {
       'shellcheck',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
-    -- Hyprlang LSP
-    vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
-      pattern = { '*.hl', 'hypr*.conf', '**/hypr/*%.conf' },
-      callback = function()
-        print(string.format 'starting hyprls')
-        vim.lsp.start {
-          name = 'hyprlang',
-          cmd = { 'hyprls' },
-          root_dir = vim.fn.getcwd(),
-        }
-      end,
-    })
 
     require('mason-lspconfig').setup {
       handlers = {
