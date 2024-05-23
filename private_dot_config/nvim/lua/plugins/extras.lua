@@ -4,5 +4,16 @@ return {
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {}, lazy = false },
+  {
+    'numToStr/Comment.nvim',
+    opts = {},
+  },
+
+  {
+    'szw/vim-maximizer',
+    config = function()
+      -- Vim-maximizer
+      vim.keymap.set('n', '<leader>m', ':MaximizerToggle<CR>') -- toggle maximize tab
+    end,
+  },
 }
