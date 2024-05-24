@@ -1,8 +1,6 @@
 return {
   {
-    -- NOTE: Yes, you can install new plugins here!
     'mfussenegger/nvim-dap',
-    -- NOTE: And you can specify dependencies as well
     lazy = true,
     dependencies = {
       -- Creates a beautiful debugger UI
@@ -72,13 +70,13 @@ return {
       end, { desc = 'Debug: Set [L]og Point' })
 
       vim.keymap.set('n', '<leader>dd', function()
-        require('dap').disconnect()
-        require('dapui').close()
+        dap.disconnect()
+        dapui.close()
       end, { desc = 'Debug: Disconnect' })
 
       vim.keymap.set('n', '<leader>dt', function()
-        require('dap').terminate()
-        require('dapui').close()
+        dap.terminate()
+        dapui.close()
       end, { desc = 'Debug: Terminate' })
 
       dap.listeners.after.event_initialized['dapui_config'] = dapui.open
@@ -110,6 +108,18 @@ return {
     ft = 'python',
     config = function()
       require('dap-python').setup()
+
+      -- vim.keymap.set('n', '<leader>tc', function()
+      --   if vim.bo.filetype == 'python' then
+      --     require('dap-python').test_class()
+      --   end
+      -- end)
+      --
+      -- vim.keymap.set('n', '<leader>tm', function()
+      --   if vim.bo.filetype == 'python' then
+      --     require('dap-python').test_method()
+      --   end
+      -- end)
     end,
   },
 }
