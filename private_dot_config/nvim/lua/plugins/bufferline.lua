@@ -36,8 +36,9 @@ return {
 
     local keymap = vim.keymap
 
-    keymap.set('n', '<leader>bo', '<cmd> BufferLinePick <CR>', { desc = 'Buffer: [O]pen in current window' })
-    keymap.set('n', '<leader>bc', '<cmd> BufferLinePickClose <CR>', { desc = 'Buffer: [C]lose' })
-    keymap.set('n', '<leader>bp', '<cmd> BufferLineTogglePin <CR>', { desc = 'Buffer: [P]in current' })
+    keymap.set('n', '<leader>bo', '<cmd> BufferLinePick <CR>', { desc = 'Buffer: [O]pen in Current Window' })
+    keymap.set('n', '<leader>bc', '<cmd> bdelete <CR>', { desc = 'Buffer: [C]lose Current' })
+    keymap.set('n', '<leader>bC', '<cmd> BufferLinePickClose <CR>', { desc = 'Buffer: Pick for [C]losing' })
+    keymap.set('n', '<leader>bp', '<cmd> BufferLineTogglePin <CR>', { desc = 'Buffer: [P]in Current' })
   end,
 }
