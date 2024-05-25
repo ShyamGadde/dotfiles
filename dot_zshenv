@@ -6,7 +6,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Set $PATH if ~/.local/bin exist
 if [ -d "$HOME/.local/bin" ]; then
-	export PATH=$HOME/.local/bin:$PATH
+    export PATH=$HOME/.local/bin:$PATH
 fi
 
 #GO
