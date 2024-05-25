@@ -52,6 +52,10 @@ return {
         },
       }
 
+      require('which-key').register {
+        ['<leader>d'] = { name = '[D]ebug', _ = 'which_key_ignore' },
+      }
+
       vim.keymap.set('n', '<leader>dc', dap.continue, { desc = 'Debug: Start/[C]ontinue' })
       vim.keymap.set('n', '<leader>dj', dap.step_over, { desc = 'Debug: Step Over' })
       vim.keymap.set('n', '<leader>di', dap.step_into, { desc = 'Debug: Step [I]nto' })

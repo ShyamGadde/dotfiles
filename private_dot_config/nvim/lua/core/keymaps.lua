@@ -3,7 +3,7 @@ local keymap = vim.keymap
 
 -- General keymaps
 keymap.set('n', '<leader>w', '<cmd> wa <CR>', { desc = 'Write all open buffers' })
-keymap.set('n', '<leader>Q', '<cmd> qa! <CR>', { desc = 'Close all open buffers without saving' })
+keymap.set('n', '<leader>Q', '<cmd> qa <CR>', { desc = 'Close all open buffers' })
 keymap.set('n', '<leader>x', '<cmd> xa <CR>', { desc = 'Write and Close all open buffers' })
 
 -- Clear highlight on pressing <Esc> in normal mode
