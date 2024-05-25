@@ -22,7 +22,8 @@ return {
     -- Set menu
     dashboard.section.buttons.val = {
       dashboard.button('e', '  New File', '<cmd> ene <BAR> startinsert <CR>'),
-      dashboard.button('r', '  Recent files', ':Telescope oldfiles <CR>'),
+      dashboard.button('r', '  Restore workspace session', '<cmd> SessionRestore <CR>'),
+      dashboard.button('.', '  Recent files', ':Telescope oldfiles <CR>'),
       dashboard.button('f', '󰥨  Find File', '<cmd> Telescope find_files <CR>'),
       dashboard.button('g', '󰱼  Live Grep', '<cmd> Telescope live_grep <CR>'),
       dashboard.button('u', '  Update Plugins', '<cmd> Lazy update <CR>'),
