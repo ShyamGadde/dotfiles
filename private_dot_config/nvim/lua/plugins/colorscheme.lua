@@ -30,6 +30,7 @@ return {
         },
         default_integrations = false,
         integrations = {
+          alpha = true,
           fidget = true,
           gitsigns = true,
           indent_blankline = {

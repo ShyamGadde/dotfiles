@@ -29,8 +29,6 @@ return {
       }
 
       require('mini.move').setup()
-
-      require('mini.surround').setup()
     end,
   },
 }
