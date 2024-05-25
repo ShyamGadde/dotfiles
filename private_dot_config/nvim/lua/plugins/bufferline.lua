@@ -40,5 +40,8 @@ return {
     keymap.set('n', '<leader>bc', '<cmd> bdelete <CR>', { desc = 'Buffer: [C]lose Current' })
     keymap.set('n', '<leader>bC', '<cmd> BufferLinePickClose <CR>', { desc = 'Buffer: Pick for [C]losing' })
     keymap.set('n', '<leader>bp', '<cmd> BufferLineTogglePin <CR>', { desc = 'Buffer: [P]in Current' })
+
+    keymap.set('n', ']b', '<cmd> BufferLineCycleNext <CR>', { desc = 'Go to Next [B]uffer' })
+    keymap.set('n', '[b', '<cmd> BufferLineCyclePrev <CR>', { desc = 'Go to Previous [B]uffer' })
   end,
 }

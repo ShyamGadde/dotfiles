@@ -8,11 +8,11 @@ return {
 
     vim.keymap.set('n', ']t', function()
       require('todo-comments').jump_next()
-    end, { desc = 'Go to Next todo comment' })
+    end, { desc = 'Go to Next [T]odo comment' })
 
     vim.keymap.set('n', '[t', function()
       require('todo-comments').jump_prev()
-    end, { desc = 'Go to Previous todo comment' })
+    end, { desc = 'Go to Previous [T]odo comment' })
 
     vim.keymap.set('n', '<leader>ft', '<cmd> TodoTelescope <CR>', { desc = 'Find in [T]odos' })
   end,

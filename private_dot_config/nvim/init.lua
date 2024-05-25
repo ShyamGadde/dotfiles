@@ -7,18 +7,6 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 
--- [[ Setting options ]]
-require 'core.options'
-
--- [[ Setting Keymaps ]]
-require 'core.keymaps'
-
--- [[ Setting Autocommands ]]
-require 'core.autocmds'
-
--- [[ Install `lazy.nvim` plugin manager ]]
-require 'core.bootstrap-lazy'
-
 -- [[ Set additional filetypes ]]
 vim.filetype.add {
   pattern = {
@@ -28,6 +16,7 @@ vim.filetype.add {
   },
 }
 
+require 'config'
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
