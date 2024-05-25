@@ -32,6 +32,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
             preview_width = 0.5,
           },
         },
+        path_display = { 'smart' },
         mappings = {
           n = {
             ['<M-p>'] = action_layout.toggle_preview,
@@ -65,8 +66,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Find current [W]ord' })
     vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Find in [D]iagnostics' })
     vim.keymap.set('n', '<leader>fn', require('telescope').extensions.notify.notify, { desc = 'Find in [N]otifications' })
-    vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = 'Find Recent Files ("." for repeat)' })
-    vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Find [R]esume' })
+    vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Find [R]ecent Files' })
+    vim.keymap.set('n', '<leader>f.', builtin.resume, { desc = 'Find Resume ([.] for repeat)' })
     vim.keymap.set('n', '<leader>f<leader>', builtin.builtin, { desc = 'Find [ ] Telescope Builtin' })
 
     -- Slightly advanced example of overriding default behavior and theme
