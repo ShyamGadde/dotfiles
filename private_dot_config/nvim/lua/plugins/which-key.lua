@@ -15,7 +15,8 @@ return {
       ['<leader>n'] = { name = '[N]eoTree', _ = 'which_key_ignore' },
       ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
       ['<leader>fs'] = { name = 'Find [S]ymbols', _ = 'which_key_ignore' },
-      ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
+      ['<leader>s'] = { name = '[S]plit', _ = 'which_key_ignore' },
+      ['<leader>t'] = { name = '[T]ab', _ = 'which_key_ignore' },
     }
     -- visual mode
     require('which-key').register({

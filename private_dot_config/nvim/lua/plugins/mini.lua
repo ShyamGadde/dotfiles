@@ -12,7 +12,7 @@ return {
       require('mini.basics').setup {
         mappings = {
           -- Prefix for mappings that toggle common options ('wrap', 'spell', ...).
-          option_toggle_prefix = '<leader>t',
+          -- option_toggle_prefix = '<leader>t',
           -- Window navigation with <C-hjkl>, resize with <C-arrow>
           windows = true,
           -- Move cursor in Insert, Command, and Terminal mode with <M-hjkl>

@@ -26,6 +26,18 @@ keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnosti
 -- or just use <C-\><C-n> to exit terminal mode
 keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+-- window management
+keymap.set('n', '<leader>sv', '<C-w>v', { desc = 'Split window [V]ertically' })
+keymap.set('n', '<leader>sh', '<C-w>s', { desc = 'Split window [H]orizontally' })
+keymap.set('n', '<leader>se', '<C-w>=', { desc = 'Make splits [E]qual size' })
+keymap.set('n', '<leader>sc', '<cmd> close <CR>', { desc = '[C]lose current split' })
+
+keymap.set('n', '<leader>to', '<cmd> tabnew <CR>', { desc = '[O]pen new tab' })
+keymap.set('n', '<leader>tO', '<cmd> tabnew % <CR>', { desc = '[O]pen current buffer in new tab' })
+keymap.set('n', '<leader>tc', '<cmd> tabclose <CR>', { desc = '[C]lose current tab' })
+keymap.set('n', '<leader>tn', '<cmd> tabn <CR>', { desc = 'Go to [N]ext tab' })
+keymap.set('n', '<leader>tp', '<cmd> tabp <CR>', { desc = 'Go to [P]revious tab' })
+
 -- Disable arrow keys in normal mode
 keymap.set('n', '<left>', '<cmd> echo "Use h to move!!" <CR>')
 keymap.set('n', '<right>', '<cmd> echo "Use l to move!!" <CR>')

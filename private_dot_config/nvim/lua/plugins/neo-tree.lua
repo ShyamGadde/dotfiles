@@ -35,7 +35,7 @@ return {
     { '<leader>nb', '<cmd> Neotree focus buffers reveal <CR>', desc = 'NeoTree: [B]uffers' },
     { '<leader>ng', '<cmd> Neotree focus git_status reveal <CR>', desc = 'NeoTree: [G]it Status' },
     { '<leader>ns', '<cmd> Neotree focus document_symbols reveal <CR>', desc = 'NeoTree: Document [S]ymbols' },
-    { '\\', '<cmd> Neotree toggle <CR>', desc = 'NeoTree toggle' },
+    { '\\e', '<cmd> Neotree toggle <CR>', desc = 'Toggle NeoTree (Explorer)' },
   },
   opts = {
     close_if_last_window = true,
