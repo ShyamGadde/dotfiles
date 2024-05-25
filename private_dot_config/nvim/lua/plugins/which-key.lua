@@ -2,7 +2,8 @@
 return {
   'folke/which-key.nvim',
   -- Sets the loading event to 'VimEnter', which loads which-key before all the UI elements are loaded.
-  event = 'VimEnter',
+  -- event = 'VimEnter',
+  event = 'VeryLazy',
   config = function() -- This is the function that runs, AFTER loading
     require('which-key').setup()
 
