@@ -39,13 +39,12 @@ return {
     end,
   },
 
-  -- {
-  --   'szw/vim-maximizer',
-  --   config = function()
-  --     -- Vim-maximizer
-  --     vim.keymap.set('n', '<leader>m', '<cmd> MaximizerToggle! <CR>') -- toggle maximize tab
-  --   end,
-  -- },
+  {
+    'szw/vim-maximizer',
+    keys = {
+      { '<leader>sm', '<cmd> MaximizerToggle <CR>', desc = 'Split [M]aximize Toggle' },
+    },
+  },
 
   -- Navigate nvim and tmux windows/panels with vim bindings
   -- {
