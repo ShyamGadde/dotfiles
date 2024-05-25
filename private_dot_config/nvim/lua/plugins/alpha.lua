@@ -24,14 +24,14 @@ return {
       dashboard.button('e', '  New File', '<cmd> ene <BAR> startinsert <CR>'),
       dashboard.button('r', '  Recent files', ':Telescope oldfiles <CR>'),
       dashboard.button('f', '󰥨  Find File', '<cmd> Telescope find_files <CR>'),
-      dashboard.button('g', '󰱼  Find Word', '<cmd> Telescope live_grep <CR>'),
+      dashboard.button('g', '󰱼  Live Grep', '<cmd> Telescope live_grep <CR>'),
       dashboard.button('u', '  Update Plugins', '<cmd> Lazy update <CR>'),
       dashboard.button('m', '󱌣  Mason', '<cmd> Mason <CR>'),
       dashboard.button('q', '  Quit NVIM', '<cmd> qa <CR>'),
     }
 
     for _, button in ipairs(dashboard.section.buttons.val) do
-      button.opts.hl = 'AlphaButtons'
+      button.opts.hl = 'AlphaButtonText'
       button.opts.hl_shortcut = 'AlphaShortcut'
     end
     dashboard.section.header.opts.hl = 'AlphaHeader'
@@ -49,8 +49,11 @@ return {
         local stats = require('lazy').stats()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
         local footer = fortune()
-        local info = '           ⚡ ' .. stats.count .. ' plugins loaded in ' .. ms .. 'ms'
-        table.insert(footer, 1, info)
+        local plugin_info = '     ' .. stats.loaded .. '/' .. stats.count .. ' plugins loaded in ' .. ms .. 'ms'
+        local v = vim.version()
+        local nvim_version_info = '   ' .. 'v' .. v.major .. '.' .. v.minor .. '.' .. v.patch
+        table.insert(footer, 1, plugin_info .. nvim_version_info)
+        table.insert(footer, 2, '')
         dashboard.section.footer.val = footer
         pcall(vim.cmd.AlphaRedraw)
       end,
