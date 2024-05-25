@@ -36,11 +36,15 @@ return {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-cmdline',
+
+    'onsails/lspkind.nvim',
   },
   config = function()
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
+    local lspkind = require 'lspkind'
+
     luasnip.config.setup {}
 
     cmp.setup {
@@ -107,8 +111,16 @@ return {
         { name = 'nvim_lsp' },
         { name = 'nvim_lsp_signature_help' },
         { name = 'luasnip' },
-        { name = 'path' },
         { name = 'buffer' },
+        { name = 'path' },
+      },
+
+      -- configure lspkind for vs-code like pictograms in completion menu
+      formatting = {
+        format = lspkind.cmp_format {
+          maxwidth = 50,
+          ellipsis_char = '...',
+        },
       },
     }
     -- `/` cmdline setup.
