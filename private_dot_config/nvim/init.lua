@@ -7,16 +7,8 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 
--- [[ Set additional filetypes ]]
-vim.filetype.add {
-  pattern = {
-    ['.*%.hl'] = 'hyprlang',
-    ['hypr.*%.conf'] = 'hyprlang',
-    ['.*/hypr/.*%.conf'] = 'hyprlang',
-  },
-}
-
 require 'config'
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
