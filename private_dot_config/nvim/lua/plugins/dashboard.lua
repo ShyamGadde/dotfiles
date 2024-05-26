@@ -41,7 +41,7 @@ return {
 
     -- dashboard.opts.layout[1].val = 7
 
-    -- close Lazy and re-open when the dashboard is ready
+    -- Close Lazy and re-open when the dashboard is ready
     if vim.o.filetype == 'lazy' then
       vim.cmd.close()
       vim.api.nvim_create_autocmd('User', {
@@ -61,10 +61,12 @@ return {
         local stats = require('lazy').stats()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
         local footer = fortune()
-        local plugin_info = '     ' .. stats.loaded .. '/' .. stats.count .. ' plugins loaded in ' .. ms .. 'ms'
+        local plugin_info = ' ' .. stats.loaded .. '/' .. stats.count .. ' plugins'
+        local startup_time = ' ' .. ms .. 'ms'
         local v = vim.version()
-        local nvim_version_info = '   ' .. 'v' .. v.major .. '.' .. v.minor .. '.' .. v.patch
-        table.insert(footer, 1, plugin_info .. nvim_version_info)
+        local nvim_version_info = ' ' .. 'v' .. v.major .. '.' .. v.minor .. '.' .. v.patch
+        local info_bar = '        ' .. nvim_version_info .. '  ' .. plugin_info .. '  ' .. startup_time
+        table.insert(footer, 1, info_bar)
         table.insert(footer, 2, '')
         dashboard.section.footer.val = footer
         pcall(vim.cmd.AlphaRedraw)
