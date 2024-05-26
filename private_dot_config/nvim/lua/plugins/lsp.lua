@@ -1,12 +1,13 @@
 -- LSP Configuration & Plugins
 return {
   'neovim/nvim-lspconfig',
-  -- event = 'VeryLazy',
+  event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
     -- Automatically install LSPs and related tools to stdpath for Neovim
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
+    'hrsh7th/cmp-nvim-lsp',
 
     -- Useful status updates for LSP.
     {
@@ -18,6 +19,17 @@ return {
           },
         },
       },
+    },
+
+    {
+      'antosha417/nvim-lsp-file-operations',
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+        'nvim-neo-tree/neo-tree.nvim',
+      },
+      config = function()
+        require('lsp-file-operations').setup()
+      end,
     },
 
     -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
