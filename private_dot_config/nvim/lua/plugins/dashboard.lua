@@ -27,7 +27,7 @@ return {
       dashboard.button('f', '󰥨  Find File', '<cmd> Telescope find_files <CR>'),
       dashboard.button('g', '󰱼  Live Grep', '<cmd> Telescope live_grep <CR>'),
       dashboard.button('u', '  Update Plugins', '<cmd> Lazy update <CR>'),
-      -- dashboard.button('m', '󱌣  Mason', '<cmd> Mason <CR>'),
+      dashboard.button('m', '󱌣  Mason', '<cmd> Mason <CR>'),
       dashboard.button('q', '  Quit NVIM', '<cmd> qa <CR>'),
     }
 
