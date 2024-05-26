@@ -1,7 +1,7 @@
 -- LSP Configuration & Plugins
 return {
   'neovim/nvim-lspconfig',
-  event = { 'BufReadPre', 'BufNewFile' },
+  -- event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
     -- Automatically install LSPs and related tools to stdpath for Neovim
     'williamboman/mason.nvim',
@@ -131,7 +131,7 @@ return {
         --
         -- This may be unwanted, since they displace some of your code
         if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-          map('<leader>th', function()
+          map('\\h', function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
           end, '[T]oggle Inlay [H]ints')
         end
@@ -162,6 +162,12 @@ return {
 
       bashls = {},
 
+      cssls = {},
+
+      emmet_ls = {},
+
+      html = {},
+
       lua_ls = {
         -- cmd = {...},
         -- filetypes = {...},
@@ -172,7 +178,10 @@ return {
               callSnippet = 'Replace',
             },
             -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-            -- diagnostics = { disable = { 'missing-fields' } },
+            diagnostics = {
+              disable = { 'missing-fields' },
+              globals = { 'vim' },
+            },
           },
         },
       },
@@ -206,6 +215,8 @@ return {
         },
       },
 
+      tailwindcss = {},
+
       tsserver = {},
     }
 
@@ -222,17 +233,26 @@ return {
     -- You can add other tools here that you want Mason to install
     -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
+
     -- Formatters
     vim.list_extend(ensure_installed, {
+      'black',
+      'isort',
+      'prettier',
+      'prettierd',
       'shfmt',
       'stylua', -- Used to format Lua code
+      -- 'ruff',
     })
+
     -- Linters
     vim.list_extend(ensure_installed, {
       'codespell',
+      'eslint_d',
       'markdownlint', -- Used to lint markdown files
       'shellcheck',
     })
+
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     require('mason-lspconfig').setup {
@@ -246,6 +266,14 @@ return {
           require('lspconfig')[server_name].setup(server)
         end,
       },
+    }
+
+    require('lspconfig').hyprls.setup {
+      filetypes = { 'hyprlang' },
+      capabilities = capabilities,
+      root_dir = function()
+        return vim.fn.getcwd()
+      end,
     }
   end,
 }

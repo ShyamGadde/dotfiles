@@ -1,6 +1,6 @@
 return { -- Autoformat
   'stevearc/conform.nvim',
-  lazy = false,
+  event = { 'BufReadPre', 'BufNewFile' },
   keys = {
     {
       '<leader>cf',
@@ -24,14 +24,21 @@ return { -- Autoformat
       }
     end,
     formatters_by_ft = {
+      css = { { 'prettierd', 'prettier' } },
+      graphql = { { 'prettierd', 'prettier' } },
+      html = { { 'prettierd', 'prettier' } },
+      javascript = { { 'prettierd', 'prettier' } },
+      javascriptreact = { { 'prettierd', 'prettier' } },
+      json = { { 'prettierd', 'prettier' } },
+      liquid = { { 'prettierd', 'prettier' } },
       lua = { 'stylua' },
-      -- Conform can also run multiple formatters sequentially
-      python = { 'isort', 'black' },
-      -- python = { 'ruff_fix', 'ruff_format' },
-      --
-      -- You can use a sub-list to tell conform to run *until* a formatter
-      -- is found.
-      -- javascript = { { "prettierd", "prettier" } },
+      markdown = { { 'prettierd', 'prettier' } },
+      -- python = { 'isort', 'black' },
+      python = { 'ruff_organize_imports', 'ruff_format' },
+      svelte = { { 'prettierd', 'prettier' } },
+      typescript = { { 'prettierd', 'prettier' } },
+      typescriptreact = { { 'prettierd', 'prettier' } },
+      yaml = { { 'prettierd', 'prettier' } },
     },
   },
 }
