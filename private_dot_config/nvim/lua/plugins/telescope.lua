@@ -27,11 +27,15 @@ return { -- Fuzzy Finder (files, lsp, etc)
       --  All the info you're looking for is in `:help telescope.setup()`
       --
       defaults = {
+        layout_strategy = 'horizontal',
         layout_config = {
           horizontal = {
             preview_width = 0.5,
           },
+          prompt_position = 'top',
         },
+        sorting_strategy = 'ascending',
+        winblend = 0,
         path_display = { 'smart' },
         mappings = {
           n = {
