@@ -3,7 +3,7 @@ return {
 
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
-  -- "gc" to comment visual regions/lines
+  --[[ "gc" to comment visual regions/lines ]]
   {
     'numToStr/Comment.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
@@ -30,8 +30,30 @@ return {
   {
     'kylechui/nvim-surround',
     version = '*', -- Use for stability; omit to use `main` branch for the latest features
-    event = 'VeryLazy',
+    event = { 'BufReadPre', 'BufNewFile' },
     opts = {},
+  },
+
+  {
+    'gbprod/substitute.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
+    config = function()
+      local substitute = require 'substitute'
+
+      substitute.setup()
+
+      local keymap = vim.keymap
+
+      keymap.set('n', 's', substitute.operator, { desc = 'Substitute with motion' })
+      keymap.set('n', 'S', substitute.eol, { desc = 'Substitute to end of line' })
+      keymap.set('n', 'ss', substitute.line, { desc = 'Substitute line' })
+      keymap.set('x', 's', substitute.visual, { desc = 'Substitute in visual mode' })
+
+      local exchange = require 'substitute.exchange'
+      keymap.set('n', 'sx', exchange.operator, { desc = 'Exchange with motion' })
+      keymap.set('n', 'sxx', exchange.line, { desc = 'Exchange line' })
+      keymap.set('x', 'sx', exchange.visual, { desc = 'Exchange in visual mode' })
+    end,
   },
 
   {
