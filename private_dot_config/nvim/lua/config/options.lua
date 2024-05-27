@@ -49,7 +49,8 @@ opt.showmode = false
 -- Enable break indent
 opt.breakindent = true
 
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+-- Case-insensitive searching UNLESS \C or one or more capital letters in
+-- the search term
 opt.ignorecase = true
 opt.smartcase = true
 
@@ -58,6 +59,9 @@ opt.signcolumn = 'yes'
 
 -- Decrease update time
 opt.updatetime = 50
+
+-- Add a ruler at 80 characters
+opt.colorcolumn = '80'
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
