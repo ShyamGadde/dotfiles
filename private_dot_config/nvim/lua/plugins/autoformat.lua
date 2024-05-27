@@ -1,16 +1,18 @@
 return { -- Autoformat
   'stevearc/conform.nvim',
   event = { 'BufReadPre', 'BufNewFile' },
+
   keys = {
     {
       '<leader>cf',
       function()
         require('conform').format { async = true, lsp_fallback = true }
       end,
-      mode = { 'n', 'x' },
+      mode = { 'n', 'v' },
       desc = 'Code [F]ormat',
     },
   },
+
   config = function()
     require('conform').setup {
       notify_on_error = false,
