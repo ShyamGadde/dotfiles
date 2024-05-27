@@ -45,7 +45,7 @@ require('lazy').setup('plugins', {
     notify = false,
   },
   change_detection = {
-    notify = true,
+    notify = false,
   },
 })
 
