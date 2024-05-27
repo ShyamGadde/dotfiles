@@ -5,6 +5,7 @@ return {
       vim.notify = require 'notify'
     end,
   },
+
   {
     'stevearc/dressing.nvim',
     event = 'VeryLazy',
@@ -15,6 +16,14 @@ return {
       select = {
         enabled = false,
       },
+    },
+  },
+
+  {
+    'karb94/neoscroll.nvim',
+    event = 'VeryLazy',
+    opts = {
+      easing = 'sine',
     },
   },
 }
