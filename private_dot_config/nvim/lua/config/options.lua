@@ -16,6 +16,9 @@ opt.expandtab = true
 opt.autoindent = true
 vim.bo.softtabstop = 2
 
+-- Line wrapping
+opt.wrap = false
+
 -- Appearance
 opt.termguicolors = true
 opt.background = 'dark'
