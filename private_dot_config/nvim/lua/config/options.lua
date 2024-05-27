@@ -10,11 +10,17 @@ opt.number = true
 opt.relativenumber = true
 
 -- Configure tabs and spaces
-opt.tabstop = 2
-opt.shiftwidth = 2
+opt.tabstop = 4
+opt.shiftwidth = 4
 opt.expandtab = true
 opt.autoindent = true
-vim.bo.softtabstop = 2
+vim.bo.softtabstop = 4
+
+-- Save undo history
+opt.swapfile = false
+opt.backup = false
+opt.undofile = true
+opt.undodir = os.getenv 'HOME' .. '/.cache/nvim/undodir'
 
 -- Line wrapping
 opt.wrap = false
@@ -42,9 +48,6 @@ opt.showmode = false
 
 -- Enable break indent
 opt.breakindent = true
-
--- Save undo history
-opt.undofile = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 opt.ignorecase = true

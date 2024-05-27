@@ -7,7 +7,7 @@ return {
 
       require('mini.align').setup()
 
-      require('mini.animate').setup()
+      -- require('mini.animate').setup()
 
       require('mini.basics').setup {
         mappings = {
@@ -28,6 +28,7 @@ return {
         },
       }
 
+      -- Move text with Alt (Meta) + hjkl in both normal and visual mode.
       require('mini.move').setup()
     end,
   },
