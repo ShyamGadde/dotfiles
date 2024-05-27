@@ -57,7 +57,7 @@ opt.smartcase = true
 opt.signcolumn = 'yes'
 
 -- Decrease update time
-opt.updatetime = 250
+opt.updatetime = 50
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
