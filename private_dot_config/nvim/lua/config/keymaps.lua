@@ -12,6 +12,9 @@ keymap.set('n', '<Esc>', '<cmd> nohlsearch <CR>')
 -- Disable space in normal and visual mode
 keymap.set({ 'n', 'v' }, '<Space>', '<Nop>')
 
+-- Delete single character without copying into register
+keymap.set('n', 'x', '"_x')
+
 -- Diagnostic keymaps
 keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
