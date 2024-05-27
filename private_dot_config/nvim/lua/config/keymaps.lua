@@ -2,9 +2,7 @@
 local keymap = vim.keymap
 
 -- General keymaps
-keymap.set('n', '<leader>w', '<cmd> wa <CR>', { desc = 'Write all open buffers' })
-keymap.set('n', '<leader>Q', '<cmd> qa <CR>', { desc = 'Close all open buffers' })
-keymap.set('n', '<leader>x', '<cmd> xa <CR>', { desc = 'Write and Close all open buffers' })
+vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true, desc = 'Make current file E[x]ecutable' })
 
 -- Clear highlight on pressing <Esc> in normal mode
 keymap.set('n', '<Esc>', '<cmd> nohlsearch <CR>')
