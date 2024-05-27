@@ -21,7 +21,7 @@ return {
 
   {
     'karb94/neoscroll.nvim',
-    event = 'VeryLazy',
+    event = 'BufEnter',
     opts = {
       easing = 'sine',
     },

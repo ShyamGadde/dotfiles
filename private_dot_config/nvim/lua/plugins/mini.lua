@@ -7,8 +7,6 @@ return {
 
       require('mini.align').setup()
 
-      -- require('mini.animate').setup()
-
       require('mini.basics').setup {
         mappings = {
           -- Prefix for mappings that toggle common options ('wrap', 'spell', ...).

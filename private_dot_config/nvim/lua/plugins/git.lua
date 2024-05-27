@@ -35,9 +35,6 @@ return {
             end
           end, { desc = 'Jump to previous [c]hange' })
 
-          require('which-key').register {
-            ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-          }
           -- Actions
           -- visual mode
           map('v', '<leader>gs', function()

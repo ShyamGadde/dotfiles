@@ -162,12 +162,6 @@ return {
 
       bashls = {},
 
-      cssls = {},
-
-      emmet_ls = {},
-
-      html = {},
-
       lua_ls = {
         -- cmd = {...},
         -- filetypes = {...},
@@ -214,10 +208,6 @@ return {
           },
         },
       },
-
-      tailwindcss = {},
-
-      tsserver = {},
     }
 
     require('mason').setup {

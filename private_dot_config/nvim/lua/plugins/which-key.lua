@@ -1,10 +1,8 @@
 -- Useful plugin to show you pending keybinds.
 return {
   'folke/which-key.nvim',
-  -- Sets the loading event to 'VimEnter', which loads which-key before all the UI elements are loaded.
-  -- event = 'VimEnter',
   event = 'VeryLazy',
-  config = function() -- This is the function that runs, AFTER loading
+  config = function()
     require('which-key').setup()
 
     -- Document existing key chains
@@ -13,7 +11,9 @@ return {
       ['<leader>n'] = { name = '[N]eoTree', _ = 'which_key_ignore' },
       ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
       ['<leader>fs'] = { name = 'Find [S]ymbols', _ = 'which_key_ignore' },
-      ['<leader>t'] = { name = '[T]ab', _ = 'which_key_ignore' },
+    }
+    require('which-key').register {
+      ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
     }
     -- visual mode
     require('which-key').register({
