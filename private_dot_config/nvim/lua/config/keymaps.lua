@@ -41,11 +41,11 @@ keymap.set('n', '<right>', '<cmd> echo "Use l to move!!" <CR>')
 keymap.set('n', '<up>', '<cmd> echo "Use k to move!!" <CR>')
 keymap.set('n', '<down>', '<cmd> echo "Use j to move!!" <CR>')
 
--- center cursor
+-- Center cursor
 -- keymap.set({ 'n', 'v' }, 'k', 'kzz')
 -- keymap.set({ 'n', 'v' }, 'j', 'jzz')
--- keymap.set({ 'n', 'v' }, '<c-u>', '<c-u>zz')
--- keymap.set({ 'n', 'v' }, '<c-d>', '<c-d>zz')
+keymap.set({ 'n', 'v' }, '<C-u>', '<C-u>zz')
+keymap.set({ 'n', 'v' }, '<C-d>', '<C-d>zz')
 -- keymap.set({ 'n', 'v' }, '<c-f>', '<c-f>zz')
 -- keymap.set({ 'n', 'v' }, '<c-b>', '<c-b>zz')
 
