@@ -27,24 +27,4 @@ keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnosti
 -- or just use <C-\><C-n> to exit terminal mode
 keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
-keymap.set('n', '<leader>to', '<cmd> tabnew <CR>', { desc = '[O]pen new tab' })
-keymap.set('n', '<leader>tO', '<cmd> tabnew % <CR>', { desc = '[O]pen current buffer in new tab' })
-keymap.set('n', '<leader>tc', '<cmd> tabclose <CR>', { desc = '[C]lose current tab' })
-keymap.set('n', '<leader>tn', '<cmd> tabn <CR>', { desc = 'Go to [N]ext tab' })
-keymap.set('n', '<leader>tp', '<cmd> tabp <CR>', { desc = 'Go to [P]revious tab' })
-
--- Disable arrow keys in normal mode
-keymap.set('n', '<left>', '<cmd> echo "Use h to move!!" <CR>')
-keymap.set('n', '<right>', '<cmd> echo "Use l to move!!" <CR>')
-keymap.set('n', '<up>', '<cmd> echo "Use k to move!!" <CR>')
-keymap.set('n', '<down>', '<cmd> echo "Use j to move!!" <CR>')
-
--- Center cursor
--- keymap.set({ 'n', 'v' }, 'k', 'kzz')
--- keymap.set({ 'n', 'v' }, 'j', 'jzz')
-keymap.set({ 'n', 'v' }, '<C-u>', '<C-u>zz')
-keymap.set({ 'n', 'v' }, '<C-d>', '<C-d>zz')
--- keymap.set({ 'n', 'v' }, '<c-f>', '<c-f>zz')
--- keymap.set({ 'n', 'v' }, '<c-b>', '<c-b>zz')
-
 -- vim: ts=2 sts=2 sw=2 et
