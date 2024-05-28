@@ -8,15 +8,15 @@ alias fgrep='ugrep -F --color=auto'
 alias ip='ip -color=auto'
 
 # Pacman
-alias cleanup-cache="sudo pacman -Scc"               # Cleanup pacman cache
+alias cleanup-cache="sudo pacman -Scc"                   # Cleanup pacman cache
 alias cleanup-orphans="pacman -Qdtq | sudo pacman -Rn -" # Cleanup pacman orphans
-alias rmpkg="sudo pacman -Rs"                        # Remove package and its dependencies
-alias gitpkg='pacman -Q | grep -i "\-git"'   # List -git packages
+alias rmpkg="sudo pacman -Rs"                            # Remove package and its dependencies
+alias gitpkg='pacman -Q | grep -i "\-git"'               # List -git packages
 alias fixpacman="sudo rm /var/lib/pacman/db.lck"
 # alias pacdiff='sudo -H DIFFPROG=meld pacdiff'
 
 # Replace ls with exa
-# We are using function here instead of plain alias to allow for completions
+# Using function here instead of plain alias to allow for completions
 function ls() { eza --color=always --group-directories-first --icons "$@"; }
 function la() { eza -a --color=always --group-directories-first --icons "$@"; }
 function ll() { eza -l --color=always --group-directories-first --icons "$@"; }
@@ -45,26 +45,37 @@ alias -g X='| xargs'
 alias -g G='|& grep'
 
 # Misc
-alias vi='nvim'
 alias ..='cd ..'
+
+alias vi='nvim'
+function vic() {
+  select config in lazyvim kickstart
+  do NVIM_APPNAME=nvim-$config nvim $@; break; done
+}
+
 alias cm='chezmoi'
 alias cmu='chezmoi re-add .'
-alias myip='curl http://ipecho.net/plain; echo'
+
 alias mv='mv -iv'
 alias cp='cp -iv'
 alias rm='rm -iv'
 alias mkdir='mkdir -pv'
+
 alias edit-grub="sudo $EDITOR /etc/default/grub"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias lg=lazygit
-alias lzd=lazydocker
+
+alias lg='lazygit'
+alias lzd='lazydocker'
+
 alias tarnow='tar -acf '
 alias untar='tar -zxvf '
+
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 alias hw='hwinfo --short'                                                     # Hardware Info
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl" # Recent installed packages
 alias big="expac -H M '%m\t%n' | sort -h | nl"                                # Sort installed packages according to size in MB
+alias myip='curl http://ipecho.net/plain; echo'
 alias tb='nc termbin.com 9999'                                                # Upload to termbin. E.g., <command> | tb
 alias jctl="journalctl -p 3 -xb"                                              # Show journalctl logs with priority 3 and above
 # alias helpme='cht.sh --shell'
