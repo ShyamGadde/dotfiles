@@ -48,7 +48,7 @@ alias -g G='|& grep'
 alias ..='cd ..'
 
 alias vi='nvim'
-function vic() {
+function vii() {
   select config in lazyvim kickstart
   do NVIM_APPNAME=nvim-$config nvim $@; break; done
 }
