@@ -47,7 +47,6 @@ return {
         handlers = {},
 
         ensure_installed = {
-          'delve',
           'python',
         },
       }

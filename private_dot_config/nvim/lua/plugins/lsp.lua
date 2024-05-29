@@ -258,6 +258,7 @@ return {
       },
     }
 
+    -- Configure Hyprlang LSP
     require('lspconfig').hyprls.setup {
       filetypes = { 'hyprlang' },
       capabilities = capabilities,
