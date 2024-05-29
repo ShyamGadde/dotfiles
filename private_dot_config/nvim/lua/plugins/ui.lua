@@ -13,9 +13,6 @@ return {
       input = {
         insert_only = false,
       },
-      select = {
-        enabled = false,
-      },
     },
   },
 

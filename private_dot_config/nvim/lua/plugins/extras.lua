@@ -85,4 +85,9 @@ return {
       { '<leader>sm', '<cmd> MaximizerToggle! <CR>', desc = 'Split [M]aximize Toggle' },
     },
   },
+
+  {
+    'lambdalisue/vim-suda',
+    cmd = { 'SudaRead', 'SudaWrite' },
+  },
 }
