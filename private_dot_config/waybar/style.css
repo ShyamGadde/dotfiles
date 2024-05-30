@@ -22,10 +22,13 @@ tooltip label {
 }
 
 #workspaces button {
-  color: @text;
+  background: @surface0;
+  color: @blue;
   box-shadow: none;
   text-shadow: none;
   padding: 0 5px;
+  margin-left: 0.5px;
+  margin-right: 0.5px;
 }
 
 #workspaces button.active {
@@ -46,7 +49,7 @@ tooltip label {
   color: @text;
   background: @crust;
   opacity: 0.9;
-  margin: 4px 0;
+  margin: 0 4px;
 }
 
 #custom-notification {
@@ -54,8 +57,8 @@ tooltip label {
 }
 
 #workspaces {
-  background-color: @base;
   padding: 0;
+  margin: 0;
 }
 
 #battery.charging {
@@ -63,12 +66,8 @@ tooltip label {
 }
 
 #tray {
-  background-color: @mantle;
+  background-color: @base;
   padding: 0 10px;
-}
-
-.modules-left {
-  margin-left: 10px;
 }
 
 .modules-right {
