@@ -6,7 +6,8 @@ return {
     config = function()
       require('gitsigns').setup {
         signs = {
-          change = { text = '┆' },
+          add = { text = '+' },
+          change = { text = '~' },
         },
         on_attach = function(bufnr)
           local gitsigns = require 'gitsigns'
