@@ -36,6 +36,8 @@ return { -- Autoformat
         markdown = { { 'prettierd', 'prettier' } },
         python = { 'isort', 'black' },
         -- python = { 'ruff_format', 'ruff_organize_imports' },
+        sh = { 'shfmt' },
+        zsh = { 'shfmt' },
         typescript = { { 'prettierd', 'prettier' } },
         typescriptreact = { { 'prettierd', 'prettier' } },
         yaml = { { 'prettierd', 'prettier' } },
