@@ -49,12 +49,14 @@ alias ..='cd ..'
 
 alias vi='nvim'
 function vii() {
-  select config in lazyvim kickstart
-  do NVIM_APPNAME=nvim-$config nvim $@; break; done
+	select config in lazyvim kickstart; do
+		NVIM_APPNAME=nvim-$config nvim $@
+		break
+	done
 }
 
 alias cm='chezmoi'
-alias cmu='chezmoi re-add .'
+alias cmu='chezmoi re-add'
 
 alias mv='mv -iv'
 alias cp='cp -iv'
@@ -76,50 +78,50 @@ alias hw='hwinfo --short'                                                     # 
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl" # Recent installed packages
 alias big="expac -H M '%m\t%n' | sort -h | nl"                                # Sort installed packages according to size in MB
 alias myip='curl http://ipecho.net/plain; echo'
-alias tb='nc termbin.com 9999'                                                # Upload to termbin. E.g., <command> | tb
-alias jctl="journalctl -p 3 -xb"                                              # Show journalctl logs with priority 3 and above
+alias tb='nc termbin.com 9999'   # Upload to termbin. E.g., <command> | tb
+alias jctl="journalctl -p 3 -xb" # Show journalctl logs with priority 3 and above
 # alias helpme='cht.sh --shell'
 
 alias update-mirrors="sudo reflector --verbose --protocol https --age 24 --fastest 15 --save /etc/pacman.d/mirrorlist && bat /etc/pacman.d/mirrorlist" # Get the fastest mirrors
 
 function edit_zsh() {
-    ${EDITOR:-nvim} $ZDOTDIR/.zshrc
+	${EDITOR:-nvim} $ZDOTDIR/.zshrc
 }
 alias ez='edit_zsh'
 
 mcd() {
-    mkdir -p "$1" && cd "$1"
+	mkdir -p "$1" && cd "$1"
 }
 
 # Convert filenames and folder names to kebab-case
 rename_to_kebab_case() {
-    for f in *; do
-        new_name=$(echo "$f" | sed -e 's/ /-/g' -e 's/_/-/g' | tr A-Z a-z)
-        if [ "$f" != "$new_name" ]; then
-            mv -i "$f" "$new_name"
-        fi
-    done
+	for f in *; do
+		new_name=$(echo "$f" | sed -e 's/ /-/g' -e 's/_/-/g' | tr A-Z a-z)
+		if [ "$f" != "$new_name" ]; then
+			mv -i "$f" "$new_name"
+		fi
+	done
 }
 alias kebabify='rename_to_kebab_case'
 
 # GitHub Copilot CLI
 if gh extension list | grep -q 'github/gh-copilot'; then
-    copilot_shell_suggest() {
-        ghcs -t shell "$@"
-    }
-    alias '??'='copilot_shell_suggest'
+	copilot_shell_suggest() {
+		ghcs -t shell "$@"
+	}
+	alias '??'='copilot_shell_suggest'
 
-    # Function to handle Git command suggestions
-    copilot_git_suggest() {
-        ghcs -t git "$@"
-    }
-    alias 'git?'='copilot_git_suggest'
+	# Function to handle Git command suggestions
+	copilot_git_suggest() {
+		ghcs -t git "$@"
+	}
+	alias 'git?'='copilot_git_suggest'
 
-    # Function to handle GitHub CLI command suggestions
-    copilot_gh_suggest() {
-        ghcs -t gh "$@"
-    }
-    alias 'gh?'='copilot_gh_suggest'
+	# Function to handle GitHub CLI command suggestions
+	copilot_gh_suggest() {
+		ghcs -t gh "$@"
+	}
+	alias 'gh?'='copilot_gh_suggest'
 fi
 
 # Fun
