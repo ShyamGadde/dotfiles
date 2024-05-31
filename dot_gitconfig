@@ -9,3 +9,6 @@
 	helper = !/usr/bin/gh auth git-credential
 [submodule]
 	recurse = true
+[alias]
+	cp = !git commit -m "Update" && git push 
+	facp = !git add . && git cp
