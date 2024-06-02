@@ -58,11 +58,11 @@ return {
         local stats = require('lazy').stats()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
         -- local footer = fortune()
-        local plugin_info = ' ' .. stats.loaded .. '/' .. stats.count .. ' plugins'
+        local plugin_info = ' Loaded ' .. stats.loaded .. '/' .. stats.count .. ' plugins'
         local startup_time = ' ' .. ms .. 'ms'
         local v = vim.version()
         local nvim_version_info = ' ' .. 'v' .. v.major .. '.' .. v.minor .. '.' .. v.patch
-        local info_bar = nvim_version_info .. '  ' .. plugin_info .. '  ' .. startup_time
+        local info_bar = nvim_version_info .. '   ' .. plugin_info .. '   ' .. startup_time
         dashboard.section.footer.val = info_bar
         pcall(vim.cmd.AlphaRedraw)
       end,

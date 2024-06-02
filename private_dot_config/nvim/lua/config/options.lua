@@ -61,7 +61,7 @@ opt.signcolumn = 'yes'
 opt.updatetime = 50
 
 -- Add a ruler at 80 characters
-opt.colorcolumn = '80'
+-- opt.colorcolumn = '80'
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner

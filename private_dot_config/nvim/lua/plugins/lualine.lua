@@ -8,9 +8,9 @@ return {
     require('lualine').setup {
       options = {
         theme = 'catppuccin',
-        component_separators = { left = '|', right = '|' },
-        -- section_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
+        -- component_separators = { left = '|', right = '|' },
+        section_separators = { left = '', right = '' },
+        -- section_separators = { left = '', right = '' },
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -49,9 +49,11 @@ return {
             cond = require('lazy.status').has_updates,
             color = { fg = '#ff9e64' },
           },
-          'progress',
         },
-        lualine_z = { 'location' },
+        lualine_z = {
+          -- 'progress',
+          'location',
+        },
       },
       inactive_sections = {
         lualine_a = {},
