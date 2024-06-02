@@ -23,7 +23,7 @@ style_root = "fg:red"
 "Downloads" = " Downloads"
 "Music" = "󰝚 Music"
 "Pictures" = " Pictures"
-"workspace" = "󰲋 workspace"
+"Workspace" = "󰲋 Workspace"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
