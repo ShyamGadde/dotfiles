@@ -136,7 +136,6 @@ eval "$(gh copilot alias -- zsh)"
 source $ZDOTDIR/keybinds.zsh
 
 # Load aliases
-source $ZDOTDIR/aliases.zsh
-source $ZDOTDIR/aliases/docker-compose.zsh
-source $ZDOTDIR/aliases/git.zsh
-source $ZDOTDIR/aliases/tmux.zsh
+for file in $ZDOTDIR/aliases/*; do
+    source $file
+done
