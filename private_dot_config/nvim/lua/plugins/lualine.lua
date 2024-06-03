@@ -12,21 +12,22 @@ return {
         section_separators = { left = '', right = '' },
         -- section_separators = { left = '', right = '' },
         disabled_filetypes = {
-          statusline = {},
+          statusline = { 'dashboard', 'alpha' },
           winbar = {},
         },
       },
       sections = {
-        lualine_a = { 'mode' },
+        lualine_a = { { 'mode', icon = '' } },
         lualine_b = {
           {
             require('auto-session.lib').current_session_name,
           },
-          'branch',
+          { 'branch', icon = '' },
           'diff',
           'diagnostics',
         },
         lualine_c = {
+          { 'filetype', icon_only = true, separator = '', padding = { left = 1, right = 0 } },
           {
             'filename',
             file_status = true,
@@ -41,7 +42,7 @@ return {
           },
           'encoding',
           'fileformat',
-          'filetype',
+          -- 'filetype',
         },
         lualine_y = {
           {
