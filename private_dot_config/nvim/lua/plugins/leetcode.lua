@@ -19,7 +19,7 @@ return {
       arg = leet_arg,
       lang = 'python3',
       storage = {
-        home = '~/workspace/leetcode',
+        home = '~/Workspace/leetcode',
       },
       injector = {
         ['python3'] = {
