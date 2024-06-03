@@ -139,4 +139,4 @@ source $ZDOTDIR/keybinds.zsh
 source $ZDOTDIR/aliases.zsh
 source $ZDOTDIR/aliases/docker-compose.zsh
 source $ZDOTDIR/aliases/git.zsh
-source $ZDOTDIR/aliases/tmux.sh
+source $ZDOTDIR/aliases/tmux.zsh
