@@ -1,6 +1,6 @@
 * {
   border: none;
-  border-radius: 0;
+  /* border-radius: 0; */
   font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
   font-size: 12px;
@@ -10,7 +10,7 @@
 
 window#waybar {
   background: @crust;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 tooltip {
@@ -47,7 +47,6 @@ tooltip label {
 #workspaces {
   color: @text;
   background: @crust;
-  opacity: 0.9;
   margin: 0 4px;
 }
 
@@ -57,9 +56,10 @@ tooltip label {
 
 #workspaces {
   background: @surface0;
+  opacity: 1;
   border-radius: 10;
   padding: 0;
-  margin: 2px;
+  margin: 3px;
 }
 
 #battery.charging {
@@ -67,10 +67,10 @@ tooltip label {
 }
 
 #tray {
-  background-color: @base;
+  background-color: @surface0;
   border-radius: 10;
   padding: 0 10px;
-  margin: 2px;
+  margin: 3px;
 }
 
 .modules-right {
