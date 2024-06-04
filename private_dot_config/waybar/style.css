@@ -10,6 +10,7 @@
 
 window#waybar {
   background: @crust;
+  opacity: 0.8;
 }
 
 tooltip {
@@ -22,18 +23,16 @@ tooltip label {
 }
 
 #workspaces button {
-  background: @surface0;
   color: @blue;
   box-shadow: none;
   text-shadow: none;
   padding: 0 5px;
-  margin-left: 0.5px;
-  margin-right: 0.5px;
 }
 
 #workspaces button.active {
   background: @blue;
   color: @base;
+  border-radius: 10;
 }
 
 #battery,
@@ -57,8 +56,10 @@ tooltip label {
 }
 
 #workspaces {
+  background: @surface0;
+  border-radius: 10;
   padding: 0;
-  margin: 0;
+  margin: 2px;
 }
 
 #battery.charging {
@@ -67,7 +68,9 @@ tooltip label {
 
 #tray {
   background-color: @base;
+  border-radius: 10;
   padding: 0 10px;
+  margin: 2px;
 }
 
 .modules-right {
