@@ -136,6 +136,7 @@ eval "$(gh copilot alias -- zsh)"
 source $ZDOTDIR/keybinds.zsh
 
 # Load aliases
+source $ZDOTDIR/aliases.zsh
 for file in $ZDOTDIR/aliases/*; do
     source $file
 done
