@@ -73,5 +73,9 @@ tooltip label {
 }
 
 .modules-right {
-  margin-right: 10px;
+  margin-right: 5px;
+}
+
+.modules-left {
+  margin-left: 5px;
 }
