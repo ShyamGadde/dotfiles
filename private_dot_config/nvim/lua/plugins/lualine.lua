@@ -20,19 +20,23 @@ return {
       sections = {
         lualine_a = { { 'mode', icon = '' } },
         lualine_b = {
-          {
-            require('auto-session.lib').current_session_name,
-          },
+          { require('auto-session.lib').current_session_name },
           { 'branch', icon = '' },
           'diff',
           'diagnostics',
         },
         lualine_c = {
-          { 'filetype', icon_only = true, separator = '', padding = { left = 1, right = 0 } },
+          {
+            'filetype',
+            icon_only = true,
+            separator = '',
+            padding = { left = 1, right = 0 },
+          },
           {
             'filename',
             file_status = true,
             path = 1,
+            padding = { left = 0 },
           },
         },
         lualine_x = {
