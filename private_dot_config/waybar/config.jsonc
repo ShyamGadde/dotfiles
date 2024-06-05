@@ -7,7 +7,7 @@
 
     "include": ["~/.config/waybar/default-modules.json"],
 
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["hyprland/workspaces"],
     "modules-center": [],
     "modules-right": [
       "tray",
@@ -120,7 +120,7 @@
 
     "include": ["~/.config/waybar/default-modules.json"],
 
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["hyprland/workspaces"],
     "modules-right": ["clock"]
   }
 ]

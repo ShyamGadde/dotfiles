@@ -57,7 +57,7 @@ tooltip label {
   background: @surface0;
   opacity: 1;
   border-radius: 10;
-  padding: 0;
+  padding: 0 5px;
   margin: 3px;
 }
 
