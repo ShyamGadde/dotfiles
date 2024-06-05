@@ -41,7 +41,7 @@ prompt {
     padding: 6px;
     text-color: @bg-col;
     border-radius: 3px;
-    margin: 20px 0px 0px 20px;
+    margin: 20px 0 0 20px;
 }
 
 textbox-prompt-colon {
@@ -51,24 +51,28 @@ textbox-prompt-colon {
 
 entry {
     padding: 6px;
-    margin: 20px 0px 0px 10px;
+    margin: 20px 20px 0 0;
     text-color: @fg-col;
     background-color: @bg-col;
+    border: 2px;
+    border-color: @blue;
+    border-radius: 3px;
 }
 
 listview {
     border-color: @blue;
-    border: 0px 0px 0px;
+    border: 0;
     padding: 6px 0px 0px;
-    margin: 10px 0px 0px 20px;
+    margin: 10px 20px 0;
     lines: 5;
     background-color: @bg-col;
 }
 
 element {
-    padding: 5px;
+    padding: 5px 5px 5px 10px;
     background-color: @bg-col;
-    text-color: @fg-col  ;
+    text-color: @fg-col;
+    border-radius: 3px;
 }
 
 element-icon {
@@ -76,8 +80,8 @@ element-icon {
 }
 
 element selected {
-    background-color:  @selected-col ;
-    text-color: @fg-col2  ;
+    background-color: @grey;
+    text-color: @selected-col;
 }
 
 mode-switcher {
