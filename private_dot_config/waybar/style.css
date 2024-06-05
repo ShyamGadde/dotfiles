@@ -47,6 +47,7 @@ tooltip label {
 #workspaces {
   color: @text;
   background: @crust;
+  margin: 0 3px;
 }
 
 #custom-notification {
