@@ -8,7 +8,7 @@
     "include": ["~/.config/waybar/default-modules.json"],
 
     "modules-left": ["hyprland/workspaces"],
-    "modules-center": [],
+    "modules-center": ["clock"],
     "modules-right": [
       "tray",
       "cpu",
@@ -16,7 +16,6 @@
       "pulseaudio#microphone",
       "pulseaudio",
       "battery",
-      "clock",
       "custom/notification"
     ],
 
@@ -70,9 +69,9 @@
       "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
       "on-click-right": "pavucontrol -t 3",
       "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
+        "headphone": " ",
+        "hands-free": " ",
+        "headset": " ",
         "phone": "",
         "portable": "",
         "car": "",
@@ -119,6 +118,7 @@
     "include": ["~/.config/waybar/default-modules.json"],
 
     "modules-left": ["hyprland/workspaces"],
-    "modules-right": ["clock"]
+    "modules-center": ["clock"],
+    "modules-right": []
   }
 ]
