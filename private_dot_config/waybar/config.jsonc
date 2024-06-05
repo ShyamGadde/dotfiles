@@ -28,8 +28,7 @@
       },
       "format": "{icon}  {capacity}%",
       "tooltip": false,
-      // "format-charging": "󱐋",
-      "format-charging": "󰂄 {capacity}%",
+      "format-charging": " {capacity}%",
       "format-plugged": " {capacity}%",
       "format-icons": ["", "", "", "", ""]
       // "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
@@ -85,7 +84,7 @@
       "format": "{format_source} {source_volume}%",
       "tooltip": false,
       "format-source": "",
-      "format-source-muted": "",
+      "format-source-muted": " ",
       "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
       "on-click-right": "pavucontrol -t 4"
     },
@@ -106,9 +105,8 @@
       "return-type": "json",
       "exec-if": "which swaync-client",
       "exec": "swaync-client -swb",
-      // "on-click": "swaync-client -t -sw",
-      // "on-click-right": "swaync-client -d -sw",
-      "on-click": "swaync-client -d -sw",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
       "escape": true
     }
   },
