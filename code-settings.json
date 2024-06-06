@@ -150,7 +150,7 @@
   // ========================
   // Project Manager
   // ========================
-  "projectManager.git.baseFolders": ["$home/workspace"],
+  "projectManager.git.baseFolders": ["$home/Workspace/projects"],
   "projectManager.sortList": "Recent",
   // ========================
   // Sourcery
