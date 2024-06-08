@@ -3,9 +3,6 @@
     "layer": "top",
     "position": "top",
     "spacing": 15,
-    "output": "eDP-1",
-
-    "include": ["~/.config/waybar/default-modules.json"],
 
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
@@ -16,20 +13,50 @@
       "pulseaudio#microphone",
       "pulseaudio",
       "battery",
-      "custom/notification"
+      "custom/notification",
     ],
+
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "on-click": "activate",
+      "separate-outputs": true,
+    },
+
+    "hyprland/window": {
+      "format": "{title}",
+      "max-length": 200,
+      "separate-outputs": true,
+    },
+
+    "clock": {
+      "format": "  {:%a %d %b     %I:%M %p}",
+      "tooltip-format": "<tt>{calendar}</tt>",
+      "calendar": {
+        "mode": "month",
+        "mode-mon-col": 3,
+        "on-click-right": "mode",
+        "format": {
+          "months": "<span color='#89b4fa'><b>{}</b></span>",
+          "weekdays": "<span color='#fab387'><b>{}</b></span>",
+          "today": "<span color='#a6e3a1'><b>{}</b></span>",
+        },
+      },
+      "actions": {
+        "on-click-right": "mode",
+      },
+    },
 
     "battery": {
       "states": {
         "good": 95,
         "warning": 30,
-        "critical": 20
+        "critical": 20,
       },
       "format": "{icon}  {capacity}%",
       "tooltip": false,
       "format-charging": " {capacity}%",
       "format-plugged": " {capacity}%",
-      "format-icons": ["", "", "", "", ""]
+      "format-icons": ["", "", "", "", ""],
       // "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
       // "format-charging-icons": [
       //   "󰢟",
@@ -49,17 +76,17 @@
     "cpu": {
       "format": " {usage}%",
       "tooltip": false,
-      "on-click": "kitty htop --sort-key=PERCENT_CPU"
+      "on-click": "kitty htop --sort-key=PERCENT_CPU",
     },
 
     "memory": {
       "format": " {}%",
-      "on-click": "kitty htop --sort-key=PERCENT_MEM"
+      "on-click": "kitty htop --sort-key=PERCENT_MEM",
     },
 
     "tray": {
       "icon-size": 15,
-      "spacing": 15
+      "spacing": 15,
     },
 
     "pulseaudio": {
@@ -75,8 +102,8 @@
         "phone": "",
         "portable": "",
         "car": "",
-        "default": ["󰕿", "󰖀", "󰕾"]
-      }
+        "default": ["󰕿", "󰖀", "󰕾"],
+      },
     },
 
     "pulseaudio#microphone": {
@@ -85,7 +112,7 @@
       "format-source": "",
       "format-source-muted": " ",
       "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-      "on-click-right": "pavucontrol -t 4"
+      "on-click-right": "pavucontrol -t 4",
     },
 
     "custom/notification": {
@@ -99,26 +126,14 @@
         "inhibited-notification": "",
         "inhibited-none": "",
         "dnd-inhibited-notification": "",
-        "dnd-inhibited-none": ""
+        "dnd-inhibited-none": "",
       },
       "return-type": "json",
       "exec-if": "which swaync-client",
       "exec": "swaync-client -swb",
       "on-click": "swaync-client -t -sw",
       "on-click-right": "swaync-client -d -sw",
-      "escape": true
-    }
+      "escape": true,
+    },
   },
-  {
-    "layer": "top",
-    "position": "top",
-    "spacing": 15,
-    "output": "!eDP-1",
-
-    "include": ["~/.config/waybar/default-modules.json"],
-
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": []
-  }
 ]
