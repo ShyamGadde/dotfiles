@@ -32,6 +32,7 @@ return { -- Autoformat
         javascript = { { 'prettierd', 'prettier' } },
         javascriptreact = { { 'prettierd', 'prettier' } },
         json = { { 'prettierd', 'prettier' } },
+        jsonc = { { 'prettierd', 'prettier' } },
         lua = { 'stylua' },
         markdown = { { 'prettierd', 'prettier' } },
         python = { 'isort', 'black' },
