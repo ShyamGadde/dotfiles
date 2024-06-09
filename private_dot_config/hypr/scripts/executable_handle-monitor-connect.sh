@@ -1,7 +1,11 @@
 #!/bin/sh
 
 handle() {
-	case $1 in monitoradded*)
+	echo "$1"
+	case $1 in
+	monitoraddedv2*)
+		brightnessctl -s set 0
+
 		hyprctl dispatch moveworkspacetomonitor "1 1"
 		hyprctl dispatch moveworkspacetomonitor "2 1"
 		hyprctl dispatch moveworkspacetomonitor "3 1"
@@ -9,9 +13,12 @@ handle() {
 		hyprctl dispatch moveworkspacetomonitor "5 1"
 		hyprctl dispatch moveworkspacetomonitor "6 1"
 		hyprctl dispatch moveworkspacetomonitor "7 1"
-		hyprctl dispatch moveworkspacetomonitor "8 0"
+		hyprctl dispatch moveworkspacetomonitor "8 1"
 		hyprctl dispatch moveworkspacetomonitor "9 1"
-		hyprctl dispatch moveworkspacetomonitor "10 0"
+		hyprctl dispatch moveworkspacetomonitor "10 1"
+		;;
+	monitorremoved*)
+		brightnessctl -r
 		;;
 	esac
 }
