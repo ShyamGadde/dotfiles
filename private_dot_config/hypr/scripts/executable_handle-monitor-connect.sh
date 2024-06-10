@@ -15,7 +15,7 @@ handle() {
 		hyprctl dispatch moveworkspacetomonitor "7 1"
 		hyprctl dispatch moveworkspacetomonitor "8 1"
 		hyprctl dispatch moveworkspacetomonitor "9 1"
-		hyprctl dispatch moveworkspacetomonitor "10 1"
+		hyprctl dispatch moveworkspacetomonitor "10 0"
 		;;
 	monitorremoved*)
 		brightnessctl -r
