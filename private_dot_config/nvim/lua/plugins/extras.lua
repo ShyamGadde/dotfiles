@@ -90,4 +90,6 @@ return {
     'lambdalisue/vim-suda',
     cmd = { 'SudaRead', 'SudaWrite' },
   },
+
+  { 'wakatime/vim-wakatime', lazy = false },
 }

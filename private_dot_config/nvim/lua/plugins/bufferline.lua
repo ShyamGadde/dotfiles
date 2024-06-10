@@ -10,6 +10,7 @@ return {
         separator_style = 'thick',
         right_mouse_command = 'vertical sbuffer %d',
         middle_mouse_command = 'bdelete! %d',
+        always_show_bufferline = false,
         diagnostics = 'nvim_lsp',
         diagnostics_indicator = function(count, level, diagnostics_dict, context)
           if context.buffer:current() then
