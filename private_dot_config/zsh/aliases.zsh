@@ -55,6 +55,8 @@ function vii() {
 	done
 }
 
+alias lc="$SHELL -c \"cd ~/Workspace/leetcode; nvim lc\""
+
 alias cm='chezmoi'
 alias cmu='chezmoi re-add'
 
