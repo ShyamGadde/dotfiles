@@ -4,8 +4,6 @@ handle() {
 	echo "$1"
 	case $1 in
 	monitoraddedv2*)
-		brightnessctl -s set 0
-
 		hyprctl dispatch moveworkspacetomonitor "1 1"
 		hyprctl dispatch moveworkspacetomonitor "2 1"
 		hyprctl dispatch moveworkspacetomonitor "3 1"
@@ -16,6 +14,8 @@ handle() {
 		hyprctl dispatch moveworkspacetomonitor "8 1"
 		hyprctl dispatch moveworkspacetomonitor "9 1"
 		hyprctl dispatch moveworkspacetomonitor "10 0"
+
+		brightnessctl -s set 0
 		;;
 	monitorremoved*)
 		brightnessctl -r
