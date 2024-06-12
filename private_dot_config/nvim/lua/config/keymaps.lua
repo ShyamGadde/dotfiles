@@ -27,8 +27,4 @@ map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]ui
 -- or just use <C-\><C-n> to exit terminal mode
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- VS Code like behaviour
-map('i', '<C-CR>', '<Esc>o', { desc = 'Insert Line Below' })
-map('i', '<C-S-CR>', '<Esc>O', { desc = 'Insert Line Above' })
-
 -- vim: ts=2 sts=2 sw=2 et
