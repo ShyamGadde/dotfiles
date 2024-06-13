@@ -1,12 +1,17 @@
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_PICTURES_DIR="$HOME/Pictures"
 export XDG_SCREENSHOTS_DIR="$XDG_PICTURES_DIR/Screenshots"
 
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export EDITOR="nvim"
+export VISUAL="nvim"
+export MANPAGER="nvim +Man!"
+export LIBVIRT_DEFAULT_URI='qemu:///system'
 
 # Set $PATH if ~/.local/bin exist
 if [ -d "$HOME/.local/bin" ]; then
-    export PATH=$HOME/.local/bin:$PATH
+	export PATH=$HOME/.local/bin:$PATH
 fi
 
 #GO

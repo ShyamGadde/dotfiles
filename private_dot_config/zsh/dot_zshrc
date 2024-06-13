@@ -11,15 +11,7 @@ setopt hist_save_no_dups    # Don't save duplicates entries
 setopt no_beep              # No beep
 setopt no_case_glob         # Case insensitive globbing
 setopt numeric_glob_sort    # Sort filenames numerically when it makes sense
-setopt rc_expand_param      # Array expension with parameters
-
-# -----------------------
-# Environment variables
-# -----------------------
-export EDITOR="nvim"
-export VISUAL="nvim"
-export MANPAGER="nvim +Man!"
-export LIBVIRT_DEFAULT_URI='qemu:///system'
+setopt rc_expand_param      # Array expansion with parameters
 
 # History
 HISTFILE=~/.cache/zsh_history

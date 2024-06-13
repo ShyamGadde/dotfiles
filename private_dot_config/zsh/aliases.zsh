@@ -87,7 +87,7 @@ alias jctl="journalctl -p 3 -xb" # Show journalctl logs with priority 3 and abov
 alias update-mirrors="sudo reflector --verbose --protocol https --age 24 --fastest 15 --save /etc/pacman.d/mirrorlist && bat /etc/pacman.d/mirrorlist" # Get the fastest mirrors
 
 function edit_zsh() {
-	${EDITOR:-nvim} $ZDOTDIR/.zshrc
+	zsh -c "cd $ZDOTDIR; ${EDITOR:-nvim} $ZDOTDIR/.zshrc"
 }
 alias ez='edit_zsh'
 
