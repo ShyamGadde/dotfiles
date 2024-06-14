@@ -1,6 +1,5 @@
 * {
   border: none;
-  /* border-radius: 0; */
   font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
   font-size: 12px;
@@ -10,7 +9,7 @@
 
 window#waybar {
   background: @crust;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 tooltip {
@@ -54,23 +53,21 @@ tooltip label {
   color: @mauve;
 }
 
+#clock,
+#tray,
 #workspaces {
-  background: @surface0;
-  opacity: 1;
-  border-radius: 10;
-  padding: 0 5px;
-  margin: 3px;
-}
-
-#battery.charging {
-  color: @yellow;
-}
-
-#tray {
   background-color: @surface0;
   border-radius: 10;
   padding: 0 10px;
   margin: 3px;
+}
+
+#workspaces {
+  padding: 0 5px;
+}
+
+#battery.charging {
+  color: @yellow;
 }
 
 .modules-right {
