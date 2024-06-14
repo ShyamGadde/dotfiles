@@ -43,6 +43,11 @@ return { -- Autoformat
         typescriptreact = { { 'prettierd', 'prettier' } },
         yaml = { { 'prettierd', 'prettier' } },
       },
+      formatters = {
+        shfmt = {
+          prepend_args = { '-i', '4', '-bn', '-ci', '-sr' },
+        },
+      },
     }
   end,
 }
