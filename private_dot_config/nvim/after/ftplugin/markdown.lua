@@ -1,8 +1,12 @@
--- Markdown specific settings
-vim.opt.wrap = true -- Wrap text
-vim.opt.breakindent = true -- Match indent on line break
-vim.opt.linebreak = true -- Line break on whole words
+local options = {
+  wrap = true, -- Wrap text
+  breakindent = true, -- Match indent on line break
+  linebreak = true, -- Line break on whole words
+  spelllang = 'en_us', -- Spell check language
+  spell = true, -- Enable spell check
+}
 
--- Spell check
-vim.opt.spelllang = 'en_us'
-vim.opt.spell = true
+-- Loop through the table and set the options
+for option, value in pairs(options) do
+  vim.o[option] = value
+end
