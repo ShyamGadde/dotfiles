@@ -298,7 +298,6 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {},
   "workbench.editor.wrapTabs": true,
-  "workbench.sideBar.location": "right",
   "workbench.editorAssociations": {
     "*.png": "imagePreview.previewEditor",
     "*.md": "default"
@@ -428,5 +427,6 @@
     "markdown": true,
     "scminput": false
   },
-  "github.copilot.editor.enableAutoCompletions": true
+  "github.copilot.editor.enableAutoCompletions": true,
+  "window.customTitleBarVisibility": "auto"
 }
