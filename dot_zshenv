@@ -1,8 +1,8 @@
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_PICTURES_DIR="$HOME/Pictures"
 export XDG_SCREENSHOTS_DIR="$XDG_PICTURES_DIR/Screenshots"
+
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export EDITOR="nvim"
 export VISUAL="nvim"
