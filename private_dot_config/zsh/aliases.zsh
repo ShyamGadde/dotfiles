@@ -17,12 +17,12 @@ alias fixpacman="sudo rm /var/lib/pacman/db.lck"
 
 # Replace ls with exa
 # Using function here instead of plain alias to allow for completions
-function ls() { eza --color=always --group-directories-first --icons "$@"; }
-function la() { eza -a --color=always --group-directories-first --icons "$@"; }
-function ll() { eza -l --color=always --group-directories-first --icons "$@"; }
-function lla() { eza -al --color=always --group-directories-first --icons "$@"; }
-function lt() { eza -T --color=always --group-directories-first --icons "$@"; }
-function l.() { eza -ald --color=always --group-directories-first --icons .* "$@"; }
+function ls()  { eza --color=always --group-directories-first --icons "$@"; }
+function la()  { eza --color=always --group-directories-first --icons -a "$@"; }
+function ll()  { eza --color=always --group-directories-first --icons -l "$@"; }
+function lla() { eza --color=always --group-directories-first --icons -al "$@"; }
+function lt()  { eza --color=always --group-directories-first --icons -T "$@"; }
+function l.()  { eza --color=always --group-directories-first --icons -ald .* "$@"; }
 
 # Define completions for above functions
 compdef ls=eza
@@ -38,22 +38,16 @@ alias cat='bat --style header --style snip --style changes --style header'
 
 # Global aliases
 alias -g B='|& bat'
-alias -g H='|& head'
-alias -g T='|& tail'
-alias -g S='| sort'
-alias -g X='| xargs'
 alias -g G='|& grep'
+alias -g H='|& head'
+alias -g S='| sort'
+alias -g T='|& tail'
+alias -g X='| xargs'
 
 # Misc
 alias ..='cd ..'
 
-alias vi='nvim'
-function vii() {
-	select config in lazyvim kickstart; do
-		NVIM_APPNAME=nvim-$config nvim $@
-		break
-	done
-}
+alias vim='nvim'
 
 alias lc="$SHELL -c \"cd ~/Workspace/leetcode; nvim lc\""
 
@@ -86,12 +80,11 @@ alias jctl="journalctl -p 3 -xb" # Show journalctl logs with priority 3 and abov
 
 alias update-mirrors="sudo reflector --verbose --protocol https --age 24 --fastest 15 --save /etc/pacman.d/mirrorlist && bat /etc/pacman.d/mirrorlist" # Get the fastest mirrors
 
-function edit_zsh() {
+function zshrc() {
 	zsh -c "cd $ZDOTDIR; ${EDITOR:-nvim} $ZDOTDIR/.zshrc"
 }
-alias ez='edit_zsh'
 
-mcd() {
+function mcd() {
 	mkdir -p "$1" && cd "$1"
 }
 
@@ -106,26 +99,6 @@ rename_to_kebab_case() {
 }
 alias kebabify='rename_to_kebab_case'
 
-# GitHub Copilot CLI
-if gh extension list | grep -q 'github/gh-copilot'; then
-	copilot_shell_suggest() {
-		ghcs -t shell "$@"
-	}
-	alias '??'='copilot_shell_suggest'
-
-	# Function to handle Git command suggestions
-	copilot_git_suggest() {
-		ghcs -t git "$@"
-	}
-	alias 'git?'='copilot_git_suggest'
-
-	# Function to handle GitHub CLI command suggestions
-	copilot_gh_suggest() {
-		ghcs -t gh "$@"
-	}
-	alias 'gh?'='copilot_gh_suggest'
-fi
-
 # Fun
-alias hack='hollywood'
+alias hack='docker run --rm -it bcbcarl/hollywood'
 alias please='sudo'
