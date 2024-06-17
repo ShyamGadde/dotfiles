@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-cd $(chezmoi source-path)
+cd "$(chezmoi source-path)" || exit 1
 git remote remove origin
 git remote add origin git@github.com:ShyamGadde/dotfiles.git
 git fetch
