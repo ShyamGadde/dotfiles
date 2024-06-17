@@ -244,15 +244,5 @@
     "key": "ctrl+alt+r",
     "command": "editWithShell.runCommand",
     "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "shift+alt+s",
-    "command": "surround.with",
-    "when": "editorHasSelection"
-  },
-  {
-    "key": "ctrl+shift+t",
-    "command": "-surround.with",
-    "when": "editorHasSelection"
   }
 ]
