@@ -2,10 +2,15 @@
   {
     "layer": "top",
     "position": "top",
-    "spacing": 15,
+    "spacing": 5,
 
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
+    "modules-left": [
+      "hyprland/workspaces",
+    ],
+    "modules-center": [
+      "clock",
+      "idle_inhibitor"
+    ],
     "modules-right": [
       "tray",
       "cpu",
@@ -28,8 +33,16 @@
       "separate-outputs": true,
     },
 
+    "idle_inhibitor": {
+      "format": "{icon} ",
+      "format-icons": {
+        "activated": "",
+        "deactivated": ""
+      }
+    },
+
     "clock": {
-      "format": "{:%a %d %b, %I:%M %p}",
+      "format": "  {:%I:%M %p}",
       "tooltip-format": "<tt>{calendar}</tt>",
       "calendar": {
         "mode": "month",

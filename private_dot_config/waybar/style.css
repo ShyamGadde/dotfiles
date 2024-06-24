@@ -9,7 +9,7 @@
 
 window#waybar {
   background: @crust;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 tooltip {
@@ -37,16 +37,17 @@ tooltip label {
 #battery,
 #bluetooth,
 #clock,
+#cpu,
+#custom-notification,
+#idle_inhibitor,
+#memory,
 #pulseaudio,
 #tray,
-#cpu,
-#memory,
-#custom-notification,
 #window,
 #workspaces {
   color: @text;
   background: @crust;
-  margin: 0 3px;
+  margin: 0 10px;
 }
 
 #custom-notification {
@@ -54,6 +55,7 @@ tooltip label {
 }
 
 #clock,
+#idle_inhibitor,
 #tray,
 #workspaces {
   background-color: @surface0;
@@ -66,12 +68,16 @@ tooltip label {
   padding: 0 5px;
 }
 
-#battery.charging {
-  color: @yellow;
+#clock {
+  margin-right: 0;
 }
 
-.modules-right {
-  margin-right: 10px;
+#idle_inhibitor {
+  margin-left: 0;
+}
+
+#battery.charging {
+  color: @yellow;
 }
 
 .modules-left {
