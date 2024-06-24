@@ -22,12 +22,6 @@ SAVEHIST=$HISTSIZE
 WORDCHARS=${WORDCHARS//\//}
 WORDCHARS=${WORDCHARS//./}
 
-# Set window title
-#function set_win_title() {
-#	echo -ne "\033]0; $USER@$HOST:${PWD/$HOME/~} \007"
-#}
-#precmd_functions+=(set_win_title)
-
 # Vi mode
 bindkey -v
 export KEYTIMEOUT=1 # The delay of pressing Esc key in vi mode is 0.4s by default, this makes it shorter (0.01s)
