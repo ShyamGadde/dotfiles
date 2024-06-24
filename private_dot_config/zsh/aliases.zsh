@@ -84,6 +84,14 @@ function zshrc() {
 	zsh -c "cd $ZDOTDIR; ${EDITOR:-nvim} $ZDOTDIR/.zshrc"
 }
 
+function vimrc() {
+	zsh -c "cd $XDG_CONFIG_HOME/nvim; ${EDITOR:-nvim} ."
+}
+
+function hyprrc() {
+	zsh -c "cd $XDG_CONFIG_HOME/hypr; ${EDITOR:-nvim} hyprland.conf"
+}
+
 function mcd() {
 	mkdir -p "$1" && cd "$1"
 }
