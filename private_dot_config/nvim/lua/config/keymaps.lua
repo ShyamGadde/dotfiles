@@ -13,7 +13,7 @@ end, { desc = "LazyVim Changelog" })
 vim.keymap.del("n", "<leader>l")
 map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
--- toggle options
+-- Toggle options
 map("n", "<leader>uf", function()
   LazyVim.format.toggle(true)
 end, { desc = "Toggle Auto Format (Buffer)" })
@@ -21,7 +21,7 @@ map("n", "<leader>uF", function()
   LazyVim.format.toggle()
 end, { desc = "Toggle Auto Format (Global)" })
 
--- lazygit
+-- Lazygit
 map("n", "<leader>gg", function()
   LazyVim.lazygit()
 end, { desc = "Lazygit (cwd)" })
@@ -36,7 +36,7 @@ map("n", "<leader>gL", function()
   LazyVim.lazygit({ args = { "log" }, cwd = LazyVim.root.git() })
 end, { desc = "Lazygit Log" })
 
--- floating terminal
+-- Floating terminal
 local lazyterm = function()
   LazyVim.terminal(nil, { cwd = LazyVim.root() })
 end

@@ -15,9 +15,11 @@ opt.shiftwidth = 4
 opt.softtabstop = 4
 
 vim.diagnostic.config({
-  float = { border = "rounded" }, -- add border to diagnostic popups
+  float = { border = "rounded" }, -- Add border to diagnostic popups
 })
-opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+opt.pumblend = 0 -- Popup blend
+
 opt.formatoptions = "jcrqlnt"
 
+opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 opt.breakindent = true
