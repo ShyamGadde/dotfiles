@@ -88,10 +88,16 @@ function zshrc() {
 }
 
 function vimrc() {
+	if command -v chezmoi > /dev/null; then
+		EDITOR='chezmoi edit'
+	fi
 	zsh -c "cd $XDG_CONFIG_HOME/nvim; ${EDITOR:-nvim} ."
 }
 
 function hyprrc() {
+	if command -v chezmoi > /dev/null; then
+		EDITOR='chezmoi edit'
+	fi
 	zsh -c "cd $XDG_CONFIG_HOME/hypr; ${EDITOR:-nvim} ."
 }
 
