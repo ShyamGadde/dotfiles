@@ -26,7 +26,8 @@ return {
         lualine_b = {
           { "branch", icon = "" },
         },
-        lualine_z = {},
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
       },
     },
   },
