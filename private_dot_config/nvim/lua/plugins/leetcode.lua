@@ -33,13 +33,13 @@ return {
       ["<leader>l"] = { name = "+leetcode" },
     })
 
-    vim.keymap.set("n", "<leader>ld", "<cmd> Leet desc toggle <CR>", { desc = "Toggle Description" })
-    vim.keymap.set("n", "<leader>lm", "<cmd> Leet menu <CR>", { desc = "Open Menu" })
-    vim.keymap.set("n", "<leader>li", "<cmd> Leet info <CR>", { desc = "Show Question Information" })
-    vim.keymap.set("n", "<leader>lr", "<cmd> Leet run <CR>", { desc = "Run Solution" })
-    vim.keymap.set("n", "<leader>ls", "<cmd> Leet submit <CR>", { desc = "Submit Solution" })
-    vim.keymap.set("n", "<leader>lR", "<cmd> Leet last_submit <CR>", { desc = "Retrieve Last Submitted Code" })
-    vim.keymap.set("n", "<leader>lb", "<cmd> Leet open <CR>", { desc = "Open in browser" })
-    vim.keymap.set("n", "<leader>lq", "<cmd> Leet exit <CR>", { desc = "Quit" })
+    vim.keymap.set("n", "<leader>ld", "<Cmd> Leet desc toggle <CR>", { desc = "Toggle Description" })
+    vim.keymap.set("n", "<leader>lm", "<Cmd> Leet menu <CR>", { desc = "Open Menu" })
+    vim.keymap.set("n", "<leader>li", "<Cmd> Leet info <CR>", { desc = "Show Question Information" })
+    vim.keymap.set("n", "<leader>lr", "<Cmd> Leet run <CR>", { desc = "Run Solution" })
+    vim.keymap.set("n", "<leader>ls", "<Cmd> Leet submit <CR>", { desc = "Submit Solution" })
+    vim.keymap.set("n", "<leader>lR", "<Cmd> Leet last_submit <CR>", { desc = "Retrieve Last Submitted Code" })
+    vim.keymap.set("n", "<leader>lb", "<Cmd> Leet open <CR>", { desc = "Open in browser" })
+    vim.keymap.set("n", "<leader>lq", "<Cmd> Leet exit <CR>", { desc = "Quit" })
   end,
 }
