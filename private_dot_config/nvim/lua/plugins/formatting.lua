@@ -6,7 +6,7 @@ return {
         fish = {},
         zsh = { "shfmt" },
         -- Run on all filetypes.
-        ["*"] = { "codespell" },
+        -- ["*"] = {},
         -- Run on filetypes that don't have other formatters configured.
         ["_"] = { "trim_whitespace", "trim_newlines" },
       },
@@ -22,12 +22,10 @@ return {
     },
   },
 
-  {
-    "mason.nvim",
-    opts = {
-      ensure_installed = {
-        "codespell",
-      },
-    },
-  },
+  -- {
+  --   "mason.nvim",
+  --   opts = {
+  --     ensure_installed = {},
+  --   },
+  -- },
 }
