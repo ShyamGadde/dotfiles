@@ -17,12 +17,12 @@ alias fixpacman="sudo rm /var/lib/pacman/db.lck"
 
 # Replace ls with exa
 # Using function here instead of plain alias to allow for completions
-function ls()  { eza --color=always --group-directories-first --icons "$@"; }
-function la()  { eza --color=always --group-directories-first --icons -a "$@"; }
-function ll()  { eza --color=always --group-directories-first --icons -l "$@"; }
+function ls() { eza --color=always --group-directories-first --icons "$@"; }
+function la() { eza --color=always --group-directories-first --icons -a "$@"; }
+function ll() { eza --color=always --group-directories-first --icons -l "$@"; }
+function lt() { eza --color=always --group-directories-first --icons -T "$@"; }
+function l.() { eza --color=always --group-directories-first --icons -ald .* "$@"; }
 function lla() { eza --color=always --group-directories-first --icons -al "$@"; }
-function lt()  { eza --color=always --group-directories-first --icons -T "$@"; }
-function l.()  { eza --color=always --group-directories-first --icons -ald .* "$@"; }
 
 # Define completions for above functions
 compdef ls=eza
@@ -81,38 +81,38 @@ alias jctl="journalctl -p 3 -xb" # Show journalctl logs with priority 3 and abov
 alias update-mirrors="sudo reflector --verbose --protocol https --age 24 --fastest 15 --save /etc/pacman.d/mirrorlist && bat /etc/pacman.d/mirrorlist" # Get the fastest mirrors
 
 function zshrc() {
-	if command -v chezmoi > /dev/null; then
-		EDITOR='chezmoi edit'
-	fi
-	zsh -c "cd $ZDOTDIR; ${EDITOR:-nvim} ."
+    if command -v chezmoi > /dev/null; then
+        EDITOR='chezmoi edit'
+    fi
+    zsh -c "cd $ZDOTDIR; ${EDITOR:-nvim} ."
 }
 
 function vimrc() {
-	if command -v chezmoi > /dev/null; then
-		EDITOR='chezmoi edit'
-	fi
-	zsh -c "cd $XDG_CONFIG_HOME/nvim; ${EDITOR:-nvim} ."
+    if command -v chezmoi > /dev/null; then
+        EDITOR='chezmoi edit'
+    fi
+    zsh -c "cd $XDG_CONFIG_HOME/nvim; ${EDITOR:-nvim} ."
 }
 
 function hyprrc() {
-	if command -v chezmoi > /dev/null; then
-		EDITOR='chezmoi edit'
-	fi
-	zsh -c "cd $XDG_CONFIG_HOME/hypr; ${EDITOR:-nvim} ."
+    if command -v chezmoi > /dev/null; then
+        EDITOR='chezmoi edit'
+    fi
+    zsh -c "cd $XDG_CONFIG_HOME/hypr; ${EDITOR:-nvim} ."
 }
 
 function mcd() {
-	mkdir -p "$1" && cd "$1"
+    mkdir -p "$1" && cd "$1"
 }
 
 # Convert filenames and folder names to kebab-case
 rename_to_kebab_case() {
-	for f in *; do
-		new_name=$(echo "$f" | sed -e 's/ /-/g' -e 's/_/-/g' | tr A-Z a-z)
-		if [ "$f" != "$new_name" ]; then
-			mv -i "$f" "$new_name"
-		fi
-	done
+    for f in *; do
+        new_name=$(echo "$f" | sed -e 's/ /-/g' -e 's/_/-/g' | tr A-Z a-z)
+        if [ "$f" != "$new_name" ]; then
+            mv -i "$f" "$new_name"
+        fi
+    done
 }
 alias kebabify='rename_to_kebab_case'
 

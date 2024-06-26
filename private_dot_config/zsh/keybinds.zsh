@@ -6,14 +6,14 @@ bindkey -M menuselect 'l' vi-forward-char
 
 #bindkey '^R' history-incremental-pattern-search-backward # Ctrl + R (Prefer fzf over this)
 
-# TODO: Figure out what the heck this is
+# WARN: Figure out what the heck this is
 typeset -g -A key
 if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
-	autoload -Uz add-zle-hook-widget
-	function zle_application_mode_start { echoti smkx }
-	function zle_application_mode_stop { echoti rmkx }
-	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
-	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+    autoload -Uz add-zle-hook-widget
+    function zle_application_mode_start { echoti smkx }
+    function zle_application_mode_stop { echoti rmkx }
+    add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+    add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
 
 # [Backspace] - delete backward

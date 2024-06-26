@@ -7,4 +7,3 @@ alias dcupb='docker-compose up --build'
 alias dcupbd='docker-compose up --build -d'
 alias dcdown='docker-compose down'
 alias dce='docker-compose exec'
-
