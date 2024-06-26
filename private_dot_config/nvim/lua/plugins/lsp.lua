@@ -34,7 +34,11 @@ return {
           end,
         },
 
-        typos_lsp = {},
+        typos_lsp = {
+          init_options = {
+            diagnosticSeverity = "Hint",
+          },
+        },
       },
 
       -- you can do any additional lsp server setup here
