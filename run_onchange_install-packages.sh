@@ -10,6 +10,7 @@ PACKAGES=(
     fd
     fzf
     git
+    git-lfs
     github-cli
     jq
     lazygit
