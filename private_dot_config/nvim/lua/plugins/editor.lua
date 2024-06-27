@@ -37,16 +37,15 @@ return {
     "stevearc/oil.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy = true,
+    cmd = { "Oil" },
     keys = {
-      {
-        "-",
-        function()
-          require("oil").open()
-        end,
-        desc = "Open parent directory",
-      },
+      { "-", "<Cmd> Oil --float <CR>", desc = "Open parent directory" },
     },
-    opts = {},
+    opts = {
+      delete_to_trash = true,
+      skip_confirm_for_simple_edits = true,
+      experimental_watch_for_changes = true,
+    },
   },
 
   -- Jump
