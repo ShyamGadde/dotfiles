@@ -55,6 +55,19 @@ return {
   },
 
   {
+    "folke/noice.nvim",
+    opts = {
+      popupmenu = {
+        ---@type 'nui'|'cmp'
+        backend = "cmp",
+      },
+      presets = {
+        lsp_doc_border = true, -- add a border to hover docs and signature help
+      },
+    },
+  },
+
+  {
     "rcarriga/nvim-notify",
     opts = {
       stages = "fade_in_slide_out",
