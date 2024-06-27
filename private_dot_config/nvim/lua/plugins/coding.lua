@@ -98,6 +98,39 @@ return {
     },
   },
 
+  -- Edit surrounding
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = { "LazyFile" },
+    opts = {
+      keymaps = {
+        normal = "gs",
+        normal_cur = "gss",
+        normal_line = "gS",
+        normal_cur_line = "gSS",
+        visual = "gs",
+        visual_line = "gS",
+      },
+      aliases = {
+        ["p"] = ")",
+        ["b"] = "}",
+        ["B"] = "]",
+      },
+    },
+    config = function(_, opts)
+      require("nvim-surround").setup(opts)
+
+      local map = vim.keymap.set
+
+      -- Add motions for aliases
+      map("o", "ir", "i[")
+      map("o", "ar", "a[")
+      map("o", "ia", "i<")
+      map("o", "aa", "a<")
+    end,
+  },
+
   -- Comments
   {
     "numToStr/Comment.nvim",
