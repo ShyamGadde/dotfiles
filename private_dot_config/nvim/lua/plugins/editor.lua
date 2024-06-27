@@ -52,7 +52,7 @@ return {
   {
     "folke/flash.nvim",
     keys = {
-      { "s", false },
+      { "s", mode = { "n", "x", "o" }, false },
     },
     opts = {
       jump = {
@@ -75,5 +75,11 @@ return {
   {
     "wakatime/vim-wakatime",
     event = "VeryLazy",
+  },
+
+  -- Working with file permissions
+  {
+    "lambdalisue/vim-suda",
+    cmd = { "SudaRead", "SudaWrite" },
   },
 }
