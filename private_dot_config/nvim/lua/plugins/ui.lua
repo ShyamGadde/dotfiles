@@ -22,7 +22,7 @@ return {
   {
     "akinsho/bufferline.nvim",
     keys = {
-      { "<leader>bs", "<Cmd>BufferLinePickClose<CR>", desc = "Delete Buffers to the Right" },
+      { "<leader>bx", "<Cmd>BufferLinePickClose<CR>", desc = "Pick Buffer to Close" },
     },
     opts = {
       options = {
