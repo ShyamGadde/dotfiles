@@ -30,16 +30,17 @@ return {
     })
 
     require("which-key").register({
-      ["<leader>l"] = { name = "+leetcode" },
+      ["<leader>l"] = {
+        name = "+leetcode",
+        d = { "<Cmd> Leet desc toggle <CR>", "Toggle Description" },
+        m = { "<Cmd> Leet menu <CR>", "Open Menu" },
+        i = { "<Cmd> Leet info <CR>", "Show Question Information" },
+        r = { "<Cmd> Leet run <CR>", "Run Solution" },
+        s = { "<Cmd> Leet submit <CR>", "Submit Solution" },
+        R = { "<Cmd> Leet last_submit <CR>", "Retrieve Last Submitted Code" },
+        b = { "<Cmd> Leet open <CR>", "Open in browser" },
+        q = { "<Cmd> Leet exit <CR>", "Quit" },
+      },
     })
-
-    vim.keymap.set("n", "<leader>ld", "<Cmd> Leet desc toggle <CR>", { desc = "Toggle Description" })
-    vim.keymap.set("n", "<leader>lm", "<Cmd> Leet menu <CR>", { desc = "Open Menu" })
-    vim.keymap.set("n", "<leader>li", "<Cmd> Leet info <CR>", { desc = "Show Question Information" })
-    vim.keymap.set("n", "<leader>lr", "<Cmd> Leet run <CR>", { desc = "Run Solution" })
-    vim.keymap.set("n", "<leader>ls", "<Cmd> Leet submit <CR>", { desc = "Submit Solution" })
-    vim.keymap.set("n", "<leader>lR", "<Cmd> Leet last_submit <CR>", { desc = "Retrieve Last Submitted Code" })
-    vim.keymap.set("n", "<leader>lb", "<Cmd> Leet open <CR>", { desc = "Open in browser" })
-    vim.keymap.set("n", "<leader>lq", "<Cmd> Leet exit <CR>", { desc = "Quit" })
   end,
 }
