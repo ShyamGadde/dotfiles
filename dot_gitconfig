@@ -12,10 +12,22 @@
 [submodule]
 	recurse = true
 [alias]
-	cp = !git commit -m "Update" && git push 
+	cp = !git commit -m "Update" && git push
 	facp = !git add . && git cp
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+[merge]
+	tool = nvimdiff4
+	prompt = false
+[mergetool "nvimdiff4"]
+	cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J' -c 'set diffopt&' -c 'set diffopt+=algorithm:patience'
+	keepBackup = false
+[diff]
+	algorithm = patience
+	compactionHeuristic = true
+	tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd L\"
