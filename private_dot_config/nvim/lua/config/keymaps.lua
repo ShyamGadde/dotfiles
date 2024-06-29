@@ -48,4 +48,11 @@ map("n", "<leader>fT", lazyterm, { desc = "Terminal (Root Dir)" })
 -- Delete single character without copying into register
 map("n", "x", '"_x')
 
-map("n", "<leader>fx", "<cmd>!chmod +x %<CR>", { desc = "Make Current File Executable" })
+map("n", "<leader>fx", "<Cmd> !chmod +x % <CR>", { desc = "Make Current File Executable" })
+
+-- Create undo breakpoints for punctuation in insert mode
+-- This allows for more granular undo operations
+map("i", ",", ",<C-g>U")
+map("i", ".", ".<C-g>U")
+map("i", "!", "!<C-g>U")
+map("i", "?", "?<C-g>U")
