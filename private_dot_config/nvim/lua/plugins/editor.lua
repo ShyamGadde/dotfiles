@@ -3,7 +3,7 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     dependencies = {
-      "3rd/image.nvim",
+      { "3rd/image.nvim", lazy = true },
     },
     keys = {
       {
@@ -81,5 +81,14 @@ return {
   {
     "lambdalisue/vim-suda",
     cmd = { "SudaRead", "SudaWrite" },
+  },
+
+  -- Undo History Visualizer
+  {
+    "mbbill/undotree",
+    cmd = { "UndotreeToggle" },
+    keys = {
+      { "<leader>U", "<Cmd>UndotreeToggle<CR>", desc = "Undo Tree" },
+    },
   },
 }
