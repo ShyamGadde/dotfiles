@@ -23,3 +23,5 @@ opt.formatoptions = "jcrqlnt"
 
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 opt.breakindent = true
+
+vim.opt.diffopt:append("linematch:50")
