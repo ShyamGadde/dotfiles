@@ -18,6 +18,26 @@ return {
           -- sr: Simplifies formatting rules.
           prepend_args = { "-i", "4", "-bn", "-ci", "-sr" },
         },
+        injected = {
+          -- Set the options field
+          options = {
+            ignore_errors = true,
+            lang_to_formatters = {
+              -- json = { "jq" },
+            },
+            -- Map of treesitter language to file extension
+            -- A temporary file name with this extension will be generated during formatting
+            -- because some formatters care about the filename.
+            lang_to_ext = {
+              bash = "sh",
+              javascript = "js",
+              latex = "tex",
+              markdown = "md",
+              python = "py",
+              typescript = "ts",
+            },
+          },
+        },
       },
     },
   },
