@@ -31,7 +31,7 @@ return {
     "2kabhishek/nerdy.nvim",
     cmd = "Nerdy",
     keys = {
-      { "<leader>si", "<cmd>Nerdy<cr>", desc = "Icons" },
+      { "<leader>si", "<Cmd>Nerdy<CR>", desc = "Icons" },
     },
   },
 }

@@ -69,6 +69,9 @@ return {
 
   {
     "rcarriga/nvim-notify",
+    keys = {
+      { "<leader>N", "<Cmd>Telescope notify<CR>", desc = "Notifications" },
+    },
     opts = {
       stages = "fade_in_slide_out",
     },
