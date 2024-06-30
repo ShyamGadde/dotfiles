@@ -9,8 +9,7 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      -- "hrsh7th/cmp-emoji",
-      -- "chrisgrieser/cmp-nerdfont",
+      "hrsh7th/cmp-emoji",
       "hrsh7th/cmp-cmdline",
     },
     opts = function(_, opts)
@@ -42,8 +41,10 @@ return {
         }),
       })
 
-      -- table.insert(opts.sources, { name = "emoji" })
-      -- table.insert(opts.sources, { name = "nerdfont" })
+      opts.sources = vim.tbl_extend("force", opts.sources, {
+        { name = "buffer", keyword_length = 4 },
+        { name = "emoji" },
+      })
     end,
   },
 

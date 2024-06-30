@@ -19,6 +19,7 @@ vim.diagnostic.config({
 })
 opt.pumblend = 0 -- Popup blend
 
+-- FIX: These options don't seem to be set for some reason
 opt.formatoptions = "jcrqlnt"
 
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
