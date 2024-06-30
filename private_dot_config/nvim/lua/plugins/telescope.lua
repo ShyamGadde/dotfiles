@@ -14,7 +14,7 @@ return {
         },
         sorting_strategy = "ascending",
         winblend = 0,
-        path_display = { "smart" },
+        -- path_display = { "smart" },
         mappings = {
           n = {
             ["<M-p>"] = action_layout.toggle_preview,
