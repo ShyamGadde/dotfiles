@@ -41,10 +41,7 @@ return {
         }),
       })
 
-      opts.sources = vim.tbl_extend("force", opts.sources, {
-        { name = "buffer", keyword_length = 4 },
-        -- { name = "emoji" },
-      })
+      -- table.insert(opts.sources, { name = "emoji" })
     end,
   },
 
