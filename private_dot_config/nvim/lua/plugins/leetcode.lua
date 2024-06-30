@@ -14,20 +14,107 @@ return {
     -- '3rd/image.nvim',
   },
   lazy = leet_arg ~= vim.fn.argv()[1],
-  config = function()
-    require("leetcode").setup({
-      arg = leet_arg,
-      lang = "python3",
-      storage = {
-        home = "~/Workspace/leetcode",
+  opts = {
+    arg = leet_arg,
+    lang = "python3",
+    storage = {
+      home = os.getenv("HOME") .. "/Workspace/leetcode",
+    },
+    injector = {
+      ["python3"] = {
+        before = true,
       },
-      injector = {
-        ["python3"] = {
-          before = true,
-        },
-      },
-      -- image_support = true,
-    })
+    },
+    -- image_support = true,
+  },
+  config = function(_, opts)
+    require("leetcode").setup(opts)
+
+    local update_repo = function()
+      local repo_path = opts.storage.home
+      local title = "leetcode.nvim"
+
+      local script = string.format(
+        [=[
+          cd %s
+          if ! git rev-parse --is-inside-work-tree &> /dev/null; then
+            echo "Not a Git repository: $(pwd)" >&2
+            exit 1
+          fi
+
+          commit_change() {
+            local status="$1"
+            local file="$2"
+            local message=""
+
+            if [[ "$status" == "??" || "$status" == "A" ]]; then
+                git add "$file"
+                message="Add $file"
+            elif [[ "$status" == "M" ]]; then
+                git add "$file"
+                message="Update $file"
+            elif [[ "$status" == "MM" ]]; then
+                message="Update $file"
+            else
+                echo "MSG: Unhandled status for $file: $status"
+                return
+            fi
+
+            echo "MSG: $message"
+            git commit -m "$message"
+          }
+
+          git status --porcelain | while read -r status file; do
+              commit_change "$status" "$file"
+          done
+
+          git push
+        ]=],
+        repo_path
+      )
+
+      vim.notify("Updating Repository...", 2, { title = title })
+
+      local stdout = {}
+      local stderr = {}
+
+      vim.fn.jobstart({ "bash", "-c", script }, {
+        stdout_buffered = true,
+        on_stdout = function(_, data)
+          if data then
+            for _, line in ipairs(data) do
+              local msg = line:match("^MSG: (.*)")
+
+              if msg then
+                table.insert(stdout, "- " .. msg)
+              end
+            end
+          end
+        end,
+
+        stderr_buffered = true,
+        on_stderr = function(_, data)
+          if data then
+            for _, line in ipairs(data) do
+              table.insert(stderr, line)
+            end
+          end
+        end,
+
+        on_exit = function(_, exit_code)
+          if exit_code == 0 then
+            vim.notify(table.concat(stdout, "\n"), 2, {
+              title = title,
+              icon = "",
+            })
+          else
+            vim.notify(table.concat(stderr, "\n"), 4, {
+              title = title,
+            })
+          end
+        end,
+      })
+    end
 
     require("which-key").register({
       ["<leader>l"] = {
@@ -40,55 +127,8 @@ return {
         R = { "<Cmd> Leet last_submit <CR>", "Retrieve Last Submitted Code" },
         b = { "<Cmd> Leet open <CR>", "Open in browser" },
         q = { "<Cmd> Leet exit <CR>", "Quit" },
+        u = { update_repo, "Update Repository (Commit and Push)" },
       },
     })
-
-    local function update_repo()
-      local script = vim.fn.getcwd() .. "/update_repo.sh"
-
-      if vim.fn.filereadable(script) == 1 then
-        vim.notify("Updating repository...", vim.log.levels.INFO, {
-          title = "Update Repo",
-        })
-
-        local messages = {}
-
-        vim.fn.jobstart(script, {
-          stdout_buffered = true,
-          on_stdout = function(_, data)
-            if data then
-              for _, line in ipairs(data) do
-                local info = line:match("^INFO: (.*)")
-
-                if info then
-                  table.insert(messages, "- " .. info)
-                end
-              end
-            end
-          end,
-
-          on_exit = function(_, exit_code)
-            local message = table.concat(messages, "\n")
-
-            if exit_code == 0 then
-              vim.notify(message, vim.log.levels.INFO, {
-                title = "Update Repo",
-                icon = "",
-              })
-            else
-              vim.notify("Repository update failed", vim.log.levels.ERROR, {
-                title = "Update Repo",
-              })
-            end
-          end,
-        })
-      else
-        vim.notify("'update_repo.sh' not found in the current directory.", vim.log.levels.ERROR, {
-          title = "Update Repo",
-        })
-      end
-    end
-
-    vim.keymap.set("n", "<leader>lu", update_repo, { desc = "Update Repository (Commit and Push)" })
   end,
 }
