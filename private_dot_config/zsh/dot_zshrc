@@ -86,7 +86,12 @@ eval "$(zoxide init --cmd cd zsh)"
 # NVM
 export NVM_COMPLETION=true
 export NVM_LAZY_LOAD=true
-export NVM_LAZY_LOAD_EXTRA_COMMANDS=('code', 'vi', 'vim', 'nvim')
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=(
+    'code'
+    'vi'
+    'vim'
+    'nvim'
+)
 source $ZDOTDIR/plugins/zsh-nvm.plugin.zsh
 
 # Arch Linux command-not-found support, you must have package pkgfile installed
@@ -106,11 +111,12 @@ source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
 # Configure history substring search
-HISTORY_SUBSTRING_SEARCH_FUZZY=1
+export HISTORY_SUBSTRING_SEARCH_FUZZY=1
 
 # Configure fzf
 # export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
 export FZF_DEFAULT_OPTS=" \
+--border \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
@@ -119,10 +125,10 @@ export FZF_DEFAULT_COMMAND="fd --type f"
 # Setting up aliases for Copilot in the CLI
 eval "$(gh copilot alias -- zsh)"
 
-source $ZDOTDIR/keybinds.zsh
+source "$ZDOTDIR"/keybinds.zsh
 
 # Load aliases
 source $ZDOTDIR/aliases.zsh
-for file in $ZDOTDIR/aliases/*; do
+for file in "$ZDOTDIR"/aliases/*; do
     source $file
 done
