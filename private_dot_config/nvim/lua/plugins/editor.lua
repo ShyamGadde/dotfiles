@@ -51,23 +51,16 @@ return {
   -- Jump
   {
     "folke/flash.nvim",
-    keys = {
-      { "s", mode = { "n", "x", "o" }, false },
-    },
     opts = {
       jump = {
         -- automatically jump when there is only one match
         autojump = true,
       },
       modes = {
-        search = {
-          enabled = true,
-        },
         char = {
           -- hide after jump when not using jump labels
           autohide = true,
           jump_labels = true,
-          multi_line = false,
         },
       },
     },
