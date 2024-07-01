@@ -12,6 +12,7 @@ return {
           },
           prompt_position = "top",
         },
+        dynamic_preview_title = true,
         sorting_strategy = "ascending",
         winblend = 0,
         -- path_display = { "smart" },
