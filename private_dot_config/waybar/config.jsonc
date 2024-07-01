@@ -8,6 +8,7 @@
       "hyprland/workspaces",
     ],
     "modules-center": [
+      "custom/updates",
       "clock",
       "idle_inhibitor"
     ],
@@ -15,8 +16,8 @@
       "tray",
       "cpu",
       "memory",
-      "pulseaudio#microphone",
       "pulseaudio",
+      "pulseaudio#microphone",
       "battery",
       "custom/notification",
     ],
@@ -134,5 +135,16 @@
       "on-click-right": "swaync-client -d -sw",
       "escape": true,
     },
+
+    "custom/updates": {
+      "format": "{icon} {}",
+      "return-type": "json",
+      "format-icons": {
+        "has-updates": "",
+        "updated": "󰂪"
+      },
+      "exec-if": "which waybar-module-pacman-updates",
+      "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300"
+    }
   },
 ]
