@@ -34,6 +34,9 @@ return {
       local repo_path = opts.storage.home
       local title = "leetcode.nvim"
 
+      -- NOTE: This script sometimes may not work as expected with more than one change.
+      -- If there are multiple changes, e.g., if a file is already staged and there is also a new file,
+      -- then they both will end up in the same commit since there is not additional logic to prioritize the staged file.
       local script = string.format(
         [=[
           cd %s
