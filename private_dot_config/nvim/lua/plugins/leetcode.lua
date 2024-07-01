@@ -22,7 +22,10 @@ return {
     },
     injector = {
       ["python3"] = {
-        before = true,
+        -- before = true,
+        before = {
+          "from typing import List",
+        },
       },
     },
     -- image_support = true,
