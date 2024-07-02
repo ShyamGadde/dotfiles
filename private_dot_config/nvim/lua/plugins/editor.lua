@@ -51,6 +51,10 @@ return {
   -- Jump
   {
     "folke/flash.nvim",
+    -- keys = {
+    --   -- disable the default flash keymap
+    --   { "s", mode = { "n", "x", "o" }, false },
+    -- },
     opts = {
       jump = {
         -- automatically jump when there is only one match
