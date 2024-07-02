@@ -1,6 +1,15 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
+    keys = {
+      {
+        "<leader>fp",
+        function()
+          require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
+        end,
+        desc = "Find Plugin File",
+      },
+    },
     opts = function(_, opts)
       local action_layout = require("telescope.actions.layout")
 
@@ -29,10 +38,27 @@ return {
   },
 
   {
+    "nvim-telescope/telescope-symbols.nvim",
+    keys = {
+      {
+        "<leader>s.",
+        function()
+          require("telescope.builtin").symbols(require("telescope.themes").get_dropdown({ previewer = false }))
+        end,
+        desc = "Symbols",
+      },
+    },
+  },
+
+  {
     "2kabhishek/nerdy.nvim",
+    dependencies = {
+      "stevearc/dressing.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
     cmd = "Nerdy",
     keys = {
-      { "<leader>si", "<Cmd>Nerdy<CR>", desc = "Icons" },
+      { "<leader>si", "<Cmd>Nerdy<CR>", desc = "Nerd Icons/Glyphs" },
     },
   },
 }
