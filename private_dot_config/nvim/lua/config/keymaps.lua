@@ -45,6 +45,13 @@ map("n", "<leader>ft", function()
 end, { desc = "Terminal (cwd)" })
 map("n", "<leader>fT", lazyterm, { desc = "Terminal (Root Dir)" })
 
+-- Neovim Terminal
+require("which-key").register({
+  ["<leader>t"] = { name = "+terminal" },
+})
+map("n", "<leader>tv", "<Cmd> vsplit | terminal <CR>", { desc = "Open Terminal (Vertical Split)" })
+map("n", "<leader>th", "<Cmd> split | terminal <CR>", { desc = "Open Terminal (Horizontal Split)" })
+
 -- Delete single character without copying into register
 map("n", "x", '"_x')
 
