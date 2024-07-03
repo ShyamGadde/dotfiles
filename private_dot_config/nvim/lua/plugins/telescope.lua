@@ -2,7 +2,6 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     keys = {
-      { "<leader><space>", LazyVim.pick("auto", { root = false }), desc = "Find Files (cwd)" },
       -- find
       { "<leader>ff", LazyVim.pick("auto", { root = false }), desc = "Find Files (cwd)" },
       { "<leader>fF", LazyVim.pick("auto"), desc = "Find Files (Root Dir)" },
@@ -62,6 +61,8 @@ return {
       local action_layout = require("telescope.actions.layout")
 
       opts.defaults = vim.tbl_deep_extend("force", opts.defaults or {}, {
+        prompt_prefix = " ",
+        selection_caret = " ",
         layout_strategy = "horizontal",
         layout_config = {
           horizontal = {
