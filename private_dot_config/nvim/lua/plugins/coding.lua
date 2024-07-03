@@ -21,7 +21,7 @@ return {
         documentation = cmp.config.window.bordered(),
       }
 
-      opts.mapping = vim.tbl_extend("force", opts.mapping, {
+      opts.mapping = vim.tbl_extend("force", opts.mapping or {}, {
         ["<CR>"] = {}, -- Don't select on 'Enter'
       })
 

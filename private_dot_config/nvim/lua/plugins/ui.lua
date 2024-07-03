@@ -70,7 +70,7 @@ return {
   {
     "rcarriga/nvim-notify",
     keys = {
-      { "<leader>N", "<Cmd>Telescope notify<CR>", desc = "Notifications" },
+      { "<leader>sN", "<Cmd>Telescope notify<CR>", desc = "Notifications" },
     },
     opts = {
       stages = "fade_in_slide_out",
@@ -109,7 +109,7 @@ return {
       vim.g.rainbow_delimiters = { highlight = highlight }
 
       opts.indent = {}
-      opts.scope = vim.tbl_extend("force", opts.scope, {
+      opts.scope = vim.tbl_extend("force", opts.scope or {}, {
         highlight = highlight,
       })
 
