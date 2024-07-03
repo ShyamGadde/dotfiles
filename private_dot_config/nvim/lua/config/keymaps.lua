@@ -48,6 +48,11 @@ map("n", "<leader>gF", function()
   LazyVim.lazygit({ args = { "-f", vim.trim(git_path) } })
 end, { desc = "Lazygit Current File History" })
 
+-- Lazydocker
+map("n", "<leader>D", function()
+  LazyVim.terminal.open({ "lazydocker" }, { cwd = LazyVim.root.get(), esc_esc = false, ctrl_hjkl = false })
+end, { desc = "Lazydocker" })
+
 -- Floating terminal
 local lazyterm = function()
   LazyVim.terminal(nil, { cwd = LazyVim.root() })
