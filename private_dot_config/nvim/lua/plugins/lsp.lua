@@ -14,6 +14,13 @@ return {
       },
 
       servers = {
+        hyprls = {
+          mason = false,
+          root_dir = function()
+            return vim.fn.getcwd()
+          end,
+        },
+
         lua_ls = {
           -- mason = false, -- Set to false if you don't want this server to be installed with mason
           -- keys = {}, -- Use this to add any additional keymaps for specific lsp servers
@@ -27,11 +34,19 @@ return {
           },
         },
 
-        hyprls = {
-          mason = false,
-          root_dir = function()
-            return vim.fn.getcwd()
-          end,
+        basedpyright = {
+          settings = {
+            basedpyright = {
+              analysis = {
+                autoImportCompletions = true,
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "openFilesOnly",
+                -- FIX: This doesn't disable diagnostics
+                ignore = { "*" },
+              },
+            },
+          },
         },
 
         typos_lsp = {

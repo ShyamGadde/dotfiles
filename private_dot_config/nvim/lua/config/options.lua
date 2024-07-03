@@ -5,6 +5,9 @@
 vim.g.lazyvim_picker = "telescope"
 vim.g.root_spec = { { ".git", "lua" }, "lsp", "cwd" }
 
+vim.g.lazyvim_python_lsp = "basedpyright"
+vim.g.lazyvim_python_ruff = "ruff_lsp"
+
 local opt = vim.opt
 
 opt.clipboard = ""
