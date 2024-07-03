@@ -89,5 +89,13 @@ return {
     keys = {
       { "<leader>U", "<Cmd>UndotreeToggle<CR>", desc = "Undo Tree" },
     },
+    config = function()
+      vim.g.undotree_WindowLayout = 2
+      vim.g.undotree_SetFocusWhenToggle = 1
+      vim.g.undotree_SplitWidth = 35
+      vim.g.undotree_DiffpanelHeight = 15
+      vim.g.undotree_DiffCommand = "diff --unified=0"
+      -- vim.g.undotree_DiffCommand = "git diff --no-index --unified=0 --patience"
+    end,
   },
 }
