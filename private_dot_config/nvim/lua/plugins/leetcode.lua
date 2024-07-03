@@ -35,7 +35,7 @@ return {
 
     local update_repo = function()
       local repo_path = opts.storage.home
-      local title = "leetcode.nvim"
+      local noti_title = "leetcode.nvim"
 
       -- NOTE: This script sometimes may not work as expected with more than one change.
       -- If there are multiple changes, e.g., if a file is already staged and there is also a new file,
@@ -79,7 +79,7 @@ return {
         repo_path
       )
 
-      vim.notify("Updating Repository...", 2, { title = title })
+      vim.notify("Updating Repository...", 2, { title = noti_title })
 
       local stdout = {}
       local stderr = {}
@@ -110,12 +110,12 @@ return {
         on_exit = function(_, exit_code)
           if exit_code == 0 then
             vim.notify(table.concat(stdout, "\n"), 2, {
-              title = title,
+              title = noti_title,
               icon = "",
             })
           else
             vim.notify(table.concat(stderr, "\n"), 4, {
-              title = title,
+              title = noti_title,
             })
           end
         end,
@@ -131,7 +131,7 @@ return {
         r = { "<Cmd> Leet run <CR>", "Run Solution" },
         s = { "<Cmd> Leet submit <CR>", "Submit Solution" },
         R = { "<Cmd> Leet last_submit <CR>", "Retrieve Last Submitted Code" },
-        b = { "<Cmd> Leet open <CR>", "Open in browser" },
+        o = { "<Cmd> Leet open <CR>", "Open in browser" },
         q = { "<Cmd> Leet exit <CR>", "Quit" },
         u = { update_repo, "Update Repository (Commit and Push)" },
       },
