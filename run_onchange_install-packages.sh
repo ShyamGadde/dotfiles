@@ -10,6 +10,7 @@ PACKAGES=(
     fd
     fzf
     git
+    git-delta
     git-lfs
     github-cli
     jq
