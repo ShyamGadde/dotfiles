@@ -56,10 +56,6 @@ return {
     --   { "s", mode = { "n", "x", "o" }, false },
     -- },
     opts = {
-      jump = {
-        -- automatically jump when there is only one match
-        autojump = true,
-      },
       modes = {
         char = {
           -- hide after jump when not using jump labels
