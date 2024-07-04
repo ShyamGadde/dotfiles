@@ -1,7 +1,3 @@
-#
-# ~/.bashrc
-#
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -27,7 +23,7 @@ shopt -s globstar
 PS1='[\u@\h \W]\$ '
 
 if [ -f $XDG_CONFIG_HOME/zsh/aliases ]; then
-    . $XDG_CONFIG_HOME/zsh/aliases
+  . $XDG_CONFIG_HOME/zsh/aliases
 fi
 
 # enable programmable completion features (you don't need to enable
