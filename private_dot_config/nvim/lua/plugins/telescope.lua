@@ -15,7 +15,7 @@ return {
         desc = "Find Sibling Files of Current File",
       },
       {
-        "<leader>fp",
+        "<leader>fP",
         function()
           require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
         end,
