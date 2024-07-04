@@ -1,8 +1,6 @@
 vim.filetype.add({
   extension = {},
-  filename = {
-    ["dot_zshrc"] = "zsh",
-  },
+  filename = {},
   pattern = {
     [".*%.hl"] = "hyprlang",
     ["hypr.*%.conf"] = "hyprlang",
