@@ -3,8 +3,8 @@ return {
     "nvim-telescope/telescope.nvim",
     keys = {
       -- find
-      { "<leader>ff", LazyVim.pick("auto", { root = false }), desc = "Find Files (cwd)" },
-      { "<leader>fF", LazyVim.pick("auto"), desc = "Find Files (Root Dir)" },
+      { "<leader>ff", LazyVim.pick("find_files", { root = false }), desc = "Find Files (cwd)" },
+      { "<leader>fF", LazyVim.pick("find_files"), desc = "Find Files (Root Dir)" },
       { "<leader>fr", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
       { "<leader>fR", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
       {
@@ -55,6 +55,7 @@ return {
           -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
           find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
           default_text = line,
+          root = false,
         })()
       end
 
