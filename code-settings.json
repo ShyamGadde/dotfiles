@@ -62,6 +62,14 @@
   // =====================
   "accessibility.voice.keywordActivation": "quickChat",
   "inlineChat.mode": "live",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "inlineChat.experimental.textButtons": true,
   // =====================
   // Emmet
   // =====================
@@ -84,13 +92,6 @@
   // GitLens
   // ================================
   "gitlens.blame.fontFamily": "'Monaspace Xenon'",
-  // ========================
-  // Highlight Matching Tag
-  // ========================
-  "highlight-matching-tag.showPath": false,
-  "highlight-matching-tag.showRuler": false,
-  "highlight-matching-tag.highlightSelfClosing": true,
-  "highlight-matching-tag.highlightFromContent": true,
   // ========================
   // Indent Rainbow
   // ========================
@@ -117,23 +118,6 @@
   "notebook.editorOptionsCustomizations": {},
   "notebook.output.textLineLimit": 500,
   // ========================
-  // LeetCode
-  // ========================
-  "leetcode.defaultLanguage": "python3",
-  "leetcode.filePath": {
-    "default": {
-      "folder": "${id}. ${name}",
-      "filename": "solution.${ext}"
-    }
-  },
-  "leetcode.nodePath": ".nvm/versions/node/v21.6.0/bin/node",
-  "leetcode.workspaceFolder": "/home/shyam/workspace/leetcode",
-  "leetcode.showDescription": "Both",
-  "leetcode.hint.configWebviewMarkdown": false,
-  "leetcode.hint.commentDescription": false,
-  "leetcode.hint.commandShortcut": false,
-  "leetcode.showLocked": true,
-  // ========================
   // Markdown
   // ========================
   "markdown.extension.print.theme": "dark",
@@ -155,6 +139,7 @@
   // ========================
   // Sourcery
   // ========================
+  // FIX: Remove token and use chezmoi template maybe.
   "sourcery.token": "user_sNW4378iYuuqfIxtyBokBHzcmPOJlSD3ZsT4y_VWzagk8_9ZvaMmS48WzDM",
   "sourcery.codeLens": false,
   // ========================
@@ -172,9 +157,9 @@
   // Todo Tree
   // ========================
   "todo-tree.general.showActivityBarBadge": true,
-  "todo-tree.general.tags": ["TODO:", "FIXME:"],
+  "todo-tree.general.tags": ["TODO:", "FIX:"],
   "todo-tree.highlights.customHighlight": {
-    "FIXME:": {
+    "FIX:": {
       "icon": "flame",
       "background": "#f00",
       "iconColour": "#f00",
@@ -205,16 +190,6 @@
   // ========================
   // Editor settings
   // ========================
-  //---
-  //"editor.fontFamily": "'CaskaydiaCove Nerd Font', Consolas, 'Courier New', monospace",
-  //"editor.fontLigatures": "'calt', 'ss01', 'ss19'",
-  //---
-  //"editor.fontFamily": "'VictorMono Nerd Font', monospace",
-  //"editor.fontWeight": "600",
-  //---
-  //"editor.fontFamily": "'FiraCode Nerd Font', monospace",
-  //"editor.fontLigatures": "'cv01', 'cv02', 'cv14', 'zero', 'ss03', 'ss05', 'cv31', 'cv30', 'ss08'",
-  //---
   "editor.fontFamily": "'JetBrainsMono Nerd Font', monospace",
   "editor.fontLigatures": "'calt', 'ss19', 'cv02', 'cv04', 'cv05', 'cv06', 'cv07', 'cv08', 'cv09', 'cv10', 'cv11', 'cv12', 'cv17', 'cv18', 'cv19', 'cv20'",
   "editor.inlayHints.fontFamily": "'Monaspace Xenon'",
@@ -274,7 +249,7 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "files.associations": {
-    "*.css": "tailwindcss"
+    "*.css": "css"
   },
   // =====================
   // Minimap
@@ -291,10 +266,17 @@
   "scm.defaultViewMode": "tree",
   "github.gitProtocol": "ssh",
   "git.mergeEditor": true,
+  "scm.experimental.showHistoryGraph": true,
   // =====================
   // Zen mode
   // =====================
   "zenMode.hideLineNumbers": false,
+  // =====================
+  // Workbench
+  // =====================
+  "explorer.compactFolders": false,
+  "explorer.confirmDragAndDrop": false,
+  "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {},
   "workbench.editor.wrapTabs": true,
@@ -304,11 +286,20 @@
   },
   "workbench.startupEditor": "readme",
   "workbench.tree.enableStickyScroll": true,
-  "explorer.compactFolders": false,
+  "workbench.experimental.enableNewProfilesUI": true,
   "window.titleBarStyle": "custom",
   "window.menuBarVisibility": "compact",
   "window.commandCenter": true,
+  "window.customTitleBarVisibility": "auto",
+  "window.newWindowProfile": "Default",
   //"window.density.editorTabHeight": "compact",
+  // =====================
+  // React
+  // =====================
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "reactSnippets.settings.importReactOnTop": false,
   // =====================
   // JavaScript
   // =====================
@@ -413,20 +404,7 @@
   // Miscelleneous settings
   // ==========================
   "telemetry.telemetryLevel": "off",
-  "explorer.confirmDragAndDrop": false,
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.untrustedFiles": "open",
-  "reactSnippets.settings.importReactOnTop": false,
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "workbench.colorTheme": "Catppuccin Mocha",
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": false,
-    "markdown": true,
-    "scminput": false
-  },
-  "github.copilot.editor.enableAutoCompletions": true,
-  "window.customTitleBarVisibility": "auto"
+  "accessibility.underlineLinks": true
 }
