@@ -24,7 +24,7 @@ return {
       ["python3"] = {
         -- before = true,
         before = {
-          "from typing import List",
+          "from typing import List, Optional",
         },
       },
     },
