@@ -66,6 +66,21 @@ return {
     },
   },
 
+  -- TODOs
+  {
+    "folke/todo-comments.nvim",
+    keys = {
+      {
+        "<leader>xt",
+        "<cmd>Trouble todo toggle filter = {tag = {TODO,FIX,FIXME}}<cr>",
+        desc = "Todo/Fix/Fixme (Trouble)",
+      },
+      { "<leader>xT", "<cmd>Trouble todo toggle<cr>", desc = "Todo (Trouble)" },
+      { "<leader>st", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+      { "<leader>sT", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+    },
+  },
+
   -- Statistics
   {
     "wakatime/vim-wakatime",
