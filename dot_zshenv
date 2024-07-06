@@ -11,11 +11,14 @@ export LIBVIRT_DEFAULT_URI='qemu:///system'
 
 # Set $PATH if ~/.local/bin exist
 if [ -d "$HOME/.local/bin" ]; then
-	export PATH=$HOME/.local/bin:$PATH
+    export PATH=$HOME/.local/bin:$PATH
 fi
 
 #GO
-export PATH=$PATH:$(go env GOPATH)/bin
+if command -v go &> /dev/null; then
+    GOPATH="$(go env GOPATH)"
+    export PATH=$PATH:$GOPATH/bin
+fi
 
 # Icons for lf
 export LF_ICONS="\
