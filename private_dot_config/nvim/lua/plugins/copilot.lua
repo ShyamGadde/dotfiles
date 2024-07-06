@@ -27,7 +27,7 @@ return {
       table.insert(opts.right, {
         ft = "copilot-chat",
         title = "Copilot Chat",
-        size = { width = 50 },
+        size = { width = 70 },
       })
     end,
   },
