@@ -68,10 +68,14 @@ map("n", "<leader>fT", lazyterm, { desc = "Terminal (Root Dir)" })
 require("which-key").register({
   ["<leader>t"] = { name = "+terminal" },
 })
-map("n", "<leader>tv", "<Cmd> vsplit | terminal <CR>", { desc = "Open Terminal (Vertical Split)" })
-map("n", "<leader>th", "<Cmd> split | terminal <CR>", { desc = "Open Terminal (Horizontal Split)" })
+map("n", "<leader>tv", "<Cmd>vsplit | terminal<CR>", { desc = "Open Terminal (Vertical Split)" })
+map("n", "<leader>th", "<Cmd>split | terminal<CR>", { desc = "Open Terminal (Horizontal Split)" })
 
 -- Delete single character without copying into register
 map("n", "x", '"_x')
 
-map("n", "<leader>fx", "<Cmd> !chmod +x % <CR>", { desc = "Make Current File Executable" })
+-- Files
+map("n", "<leader>fx", "<Cmd>!chmod +x %<CR>", { desc = "Make Current File Executable" })
+map("n", "<leader>fs", "<Cmd>w<CR>", { desc = "Save File" })
+map("n", "<leader>fd", "<Cmd>!rm %<CR>", { desc = "Delete File" })
+map("n", "<leader>fD", "<Cmd>!rm %<CR><Cmd>bdelete<CR>", { desc = "Delete File and Buffer" })
