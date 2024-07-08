@@ -83,7 +83,8 @@ return {
           },
           i = {
             ["<M-p>"] = action_layout.toggle_preview,
-            ["<a-h>"] = find_files_with_hidden,
+            -- ["<a-h>"] = find_files_with_hidden,
+            ["<a-h>"] = false,
           },
         },
       })
@@ -91,6 +92,13 @@ return {
       opts.pickers = vim.tbl_deep_extend("force", opts.pickers or {}, {
         current_buffer_fuzzy_find = {
           previewer = false,
+        },
+        find_files = {
+          mappings = {
+            i = {
+              ["<C-h>"] = find_files_with_hidden,
+            },
+          },
         },
       })
     end,
