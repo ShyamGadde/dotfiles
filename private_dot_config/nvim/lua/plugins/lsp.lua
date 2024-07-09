@@ -15,7 +15,6 @@ return {
 
       servers = {
         hyprls = {
-          mason = false,
           root_dir = function()
             return vim.fn.getcwd()
           end,
