@@ -1,5 +1,4 @@
 # Color
-alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='ugrep --color=auto'
@@ -49,7 +48,7 @@ alias ..='cd ..'
 
 alias vim='nvim'
 
-alias lc="$SHELL -c \"cd ~/Workspace/leetcode; nvim lc\""
+alias lc="\$SHELL -c \"cd ~/Workspace/leetcode; nvim lc\""
 
 alias cm='chezmoi'
 alias cmu='chezmoi re-add'
@@ -59,7 +58,7 @@ alias cp='cp -iv'
 alias rm='rm -iv'
 alias mkdir='mkdir -pv'
 
-alias edit-grub="sudo $EDITOR /etc/default/grub"
+alias edit-grub="sudo \$EDITOR /etc/default/grub"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 alias lg='lazygit'
@@ -102,7 +101,7 @@ function hyprrc() {
 }
 
 function mcd() {
-    mkdir -p "$1" && cd "$1"
+    mkdir -p "$1" && cd "$1" || return
 }
 
 # Convert filenames and folder names to kebab-case
