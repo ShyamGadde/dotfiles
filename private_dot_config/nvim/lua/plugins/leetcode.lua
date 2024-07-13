@@ -122,20 +122,18 @@ return {
       })
     end
 
-    require("which-key").register({
-      ["<leader>l"] = {
-        name = "+leetcode",
-        d = { "<Cmd> Leet desc toggle <CR>", "Toggle Description" },
-        m = { "<Cmd> Leet menu <CR>", "Open Menu" },
-        i = { "<Cmd> Leet info <CR>", "Show Question Information" },
-        r = { "<Cmd> Leet run <CR>", "Run Solution" },
-        R = { "<Cmd> Leet reset <CR>", "Reset Solution" },
-        s = { "<Cmd> Leet submit <CR>", "Submit Solution" },
-        l = { "<Cmd> Leet last_submit <CR>", "Retrieve Last Submitted Code" },
-        o = { "<Cmd> Leet open <CR>", "Open in browser" },
-        q = { "<Cmd> Leet exit <CR>", "Quit" },
-        u = { update_repo, "Update Repository (Commit and Push)" },
-      },
+    require("which-key").add({
+      { "<leader>l", group = "leetcode", icon = "󱁊" },
+      { "<leader>lR", "<Cmd> Leet reset <CR>", desc = "Reset Solution", icon = "" },
+      { "<leader>ld", "<Cmd> Leet desc toggle <CR>", desc = "Toggle Description" },
+      { "<leader>li", "<Cmd> Leet info <CR>", desc = "Show Question Information" },
+      { "<leader>ll", "<Cmd> Leet last_submit <CR>", desc = "Retrieve Last Submitted Code" },
+      { "<leader>lm", "<Cmd> Leet menu <CR>", desc = "Open Menu", icon = "󰍜" },
+      { "<leader>lo", "<Cmd> Leet open <CR>", desc = "Open in browser", icon = "󰖟" },
+      { "<leader>lq", "<Cmd> Leet exit <CR>", desc = "Quit" },
+      { "<leader>lr", "<Cmd> Leet run <CR>", desc = "Run Solution", icon = "" },
+      { "<leader>ls", "<Cmd> Leet submit <CR>", desc = "Submit Solution", icon = "󰅧" },
+      { "<leader>lu", update_repo, desc = "Update Repository (Commit and Push)", icon = "" },
     })
   end,
 }

@@ -1,4 +1,12 @@
 return {
+  -- WhichKey
+  {
+    "folke/which-key.nvim",
+    opts = {
+      preset = "modern",
+    },
+  },
+
   -- File Explorer
   {
     "nvim-neo-tree/neo-tree.nvim",
