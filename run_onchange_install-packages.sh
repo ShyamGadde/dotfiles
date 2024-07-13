@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 PACKAGES=(
+    atuin
     base-devel
     bash-completion
     bat
