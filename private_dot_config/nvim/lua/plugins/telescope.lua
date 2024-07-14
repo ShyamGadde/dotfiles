@@ -3,8 +3,8 @@ return {
     "nvim-telescope/telescope.nvim",
     keys = {
       -- find
-      { "<leader>ff", LazyVim.pick("find_files", { root = false }), desc = "Find Files (cwd)" },
-      { "<leader>fF", LazyVim.pick("find_files"), desc = "Find Files (Root Dir)" },
+      { "<leader>ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
+      { "<leader>fF", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
       { "<leader>fr", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
       { "<leader>fR", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
       {
@@ -48,17 +48,6 @@ return {
       table.insert(vimgrep_arguments, "--glob")
       table.insert(vimgrep_arguments, "!**/.git/*")
 
-      local find_files_with_hidden = function()
-        local action_state = require("telescope.actions.state")
-        local line = action_state.get_current_line()
-        LazyVim.pick("find_files", {
-          -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-          default_text = line,
-          root = false,
-        })()
-      end
-
       local action_layout = require("telescope.actions.layout")
 
       opts.defaults = vim.tbl_deep_extend("force", opts.defaults or {}, {
@@ -83,8 +72,6 @@ return {
           },
           i = {
             ["<M-p>"] = action_layout.toggle_preview,
-            -- ["<a-h>"] = find_files_with_hidden,
-            ["<a-h>"] = false,
           },
         },
       })
@@ -92,13 +79,6 @@ return {
       opts.pickers = vim.tbl_deep_extend("force", opts.pickers or {}, {
         current_buffer_fuzzy_find = {
           previewer = false,
-        },
-        find_files = {
-          mappings = {
-            i = {
-              ["<C-h>"] = find_files_with_hidden,
-            },
-          },
         },
       })
     end,
