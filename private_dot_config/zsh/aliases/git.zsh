@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 alias gst='git status'
 alias ga='git add'
 alias gaa='git add -A'
@@ -15,10 +17,12 @@ alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commi
 alias gunwip='git rev-list --max-count=1 --format="%s" HEAD | grep -q "\--wip--" && git reset HEAD~1'
 # Similar to `gunwip` but recursive "Unwips" all recent `--wip--` commits not just the last one
 function gunwipall() {
-    local _commit=$(git log --grep='--wip--' --invert-grep --max-count=1 --format=format:%H)
+    local _commit
+
+    _commit=$(git log --grep='--wip--' --invert-grep --max-count=1 --format=format:%H)
 
     # Check if a commit without "--wip--" was found and it's not the same as HEAD
     if [[ "$_commit" != "$(git rev-parse HEAD)" ]]; then
-        git reset $_commit || return 1
+        git reset "$_commit" || return 1
     fi
 }

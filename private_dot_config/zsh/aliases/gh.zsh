@@ -1,4 +1,8 @@
+# shellcheck shell=bash
+
 if gh extension list | grep -q 'github/gh-copilot'; then
+    eval "$(gh copilot alias -- zsh)"
+
     copilot_shell_suggest() {
         ghcs -t shell "$@"
     }
