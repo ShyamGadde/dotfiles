@@ -1,20 +1,21 @@
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'j' down-line-or-history
-bindkey -M menuselect 'k' up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
+# shellcheck shell=zsh
 
-#bindkey '^R' history-incremental-pattern-search-backward # Ctrl + R (Prefer fzf over this)
+# Use vim keys in tab complete menu:
+# bindkey -M menuselect 'h' vi-backward-char
+# bindkey -M menuselect 'j' down-line-or-history
+# bindkey -M menuselect 'k' up-line-or-history
+# bindkey -M menuselect 'l' vi-forward-char
 
 # WARN: Figure out what the heck this is
-typeset -g -A key
-if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
-    autoload -Uz add-zle-hook-widget
-    function zle_application_mode_start { echoti smkx }
-    function zle_application_mode_stop { echoti rmkx }
-    add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
-    add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
-fi
+
+# typeset -g -A key
+# if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
+#     autoload -Uz add-zle-hook-widget
+#     function zle_application_mode_start { echoti smkx }
+#     function zle_application_mode_stop { echoti rmkx }
+#     add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+#     add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+# fi
 
 # [Backspace] - delete backward
 bindkey -M emacs '^?' backward-delete-char
@@ -81,11 +82,3 @@ fi
 
 # [Control-Backspace] - delete word backward
 bindkey -M viins '^H' backward-kill-word
-
-# History substring search
-bindkey -M emacs '^P' history-substring-search-up
-bindkey -M emacs '^N' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
-bindkey -M viins "${terminfo[kcuu1]}" history-substring-search-up
-bindkey -M viins "${terminfo[kcud1]}" history-substring-search-down

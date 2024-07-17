@@ -25,9 +25,6 @@ PACKAGES=(
     tmux
     ugrep
     zoxide
-    zsh-autosuggestions
-    zsh-completions
-    zsh-history-substring-search
 )
 
 sudo pacman -Syu
