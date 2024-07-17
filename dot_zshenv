@@ -1,3 +1,5 @@
+# shellcheck shell=zsh
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_PICTURES_DIR="$HOME/Pictures"
 export XDG_SCREENSHOTS_DIR="$XDG_PICTURES_DIR/Screenshots"
@@ -9,16 +11,8 @@ export VISUAL="nvim"
 export MANPAGER="nvim +Man!"
 export LIBVIRT_DEFAULT_URI='qemu:///system'
 
-# Set $PATH if ~/.local/bin exist
-if [ -d "$HOME/.local/bin" ]; then
-    export PATH=$HOME/.local/bin:$PATH
-fi
-
-#GO
-if command -v go &> /dev/null; then
-    GOPATH="$(go env GOPATH)"
-    export PATH=$PATH:$GOPATH/bin
-fi
+# Skip the not really helping Ubuntu global compinit
+export skip_global_compinit=1
 
 # Icons for lf
 export LF_ICONS="\

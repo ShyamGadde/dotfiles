@@ -1,0 +1,12 @@
+# shellcheck shell=zsh
+
+# Set $PATH if ~/.local/bin exist
+if [ -d "$HOME/.local/bin" ]; then
+    export PATH=$HOME/.local/bin:$PATH
+fi
+
+#GO
+if command -v go &> /dev/null; then
+    GOPATH="$(go env GOPATH)"
+    export PATH=$PATH:$GOPATH/bin
+fi
