@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Obsidian
-Exec=/usr/bin/obsidian --ozone-platform=x11 %U
+# Exec=/usr/bin/obsidian --ozone-platform=x11 %U
+Exec=/usr/bin/obsidian %U
 Terminal=false
 Type=Application
 Icon=obsidian
