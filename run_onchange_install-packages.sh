@@ -7,6 +7,7 @@ PACKAGES=(
     bat
     bitwarden-cli
     btop
+    composer
     eza
     fd
     fzf
@@ -24,6 +25,7 @@ PACKAGES=(
     tealdeer
     tmux
     ugrep
+    wget
     zoxide
 )
 
