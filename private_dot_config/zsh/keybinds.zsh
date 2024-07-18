@@ -6,17 +6,6 @@
 # bindkey -M menuselect 'k' up-line-or-history
 # bindkey -M menuselect 'l' vi-forward-char
 
-# WARN: Figure out what the heck this is
-
-# typeset -g -A key
-# if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
-#     autoload -Uz add-zle-hook-widget
-#     function zle_application_mode_start { echoti smkx }
-#     function zle_application_mode_stop { echoti rmkx }
-#     add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
-#     add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
-# fi
-
 # [Backspace] - delete backward
 bindkey -M emacs '^?' backward-delete-char
 bindkey -M viins '^?' backward-delete-char
@@ -34,18 +23,14 @@ else
 fi
 
 # [Home] - Go to beginning of line
-if [[ -n "${terminfo[khome]}" ]]; then
-    bindkey -M emacs "${terminfo[khome]}" beginning-of-line
-    bindkey -M viins "${terminfo[khome]}" beginning-of-line
-    bindkey -M vicmd "${terminfo[khome]}" beginning-of-line
-fi
+bindkey -M emacs '^[[H' beginning-of-line
+bindkey -M viins '^[[H' beginning-of-line
+bindkey -M vicmd '^[[H' beginning-of-line
 
 # [End] - Go to end of line
-if [[ -n "${terminfo[kend]}" ]]; then
-    bindkey -M emacs "${terminfo[kend]}" end-of-line
-    bindkey -M viins "${terminfo[kend]}" end-of-line
-    bindkey -M vicmd "${terminfo[kend]}" end-of-line
-fi
+bindkey -M emacs '^[[F' end-of-line
+bindkey -M viins '^[[F' end-of-line
+bindkey -M vicmd '^[[F' end-of-line
 
 # [PageUp] - Up a line of history
 if [[ -n "${terminfo[kpp]}" ]]; then
