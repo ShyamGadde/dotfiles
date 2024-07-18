@@ -7,7 +7,6 @@ PACKAGES=(
     bat
     bitwarden-cli
     btop
-    composer
     eza
     fd
     fzf
