@@ -5,17 +5,41 @@ if [[ -f /usr/bin/pfetch ]]; then
 fi
 
 # History
-export HISTFILE=~/.cache/zsh_history
-export HISTSIZE=100000
-export SAVEHIST=$HISTSIZE
+HISTFILE=~/.cache/zsh_history
+HISTSIZE=100000
+SAVEHIST=$HISTSIZE
 
 # ZSH options
-setopt noflowcontrol    # Disable Ctrl-S and Ctrl-Q output freezing
-setopt prompt_subst     # Enable command substitution in prompt
-setopt append_history   # This is default but set for share_history
-setopt share_history    # Share history between all sessions
-setopt extended_history # Save each command's beginning timestamp and duration
+setopt append_history         # This is default but set for share_history
+setopt share_history          # Share history between all sessions
+setopt extended_history       # Save each command's beginning timestamp and duration
+setopt hist_ignore_all_dups   # Ignore duplicates in history
+setopt hist_save_no_dups      # Do not save duplicates in history
+setopt hist_find_no_dups      # Do not show duplicates when searching history
+setopt hist_expire_dups_first # Remove duplicates first when trimming history
+setopt hist_ignore_space      # Ignore commands that start with a space
+setopt no_flow_control        # Disable Ctrl-S and Ctrl-Q output freezing
+setopt prompt_subst           # Enable command substitution in prompt
+setopt long_list_jobs         # Display PID of jobs when suspending them
+setopt no_nomatch             # Do not fail on failed globbing and avoid the 'zsh: no matches found...'
+setopt notify                 # Report the status of background jobs immediately
+setopt hash_list_all          # Do not ignore the path when hashing commands
+setopt complete_in_word       # Allow completion within a word
+setopt interactive_comments   # Allow comments even in interactive shells
+setopt extended_glob          # Enable extended globbing
+setopt no_beep                # Disable beep on error
+setopt no_glob_dots           # Do not include . and .. in globbing
+setopt no_case_glob           # Case insensitive globbing
+setopt rc_expand_param        # Array expansion with parameters
+setopt numeric_glob_sort      # Sort filenames numerically when it makes sense
+setopt correct                # Auto correct commands
 
+# Remove duplicates in path variables
+typeset -U path cdpath fpath manpath
+
+# Modifying WORDCHARS to change word boundaries
+# Removing '/', '.', ':', '_', and '-' from WORDCHARS so they're not considered part of a word
+WORDCHARS=${WORDCHARS//[\/.:_-]/}
 # ----------------
 # Vi mode
 # ----------------
@@ -78,12 +102,12 @@ export PYENV_ROOT="$HOME/.pyenv"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # NVM
-# TODO: Check if completions are correctly loaded for zinit
+# FIX: completions not working with zinit
 export NVM_COMPLETION=true
+export NVM_AUTO_USE=true # Automatically use the version of node specified in .nvmrc
 export NVM_LAZY_LOAD=true
 export NVM_LAZY_LOAD_EXTRA_COMMANDS=(
     'code'
-    'vi'
     'vim'
     'nvim'
 )
