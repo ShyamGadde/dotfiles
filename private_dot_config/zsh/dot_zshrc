@@ -1,6 +1,6 @@
 # shellcheck shell=zsh
 
-if [[ -f /usr/bin/pfetch ]]; then
+if command -v pfetch &> /dev/null; then
     pfetch
 fi
 
