@@ -45,6 +45,7 @@ return {
         neotree = true,
         noice = true,
         notify = true,
+        nvim_surround = true,
         rainbow_delimiters = true,
         semantic_tokens = true,
         telescope = {
