@@ -1,9 +1,9 @@
 # shellcheck shell=zsh
 
-{{- if eq .chezmoi.os "darwin" -}}
+{{ if eq .chezmoi.os "darwin" -}}
 # For Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
-{{- end -}}
+{{- end }}
 
 # Set $PATH if ~/.local/bin exist
 if [ -d "$HOME/.local/bin" ]; then
