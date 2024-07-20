@@ -137,12 +137,6 @@
   "projectManager.git.baseFolders": ["$home/Workspace/projects"],
   "projectManager.sortList": "Recent",
   // ========================
-  // Sourcery
-  // ========================
-  // FIX: Remove token and use chezmoi template maybe.
-  "sourcery.token": "user_sNW4378iYuuqfIxtyBokBHzcmPOJlSD3ZsT4y_VWzagk8_9ZvaMmS48WzDM",
-  "sourcery.codeLens": false,
-  // ========================
   // Surround
   // ========================
   "surround.custom": {
