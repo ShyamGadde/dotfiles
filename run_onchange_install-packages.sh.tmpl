@@ -6,7 +6,7 @@ PACKAGES=(
     lazydocker
     lf
     pfetch-rs
-    {{ else if eq .chezmoi.osRelease.id "arch" -}}
+    {{- else if eq .chezmoi.osRelease.id "arch" -}}
     base-devel
     github-cli
     lazydocker-bin
@@ -41,7 +41,13 @@ PACKAGES=(
 
 {{ if eq .chezmoi.os "darwin" -}}
 brew update && brew upgrade
-brew install "${PACKAGES[@]}"
+for pkg in "${PACKAGES[@]}"; do
+    if ! brew list --formula "$pkg" &> /dev/null; then
+        brew install "$pkg"
+    else
+        echo "## $pkg is already installed"
+    fi
+done
 {{ else if eq .chezmoi.osRelease.id "arch" -}}
 sudo pacman -Syu
 paru -S --noconfirm --needed "${PACKAGES[@]}"
