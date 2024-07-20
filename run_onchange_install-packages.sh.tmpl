@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+PACKAGES=(
+    {{ if eq .chezmoi.os "darwin" -}}
+    gh
+    lazydocker
+    lf
+    pfetch-rs
+    {{ else if eq .chezmoi.osRelease.id "arch" -}}
+    base-devel
+    github-cli
+    lazydocker-bin
+    lf-bin
+    man-pages
+    pfetch-rs-bin
+    {{- end }}
+    atuin
+    bash-completion
+    bat
+    bitwarden-cli
+    btop
+    chezmoi
+    eza
+    fd
+    fzf
+    git
+    git-delta
+    git-lfs
+    jq
+    lazygit
+    man-db
+    neovim
+    ripgrep
+    starship
+    tealdeer
+    tmux
+    ugrep
+    wget
+    zoxide
+)
+
+{{ if eq .chezmoi.os "darwin" -}}
+brew update && brew upgrade
+brew install "${PACKAGES[@]}"
+{{ else if eq .chezmoi.osRelease.id "arch" -}}
+sudo pacman -Syu
+paru -S --noconfirm --needed "${PACKAGES[@]}"
+{{- end }}
