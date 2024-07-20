@@ -1,5 +1,20 @@
+README.md
+install.sh
 code-settings.json
 code-keybindings.json
-install.sh
-README.md
+# TODO: Remove
 .config/nvim-old/
+# Ignore on non Linus machines
+{{- if ne .chezmoi.os "linux" }}
+.gtkrc-2.0
+.mime.types
+.config/{hypr,Code,obsidian,rofi,swappy}
+.config/microsoft-edge-stable-flags.conf
+.config/user-dirs.dirs
+.local/share/{applications,rofi}
+.vscode/argv.json
+{{- end }}
+# Ignore on non MacOS machines
+{{- if ne .chezmoi.os "darwin" }}
+Library
+{{- end }}
