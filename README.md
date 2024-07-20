@@ -1,5 +1,7 @@
+# Dotfiles
+
 ```sh
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply ShyamGadde
+sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply ShyamGadde
 ```
 
 OR
@@ -11,7 +13,7 @@ chezmoi init --apply ShyamGadde
 OR
 
 ```sh
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --one-shot ShyamGadde
+sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --one-shot ShyamGadde
 ```
 
 OR
