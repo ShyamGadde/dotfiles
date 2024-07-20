@@ -6,4 +6,11 @@ HOMEBREW_CASKS=(
     font-monocraft
 )
 
-brew install --cask "${HOMEBREW_CASKS[@]}"
+for pkg in "${HOMEBREW_CASKS[@]}"; do
+    if ! brew list --cask "$pkg" &> /dev/null; then
+        echo "Installing $pkg..."
+        brew install --cask "$pkg"
+    else
+        echo "$pkg is already installed"
+    fi
+done
