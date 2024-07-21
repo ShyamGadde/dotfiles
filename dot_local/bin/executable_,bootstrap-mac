@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+HOMEBREW_CASKS=(
+    font-jetbrains-mono-nerd-font
+    font-monocraft
+    font-recursive
+    kitty
+    obsidian
+    visual-studio-code
+)
+
+for pkg in "${HOMEBREW_CASKS[@]}"; do
+    if ! brew list --cask "$pkg" &> /dev/null; then
+        echo "Installing $pkg..."
+        brew install --cask "$pkg"
+    else
+        echo "$pkg is already installed"
+    fi
+done
+
+if command -v gh &> /dev/null && ! [[ -d ~/Braindump ]]; then
+    gh repo clone ShyamGadde/Braindump ~/Braindump
+else
+    if ! command -v gh &> /dev/null; then
+        echo "gh (GitHub CLI) is not installed, skipping Obsidian vault setup..."
+    elif [[ -d ~/Braindump ]]; then
+        echo "Directory ~/Braindump already exists, skipping Obsidian vault setup..."
+    fi
+fi
