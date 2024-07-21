@@ -11,7 +11,8 @@ return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     opts = {
-      auto_insert_mode = false,
+      auto_insert_mode = true,
+      auto_follow_cursor = true,
       show_help = true,
       window = {
         width = 0.3,
