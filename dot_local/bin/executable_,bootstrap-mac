@@ -9,16 +9,22 @@ HOMEBREW_CASKS=(
     visual-studio-code
 )
 
-for pkg in "${HOMEBREW_CASKS[@]}"; do
-    if ! brew list --cask "$pkg" &> /dev/null; then
-        echo "Installing $pkg..."
-        brew install --cask "$pkg"
-    else
-        echo "$pkg is already installed"
-    fi
-done
+if command -v brew &> /dev/null; then
+    echo "Installing Homebrew casks..."
+    for cask in "${HOMEBREW_CASKS[@]}"; do
+        if ! brew list --cask "$cask" &> /dev/null; then
+            echo "Installing $cask..."
+            brew install --cask "$cask"
+        else
+            echo "$cask is already installed"
+        fi
+    done
+else
+    echo "Homebrew is not installed, skipping Homebrew cask installation..."
+fi
 
 if command -v gh &> /dev/null && ! [[ -d ~/Braindump ]]; then
+    echo "Cloning Obsidian vault..."
     gh repo clone ShyamGadde/Braindump ~/Braindump
 else
     if ! command -v gh &> /dev/null; then
