@@ -381,11 +381,30 @@
   "[php]": {
     "editor.tabSize": 2
   },
+  "phpcs.enable": true,
+  // "phpcs.standard": "WordPress",
+  "phpcs.showSources": true,
+  "phpcs.ignorePatterns": [
+    "*/.circleci/*",
+    "*/vendor/*",
+    "*/vendors/*",
+    "*/wp-admin/*",
+    "*/wp-includes/*",
+    "*/mu-plugins/*"
+  ],
+  "phpcbf.enable": true,
+  // "phpcbf.standard": "WordPress",
+  "php-docblocker.useShortNames": false,
   // =====================
   // Markdown
   // =====================
   "[markdown]": {
-    "files.trimTrailingWhitespace": false
+    "files.trimTrailingWhitespace": false,
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    }
   },
   "markdown.preview.fontFamily": "'Recursive Mono Casual Static', apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
   // =====================
