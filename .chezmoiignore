@@ -18,5 +18,5 @@ code-keybindings.json
 # Ignore on non MacOS machines
 {{- if ne .chezmoi.os "darwin" }}
 Library
-.local/bin/bootstrap-mac.sh
+.local/bin/,bootstrap-mac
 {{- end }}
