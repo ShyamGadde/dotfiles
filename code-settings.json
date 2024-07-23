@@ -379,7 +379,8 @@
   // PHP
   // =====================
   "[php]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
   },
   "phpcs.enable": true,
   // "phpcs.standard": "WordPress",
