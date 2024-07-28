@@ -4,13 +4,30 @@ include current-theme.conf
 # END_KITTY_THEME
 
 font_family        JetBrainsMono Nerd Font
+{{ if eq .chezmoi.os "darwin" -}}
 bold_font          JetBrainsMono Nerd Font Bold
 italic_font        JetBrainsMono Nerd Font Italic
 bold_italic_font   JetBrainsMono Nerd Font Bold Italic
+{{- else if eq .chezmoi.osRelease.id "arch" -}}
+bold_font          JetBrainsMono NF Bold
+italic_font        JetBrainsMono NF Italic
+bold_italic_font   JetBrainsMono NF Bold Italic
+{{- end }}
 
+{{ if eq .chezmoi.os "darwin" -}}
+font_size 14.5
+{{- else if eq .chezmoi.osRelease.id "arch" -}}
 font_size 11.0
+{{- end }}
 
 font_features JetBrainsMonoNF-Regular +calt +ss19 +cv02 +cv04 +cv05 +cv06 +cv07 +cv08 +cv09 +cv10 +cv11 +cv12 +cv17 +cv18 +cv19 +cv20
 font_features JetBrainsMonoNF-Bold +calt +ss19 +cv02 +cv04 +cv05 +cv06 +cv07 +cv08 +cv09 +cv10 +cv11 +cv12 +cv17 +cv18 +cv19 +cv20
 font_features JetBrainsMonoNF-Italic +calt +ss19 +cv02 +cv04 +cv05 +cv06 +cv07 +cv08 +cv09 +cv10 +cv11 +cv12 +cv17 +cv18 +cv19 +cv20
 font_features JetBrainsMonoNF-BoldItalic +calt +ss19 +cv02 +cv04 +cv05 +cv06 +cv07 +cv08 +cv09 +cv10 +cv11 +cv12 +cv17 +cv18 +cv19 +cv20
+
+detect_urls yes
+show_hyperlink_targets yes
+underline_hyperlinks always
+
+tab_bar_style powerline
+tab_powerline_style slanted
