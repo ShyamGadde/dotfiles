@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-PACKAGES=(
-    local-by-flywheel # AUR
-    local # brew
-    php
-    composer
-)
