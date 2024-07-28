@@ -14,7 +14,7 @@ for cask in "${HOMEBREW_CASKS[@]}"; do
         echo "Installing $cask..."
         brew install --cask "$cask"
     else
-        echo "$cask is already installed"
+        echo "** $cask is already installed"
     fi
 done
 
