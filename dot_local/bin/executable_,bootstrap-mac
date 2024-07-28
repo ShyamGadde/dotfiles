@@ -9,27 +9,19 @@ HOMEBREW_CASKS=(
     visual-studio-code
 )
 
-if command -v brew &> /dev/null; then
-    echo "Installing Homebrew casks..."
-    for cask in "${HOMEBREW_CASKS[@]}"; do
-        if ! brew list --cask "$cask" &> /dev/null; then
-            echo "Installing $cask..."
-            brew install --cask "$cask"
-        else
-            echo "$cask is already installed"
-        fi
-    done
-else
-    echo "Homebrew is not installed, skipping Homebrew cask installation..."
-fi
+for cask in "${HOMEBREW_CASKS[@]}"; do
+    if ! brew list --cask "$cask" &> /dev/null; then
+        echo "Installing $cask..."
+        brew install --cask "$cask"
+    else
+        echo "$cask is already installed"
+    fi
+done
 
-if command -v gh &> /dev/null && ! [[ -d ~/Braindump ]]; then
+# Setup Obsidian vault
+if ! [[ -d ~/Braindump ]]; then
     echo "Cloning Obsidian vault..."
     gh repo clone ShyamGadde/Braindump ~/Braindump
 else
-    if ! command -v gh &> /dev/null; then
-        echo "gh (GitHub CLI) is not installed, skipping Obsidian vault setup..."
-    elif [[ -d ~/Braindump ]]; then
-        echo "Directory ~/Braindump already exists, skipping Obsidian vault setup..."
-    fi
+    echo "Directory ~/Braindump already exists, skipping Obsidian vault setup..."
 fi
