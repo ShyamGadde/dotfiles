@@ -14,10 +14,6 @@ HOMEBREW_CASKS=(
     local
 )
 
-{{- end }}
-
-{{ if eq .chezmoi.os "darwin" -}}
-
 brew update && brew upgrade
 for pkg in "${PACKAGES[@]}"; do
     if ! brew list --formula "$pkg" &> /dev/null; then
@@ -42,6 +38,9 @@ sudo pacman -Syu
 paru -S --noconfirm --needed "${PACKAGES[@]}"
 
 {{- end }}
+
+export COMPOSER_HOME="$HOME/.composer"
+export PATH=$PATH:$HOME/.composer/vendor/bin
 
 # Install PHP CodeSniffer
 composer global require "squizlabs/php_codesniffer=*"
