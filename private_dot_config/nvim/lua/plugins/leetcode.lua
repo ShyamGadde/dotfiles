@@ -10,7 +10,7 @@ return {
     "MunifTanjim/nui.nvim",
     "nvim-treesitter/nvim-treesitter",
     "rcarriga/nvim-notify",
-    "nvim-tree/nvim-web-devicons",
+    -- "nvim-tree/nvim-web-devicons",
     -- '3rd/image.nvim',
   },
   lazy = leet_arg ~= vim.fn.argv()[1],
