@@ -382,6 +382,7 @@
     "editor.tabSize": 2,
     "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
   },
+  "intelephense.format.braces": "k&r",
   "phpcs.enable": true,
   // "phpcs.standard": "WordPress",
   "phpcs.showSources": true,
