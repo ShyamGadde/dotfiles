@@ -18,6 +18,7 @@ code-keybindings.json
 # Ignore on non MacOS machines
 {{- if ne .chezmoi.os "darwin" }}
 .config/karabiner
+.hushlogin
 .local/bin/,bootstrap-mac
 Library
 {{- end }}
