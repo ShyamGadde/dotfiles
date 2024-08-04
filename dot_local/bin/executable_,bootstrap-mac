@@ -6,6 +6,7 @@ HOMEBREW_CASKS=(
     font-recursive
     kitty
     obsidian
+    rectangle
     visual-studio-code
 )
 
