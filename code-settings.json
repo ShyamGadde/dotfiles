@@ -379,12 +379,12 @@
   // PHP
   // =====================
   "[php]": {
-    "editor.tabSize": 2,
-    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "persoderlind.vscode-phpcbf"
   },
   "intelephense.format.braces": "k&r",
   "phpcs.enable": true,
-  // "phpcs.standard": "WordPress",
+  "phpcs.standard": "WordPress",
   "phpcs.showSources": true,
   "phpcs.ignorePatterns": [
     "*/.circleci/*",
@@ -395,8 +395,8 @@
     "*/mu-plugins/*"
   ],
   "phpcbf.enable": true,
-  // "phpcbf.standard": "WordPress",
-  "php-docblocker.useShortNames": false,
+  "phpcbf.standard": "WordPress",
+  "php-docblocker.useShortNames": true,
   // =====================
   // Markdown
   // =====================
