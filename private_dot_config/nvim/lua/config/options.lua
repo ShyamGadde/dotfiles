@@ -7,7 +7,6 @@ vim.g.root_spec = { { ".git", "lua" }, "lsp", "cwd" }
 
 vim.g.lazyvim_python_lsp = "basedpyright"
 vim.g.lazyvim_python_ruff = "ruff"
-vim.g.lazyvim_php_lsp = "intelephense"
 
 local opt = vim.opt
 
