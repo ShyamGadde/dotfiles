@@ -47,6 +47,7 @@ return {
         notify = true,
         nvim_surround = true,
         rainbow_delimiters = true,
+        render_markdown = true,
         semantic_tokens = true,
         telescope = {
           enabled = true,
