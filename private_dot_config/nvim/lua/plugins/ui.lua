@@ -163,4 +163,14 @@ return {
       },
     },
   },
+
+  {
+    "folke/edgy.nvim",
+    optional = true,
+    opts = {
+      options = {
+        left = { size = 40 },
+      },
+    },
+  },
 }

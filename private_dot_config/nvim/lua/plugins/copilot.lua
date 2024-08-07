@@ -10,6 +10,7 @@ return {
 
   {
     "CopilotC-Nvim/CopilotChat.nvim",
+    optional = true,
     opts = {
       auto_insert_mode = true,
       auto_follow_cursor = true,
@@ -23,6 +24,7 @@ return {
   -- Edgy integration
   {
     "folke/edgy.nvim",
+    optional = true,
     opts = function(_, opts)
       opts.right = opts.right or {}
       table.insert(opts.right, {
