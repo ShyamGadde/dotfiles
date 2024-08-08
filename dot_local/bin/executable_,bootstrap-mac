@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 HOMEBREW_CASKS=(
+    aldente
     font-jetbrains-mono-nerd-font
     font-monocraft
     font-recursive
