@@ -379,6 +379,7 @@
   // PHP
   // =====================
   "[php]": {
+    "editor.insertSpaces": false,
     "editor.tabSize": 4,
     "editor.defaultFormatter": "persoderlind.vscode-phpcbf"
   },
