@@ -12,7 +12,9 @@ end, { desc = "LazyVim Changelog" })
 unmap("n", "<leader>l")
 map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
+--[[
 -- Toggle options
+]]
 map("n", "<leader>uf", function()
   LazyVim.format.toggle(true)
 end, { desc = "Toggle Auto Format (Buffer)" })
@@ -20,7 +22,9 @@ map("n", "<leader>uF", function()
   LazyVim.format.toggle()
 end, { desc = "Toggle Auto Format (Global)" })
 
+--[[
 -- Lazygit
+]]
 map("n", "<leader>gg", function()
   LazyVim.lazygit()
 end, { desc = "Lazygit (cwd)" })
@@ -48,12 +52,16 @@ map("n", "<leader>gF", function()
   LazyVim.lazygit({ args = { "-f", vim.trim(git_path) } })
 end, { desc = "Lazygit Current File History" })
 
+--[[
 -- Lazydocker
+]]
 map("n", "<leader>D", function()
   LazyVim.terminal.open({ "lazydocker" }, { cwd = LazyVim.root.get(), esc_esc = false, ctrl_hjkl = false })
 end, { desc = "Lazydocker" })
 
+--[[
 -- Floating terminal
+]]
 local lazyterm = function()
   LazyVim.terminal(nil, { cwd = LazyVim.root() })
 end
@@ -64,17 +72,23 @@ end, { desc = "Terminal (cwd)" })
 
 map("n", "<leader>fT", lazyterm, { desc = "Terminal (Root Dir)" })
 
+--[[
 -- Neovim Terminal
+]]
 require("which-key").add({
   { "<leader>t", group = "+terminal" },
   { "<leader>tv", "<Cmd>vsplit | terminal<CR>", desc = "Open Terminal (Vertical Split)" },
   { "<leader>th", "<Cmd>split | terminal<CR>", desc = "Open Terminal (Horizontal Split)" },
 })
 
+--[[
 -- Delete single character without copying into register
+-- ]]
 map("n", "x", '"_x')
 
+--[[
 -- Files
+]]
 map("n", "<leader>fx", "<Cmd>!chmod +x %<CR>", { desc = "Make Current File Executable" })
 map("n", "<leader>fs", "<Cmd>w<CR>", { desc = "Save File" })
 map("n", "<leader>fd", "<Cmd>!rm %<CR>", { desc = "Delete File" })
