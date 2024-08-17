@@ -7,10 +7,17 @@ return {
         "css",
         "dockerfile",
         "gitignore",
+        "php",
+        "phpdoc",
       })
 
       -- Autoinstall languages that are not installed
       opts.auto_install = true
+
+      opts.highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = { "php" },
+      }
     end,
   },
 }
