@@ -14,6 +14,38 @@ return {
       },
 
       servers = {
+        basedpyright = {
+          settings = {
+            basedpyright = {
+              analysis = {
+                autoImportCompletions = true,
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "openFilesOnly",
+                -- FIX: This doesn't disable diagnostics
+                ignore = { "*" },
+              },
+            },
+          },
+        },
+
+        emmet_ls = {
+          filetypes = {
+            "css",
+            "eruby",
+            "html",
+            "javascript",
+            "javascriptreact",
+            "less",
+            "sass",
+            "scss",
+            "svelte",
+            "pug",
+            "typescriptreact",
+            "vue",
+          },
+        },
+
         hyprls = {
           root_dir = function()
             return vim.fn.getcwd()
@@ -28,21 +60,6 @@ return {
               diagnostics = {
                 disable = { "missing-fields" },
                 globals = { "vim" },
-              },
-            },
-          },
-        },
-
-        basedpyright = {
-          settings = {
-            basedpyright = {
-              analysis = {
-                autoImportCompletions = true,
-                autoSearchPaths = true,
-                useLibraryCodeForTypes = true,
-                diagnosticMode = "openFilesOnly",
-                -- FIX: This doesn't disable diagnostics
-                ignore = { "*" },
               },
             },
           },
