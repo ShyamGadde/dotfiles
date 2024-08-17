@@ -61,7 +61,7 @@ return {
           prompt_position = "top",
         },
         sorting_strategy = "ascending",
-        -- path_display = { "smart" },
+        path_display = { "smart" },
         dynamic_preview_title = true,
         winblend = 0,
         -- `hidden = true` is not supported in text grep commands.
