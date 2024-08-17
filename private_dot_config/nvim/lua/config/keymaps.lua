@@ -93,3 +93,10 @@ map("n", "<leader>fx", "<Cmd>!chmod +x %<CR>", { desc = "Make Current File Execu
 map("n", "<leader>fs", "<Cmd>w<CR>", { desc = "Save File" })
 map("n", "<leader>fd", "<Cmd>!rm %<CR>", { desc = "Delete File" })
 map("n", "<leader>fD", "<Cmd>!rm %<CR><Cmd>bdelete<CR>", { desc = "Delete File and Buffer" })
+
+--[[
+-- Misc
+--]]
+-- Don't jump when using '*' or '#'
+map("n", "*", "*N")
+map("n", "#", "#N")
