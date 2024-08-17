@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Local
+Exec=/opt/Local/local --ozone-platform=wayland %U
+Terminal=false
+Type=Application
+Icon=local
+StartupWMClass=Local
+Comment=Create local WordPress sites with ease.
+MimeType=x-scheme-handler/flywheel-local;
+Categories=Development;
