@@ -8,6 +8,7 @@ HOMEBREW_CASKS=(
     jetbrains-toolbox
     kitty
     obsidian
+    postman
     rectangle
     visual-studio-code
 )
