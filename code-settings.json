@@ -422,5 +422,6 @@
   "telemetry.telemetryLevel": "off",
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.untrustedFiles": "open",
-  "accessibility.underlineLinks": true
+  "accessibility.underlineLinks": true,
+  "security.promptForLocalFileProtocolHandling": false
 }
