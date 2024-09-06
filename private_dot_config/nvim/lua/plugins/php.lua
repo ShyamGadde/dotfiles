@@ -1,3 +1,5 @@
+local util = require("lspconfig.util")
+
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -9,6 +11,13 @@ return {
     opts = {
       servers = {
         intelephense = {
+          root_dir = function(pattern)
+            local cwd = vim.loop.cwd()
+            local root = util.root_pattern(".wproot", "composer.json", ".git")(pattern)
+
+            -- prefer cwd if root is a descendant
+            return util.path.is_descendant(cwd, root) and cwd or root
+          end,
           settings = {
             intelephense = {
               files = {
