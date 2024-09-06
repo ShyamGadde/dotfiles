@@ -417,7 +417,7 @@
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
   // ==========================
-  // Miscelleneous settings
+  // Miscellaneous settings
   // ==========================
   "telemetry.telemetryLevel": "off",
   "security.workspace.trust.enabled": false,
