@@ -4,6 +4,7 @@ PACKAGES=(
     composer
     {{ if ( and ( eq .chezmoi.os "linux" ) ( eq .chezmoi.osRelease.id "arch" ) ) -}}
     local-by-flywheel
+    tableplus
     {{ end -}}
     php
 )
@@ -12,6 +13,7 @@ PACKAGES=(
 
 HOMEBREW_CASKS=(
     local
+    tableplus
 )
 
 brew update && brew upgrade
