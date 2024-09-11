@@ -26,3 +26,21 @@ gui:
 
   authorColors:
     "*": "#b4befe"
+
+  nerdFontsVersion: "3"
+  showDivergenceFromBaseBranch: "arrowAndNumber"
+
+  spinner:
+    # The frames of the spinner animation.
+    frames:
+      - "⣾"
+      - "⣽"
+      - "⣻"
+      - "⢿"
+      - "⡿"
+      - "⣟"
+      - "⣯"
+      - "⣷"
+
+    # The "speed" of the spinner in milliseconds.
+    rate: 100
