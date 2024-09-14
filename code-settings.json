@@ -283,10 +283,10 @@
   "workbench.experimental.enableNewProfilesUI": true,
   "window.titleBarStyle": "custom",
   "window.menuBarVisibility": "compact",
+  "window.customMenuBarAltFocus": false,
   "window.commandCenter": true,
   "window.customTitleBarVisibility": "auto",
   "window.newWindowProfile": "Default",
-  //"window.density.editorTabHeight": "compact",
   // =====================
   // React
   // =====================
