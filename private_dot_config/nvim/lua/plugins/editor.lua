@@ -4,6 +4,12 @@ return {
     "folke/which-key.nvim",
     opts = {
       preset = "helix",
+      spec = {
+        {
+          mode = "n",
+          { "<leader>t", group = "+terminal" },
+        },
+      },
     },
   },
 
