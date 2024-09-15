@@ -167,6 +167,12 @@
     }
   },
   // ========================
+  // VSCode Neovim
+  // ========================
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  // ========================
   // VSIntellicode
   // ========================
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -192,7 +198,7 @@
   "editor.lineHeight": 24,
   "editor.guides.bracketPairs": "active",
   "editor.bracketPairColorization.enabled": true,
-  "editor.lineNumbers": "on",
+  "editor.lineNumbers": "relative",
   "editor.suggestSelection": "first",
   "editor.wordWrap": "on",
   "editor.linkedEditing": true,
