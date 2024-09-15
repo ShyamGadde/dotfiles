@@ -1,6 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
+    vscode = true,
     opts = {
       formatters_by_ft = {
         fish = {},
