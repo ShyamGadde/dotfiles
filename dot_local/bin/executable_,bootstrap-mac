@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 HOMEBREW_CASKS=(
+    act # Run your GitHub Actions locally
     aldente
     font-jetbrains-mono-nerd-font
     font-monocraft
