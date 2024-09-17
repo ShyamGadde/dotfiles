@@ -387,7 +387,8 @@
   "[php]": {
     "editor.insertSpaces": false,
     "editor.tabSize": 4,
-    "editor.defaultFormatter": "persoderlind.vscode-phpcbf"
+    "editor.defaultFormatter": "persoderlind.vscode-phpcbf",
+    "editor.formatOnSave": false
   },
   "intelephense.format.braces": "k&r",
   "phpcs.enable": true,
