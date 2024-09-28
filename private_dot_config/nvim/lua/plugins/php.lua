@@ -78,7 +78,7 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        php = { "phpcbf" },
+        php = { "phpcbf", "trim_whitespace", "trim_newlines" },
       },
       -- formatters = {
       --   phpcbf = {
