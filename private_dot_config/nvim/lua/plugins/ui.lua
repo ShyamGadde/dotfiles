@@ -108,7 +108,10 @@ return {
 
       vim.g.rainbow_delimiters = { highlight = highlight }
 
-      opts.indent = {}
+      opts.indent = {
+        tab_char = "│",
+      }
+
       opts.scope = vim.tbl_extend("force", opts.scope or {}, {
         highlight = highlight,
       })
