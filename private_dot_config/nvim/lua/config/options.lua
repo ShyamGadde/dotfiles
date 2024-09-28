@@ -24,7 +24,7 @@ vim.diagnostic.config({
   float = { border = "rounded" }, -- Add border to diagnostic popups
 })
 opt.pumblend = 0 -- Popup blend
-opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+opt.listchars = { tab = "󰁔 ", trail = "·", nbsp = "␣" }
 
 -- FIX: These options don't seem to be set for some reason
 -- opt.formatoptions = "jcrqlnt"
