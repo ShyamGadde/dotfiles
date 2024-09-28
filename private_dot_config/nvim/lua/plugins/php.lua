@@ -1,5 +1,3 @@
-local util = require("lspconfig.util")
-
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -13,6 +11,7 @@ return {
         intelephense = {
           root_dir = function(pattern)
             local cwd = vim.loop.cwd()
+            local util = require("lspconfig.util")
             local root = util.root_pattern(".wproot", "composer.json", ".git")(pattern)
 
             -- prefer cwd if root is a descendant
