@@ -68,6 +68,9 @@
     "markdown": true,
     "scminput": false
   },
+  "github.copilot.advanced": {
+    "authProvider": "github"
+  },
   "github.copilot.editor.enableAutoCompletions": true,
   "inlineChat.experimental.textButtons": true,
   // =====================
@@ -147,6 +150,10 @@
       "languageIds": ["python"]
     }
   },
+  // ========================
+  // SVG Preview
+  // ========================
+  "svg.preview.mode": "svg",
   // ========================
   // Todo Tree
   // ========================
