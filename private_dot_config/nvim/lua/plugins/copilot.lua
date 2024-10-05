@@ -13,7 +13,7 @@ return {
     optional = true,
     opts = {
       auto_insert_mode = true,
-      auto_follow_cursor = true,
+      auto_follow_cursor = false,
       show_help = true,
       window = {
         width = 0.3,
