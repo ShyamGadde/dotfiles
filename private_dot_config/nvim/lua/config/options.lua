@@ -27,7 +27,7 @@ opt.pumblend = 0 -- Popup blend
 opt.listchars = { tab = "󰁔 ", trail = "·", nbsp = "␣" }
 
 -- FIX: These options don't seem to be set for some reason
--- opt.formatoptions = "jcrqlnt"
+opt.formatoptions = "jcrqlnt"
 
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 
