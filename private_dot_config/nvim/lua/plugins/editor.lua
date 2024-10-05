@@ -68,7 +68,7 @@ return {
   {
     "folke/flash.nvim",
     -- keys = {
-    --   -- disable the default flash keymap
+    --   -- disable the default flash keymap as it clashes with nvim-surround.
     --   { "s", mode = { "n", "x", "o" }, false },
     -- },
     opts = {
@@ -79,6 +79,44 @@ return {
           jump_labels = true,
         },
       },
+    },
+  },
+
+  -- Filename in the winbar when multiple windows are open
+  {
+    "b0o/incline.nvim",
+    event = "VeryLazy",
+    opts = {
+      window = {
+        padding = 0,
+        margin = { horizontal = 0 },
+      },
+      hide = {
+        cursorline = false,
+        focused_win = true,
+        only_win = true,
+      },
+      render = function(props)
+        local helpers = require("incline.helpers")
+        local devicons = require("nvim-web-devicons")
+
+        local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+
+        if filename == "" then
+          filename = "[No Name]"
+        end
+
+        local ft_icon, ft_color = devicons.get_icon_color(filename)
+
+        return {
+          ft_icon and { " ", ft_icon, " ", guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or "",
+          " ",
+          { filename, gui = "bold" },
+          " ",
+          guibg = "#313245",
+          guifg = "#89B4FB",
+        }
+      end,
     },
   },
 
