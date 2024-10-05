@@ -4,6 +4,7 @@ return {
     vscode = true,
     opts = {
       formatters_by_ft = {
+        css = {},
         fish = {},
         zsh = { "shfmt" },
         -- Run on all filetypes.
