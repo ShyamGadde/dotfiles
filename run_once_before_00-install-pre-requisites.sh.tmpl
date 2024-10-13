@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
 {{ if eq .chezmoi.os "darwin" -}}
+
 if ! xcode-select -p &> /dev/null; then
     echo "Xcode Command Line Tools not found. Installing them..."
+
     xcode-select --install
+
     if [ $? -eq 0 ]; then
         echo "Xcode Command Line Tools installed successfully."
     else
@@ -16,7 +19,9 @@ fi
 
 if ! command -v brew &> /dev/null; then
     echo "Homebrew not found. Installing it..."
+
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
     if [ $? -eq 0 ]; then
         echo "Homebrew installed successfully."
         eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -27,12 +32,17 @@ if ! command -v brew &> /dev/null; then
 else
     echo "Homebrew is already installed."
 fi
+
 {{ else if eq .chezmoi.osRelease.id "arch" -}}
+
 if ! command -v paru &> /dev/null; then
-    ehco "Paru not found. Installing it..."
+    echo "Paru not found. Installing it..."
+
     if ! command -v git &> /dev/null; then
         echo "Git not found. Installing it..."
+
         sudo pacman -S --noconfirm git
+
         if [ $? -eq 0 ]; then
             echo "Git installed successfully."
         else
@@ -41,18 +51,20 @@ if ! command -v paru &> /dev/null; then
         fi
     fi
 
-    git clone https://aur.archlinux.org/paru-bin.git ~/repos/paru-bin
-    cd ~/repos/paru-bin
+    git clone https://aur.archlinux.org/paru-bin.git /tmp/paru-bin
+    cd /tmp/paru-bin
     makepkg -si --noconfirm
 
     local filename="/etc/paru.conf"
     if [ -f "$filename" ]; then
         cp "$filename" "$filename.bak"
     fi
+
     local url="https://raw.githubusercontent.com/ShyamGadde/archmayhz/main/configs${filename}"
     curl -fsSL "$url" > "$filename"
     cd -
 else
     echo "Paru is already installed."
 fi
+
 {{- end }}

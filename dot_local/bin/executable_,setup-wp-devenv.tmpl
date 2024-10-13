@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 
+# Common packages
 PACKAGES=(
     composer
-    {{ if ( and ( eq .chezmoi.os "linux" ) ( eq .chezmoi.osRelease.id "arch" ) ) -}}
-    local-by-flywheel
-    tableplus
-    {{ end -}}
     php
 )
 
@@ -35,6 +32,11 @@ for cask in "${HOMEBREW_CASKS[@]}"; do
 done
 
 {{- else if eq .chezmoi.osRelease.id "arch" -}}
+
+PACKAGES+=(
+    local-by-flywheel
+    tableplus
+)
 
 sudo pacman -Syu
 paru -S --noconfirm --needed "${PACKAGES[@]}"

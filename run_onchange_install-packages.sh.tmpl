@@ -1,19 +1,7 @@
 #!/usr/bin/env bash
 
+# Common packages
 PACKAGES=(
-    {{ if eq .chezmoi.os "darwin" -}}
-    gh
-    lazydocker
-    lf
-    pfetch-rs
-    {{- else if eq .chezmoi.osRelease.id "arch" -}}
-    base-devel
-    github-cli
-    lazydocker-bin
-    lf-bin
-    man-pages
-    pfetch-rs-bin
-    {{- end }}
     atuin
     bash-completion
     bat
@@ -41,7 +29,15 @@ PACKAGES=(
 
 {{ if eq .chezmoi.os "darwin" -}}
 
+PACKAGES+=(
+    gh
+    lazydocker
+    lf
+    pfetch-rs
+)
+
 brew update && brew upgrade
+
 for pkg in "${PACKAGES[@]}"; do
     if ! brew list --formula "$pkg" &> /dev/null; then
         brew install "$pkg"
@@ -51,6 +47,15 @@ for pkg in "${PACKAGES[@]}"; do
 done
 
 {{ else if eq .chezmoi.osRelease.id "arch" -}}
+
+PACKAGES+=(
+    base-devel
+    github-cli
+    lazydocker-bin
+    lf-bin
+    man-pages
+    pfetch-rs-bin
+)
 
 sudo pacman -Syu
 paru -S --noconfirm --needed "${PACKAGES[@]}"
