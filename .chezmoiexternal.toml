@@ -1,1 +1,4 @@
-
+[".config/nvim/snippets/php/wordpress.json"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/jason-pomerleau/vscode-wordpress-toolbox/refs/heads/master/snippets/snippets.json"
+    refreshPeriod = "168h"
