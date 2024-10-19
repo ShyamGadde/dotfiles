@@ -124,6 +124,20 @@ return {
     },
   },
 
+  -- Edgy integration
+  {
+    "folke/edgy.nvim",
+    optional = true,
+    opts = {
+      right = {
+        { ft = "copilot-chat", title = "Copilot Chat", size = { width = 0.3 } },
+      },
+      options = {
+        right = { size = 0.2 },
+      },
+    },
+  },
+
   -- TODOs
   {
     "folke/todo-comments.nvim",
