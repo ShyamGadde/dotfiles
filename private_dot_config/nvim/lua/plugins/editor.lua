@@ -67,10 +67,14 @@ return {
   -- Jump
   {
     "folke/flash.nvim",
-    -- keys = {
-    --   -- disable the default flash keymap as it clashes with nvim-surround.
-    --   { "s", mode = { "n", "x", "o" }, false },
-    -- },
+    keys = {
+      -- NOTE: This is not needed as quick motions will execute the nvim-surround motions,
+      -- e.g., `ds"` will delete the surrounding quotes.
+      -- e.g., `c<pause>s` will use flash to select the end of selection starting from the cursor.
+
+      -- disable the default flash keymap as it clashes with nvim-surround.
+      -- { "s", mode = { "n", "x", "o" }, false },
+    },
     opts = {
       modes = {
         char = {
