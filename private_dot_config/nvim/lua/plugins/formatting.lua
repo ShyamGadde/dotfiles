@@ -6,6 +6,7 @@ return {
       formatters_by_ft = {
         css = {},
         fish = {},
+        scss = {},
         zsh = { "shfmt" },
         -- Run on all filetypes.
         -- ["*"] = {},
