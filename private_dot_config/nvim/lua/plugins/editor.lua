@@ -130,10 +130,8 @@ return {
     optional = true,
     opts = {
       right = {
-        { ft = "copilot-chat", title = "Copilot Chat", size = { width = 0.3 } },
-      },
-      options = {
-        right = { size = 0.2 },
+        { title = "Copilot Chat", ft = "copilot-chat", size = { width = 0.3 } },
+        { title = "Grug Far", ft = "grug-far", size = { width = 0.4 } },
       },
     },
   },
