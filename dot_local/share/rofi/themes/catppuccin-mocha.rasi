@@ -7,6 +7,7 @@
     fg-col: #cdd6f4;
     fg-col2: #f38ba8;
     grey: #6c7086;
+    surface0: #313244;
 
     width: 600;
     font: "JetBrainsMono Nerd Font 14";
@@ -31,10 +32,8 @@ mainbox {
 
 inputbar {
     children: [prompt,entry];
-    background-color: @blue;
-    border: 2px;
-    border-color: @blue;
-    border-radius: 3px;
+    background-color: @surface0;
+    border-radius: 50px;
     padding: 0;
     margin: 20px 20px 0;
 }
@@ -43,7 +42,7 @@ prompt {
     background-color: @blue;
     padding: 6px;
     text-color: @bg-col;
-    border-radius: 3px;
+    border-radius: 50px;
     margin: 0;
 }
 
@@ -56,7 +55,7 @@ entry {
     padding: 6px;
     margin: 0;
     text-color: @fg-col;
-    background-color: @bg-col;
+    background-color: @surface0;
 }
 
 listview {
