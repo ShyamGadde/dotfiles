@@ -40,17 +40,23 @@ gui:
   spinner:
     # The frames of the spinner animation.
     frames:
-      - "⣷"
-      - "⣯"
-      - "⣟"
-      - "⡿"
-      - "⢿"
-      - "⣻"
-      - "⣽"
-      - "⣾"
+      - "∙∙∙"
+      - "●∙∙"
+      - "∙●∙"
+      - "∙∙●"
+      # - "⠋"
+      # - "⠙"
+      # - "⠹"
+      # - "⠸"
+      # - "⠼"
+      # - "⠴"
+      # - "⠦"
+      # - "⠧"
+      # - "⠇"
+      # - "⠏"
 
     # The "speed" of the spinner in milliseconds.
-    rate: 100
+    rate: 150
 
 # What to do when opening Lazygit outside of a git repo.
 # - 'prompt': (default) ask whether to initialize a new repo or open in the most recent repo
