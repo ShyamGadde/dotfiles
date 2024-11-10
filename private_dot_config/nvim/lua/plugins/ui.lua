@@ -28,7 +28,7 @@ return {
       options = {
         right_mouse_command = "vertical sbuffer %d",
         -- stylua: ignore
-        middle_mouse_command = function(n) LazyVim.ui.bufremove(n) end,
+        middle_mouse_command = function(n) Snacks.bufdelete.delete(n) end,
         offsets = {
           {
             filetype = "neo-tree",

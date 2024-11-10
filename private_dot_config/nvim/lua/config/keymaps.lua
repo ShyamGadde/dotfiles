@@ -22,30 +22,30 @@ map("n", "<leader>uF", function() LazyVim.format.toggle() end, { desc = "Toggle 
 -- Lazygit
 ]]
 -- stylua: ignore start
-map("n", "<leader>gg", function() LazyVim.lazygit() end, { desc = "Lazygit (cwd)" })
-map("n", "<leader>gG", function() LazyVim.lazygit({ cwd = LazyVim.root.git() }) end, { desc = "Lazygit (Root Dir)" })
-map("n", "<leader>gl", function() LazyVim.lazygit({ args = { "log" } }) end, { desc = "Lazygit Log (cwd)" })
-map("n", "<leader>gL", function() LazyVim.lazygit({ args = { "log" }, cwd = LazyVim.root.git() }) end, { desc = "Lazygit Log" })
--- map("n", "<leader>gB", LazyVim.lazygit.browse, { desc = "Git Browse" })
+map("n", "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit (cwd)" })
+map("n", "<leader>gG", function() Snacks.lazygit({ cwd = LazyVim.root.git() }) end, { desc = "Lazygit (Root Dir)" })
+map("n", "<leader>gl", function() Snacks.lazygit({ args = { "log" } }) end, { desc = "Lazygit Log (cwd)" })
+map("n", "<leader>gL", function() Snacks.lazygit({ args = { "log" }, cwd = LazyVim.root.git() }) end, { desc = "Lazygit Log" })
 unmap("n", "<leader>gB")
-map("n", "<leader>go", LazyVim.lazygit.browse, { desc = "Open in Browser" })
+-- Previously mapped to <leader>gB
+map("n", "<leader>go", function() Snacks.gitbrowse() end, { desc = "Open in Browser" })
 unmap("n", "<leader>gf")
 -- Previously mapped to <leader>gf
-map("n", "<leader>gF", function() local git_path = vim.api.nvim_buf_get_name(0) LazyVim.lazygit({ args = { "-f", vim.trim(git_path) } }) end, { desc = "Lazygit Current File History" })
+map("n", "<leader>gF", function() Snacks.lazygit.log_file() end, { desc = "Lazygit Current File History" })
 -- stylua: ignore end
 
 --[[
 -- Lazydocker
 ]]
 -- stylua: ignore
-map("n", "<leader>D", function() LazyVim.terminal.open({ "lazydocker" }, { cwd = LazyVim.root.get(), esc_esc = false, ctrl_hjkl = false }) end, { desc = "Lazydocker" })
+map("n", "<leader>D", function() Snacks.terminal.open({ "lazydocker" }, { cwd = LazyVim.root.get(), esc_esc = false, ctrl_hjkl = false }) end, { desc = "Lazydocker" })
 
 --[[
 -- Floating terminal
 ]]
 -- stylua: ignore start
-local lazyterm = function() LazyVim.terminal(nil, { cwd = LazyVim.root() }) end
-map("n", "<leader>ft", function() LazyVim.terminal() end, { desc = "Terminal (cwd)" })
+local lazyterm = function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end
+map("n", "<leader>ft", function() Snacks.terminal() end, { desc = "Terminal (cwd)" })
 map("n", "<leader>fT", lazyterm, { desc = "Terminal (Root Dir)" })
 unmap("n", "<c-/>")
 unmap("n", "<c-_>")
