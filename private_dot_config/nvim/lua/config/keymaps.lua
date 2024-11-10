@@ -37,8 +37,9 @@ map("n", "<leader>gF", function() Snacks.lazygit.log_file() end, { desc = "Lazyg
 --[[
 -- Lazydocker
 ]]
--- stylua: ignore
-map("n", "<leader>D", function() Snacks.terminal.open({ "lazydocker" }, { cwd = LazyVim.root.get(), esc_esc = false, ctrl_hjkl = false }) end, { desc = "Lazydocker" })
+map("n", "<leader>D", function()
+  Snacks.terminal.open({ "lazydocker" }, { cwd = LazyVim.root.get(), esc_esc = false, ctrl_hjkl = false })
+end, { desc = "Lazydocker" })
 
 --[[
 -- Floating terminal
@@ -69,6 +70,21 @@ map("n", "<leader>fx", "<Cmd>!chmod +x %<CR>", { desc = "Make Current File Execu
 map("n", "<leader>fs", "<Cmd>w<CR>", { desc = "Save File" })
 map("n", "<leader>fd", "<Cmd>!rm %<CR>", { desc = "Delete File" })
 map("n", "<leader>fD", "<Cmd>!rm %<CR><Cmd>bdelete<CR>", { desc = "Delete File and Buffer" })
+
+--[[
+-- Comments
+--]]
+-- Toggle current line (linewise) using C-/
+map("n", "<C-/>", function()
+  require("Comment.api").toggle.linewise.current()
+end, { desc = "Toggle Comment" })
+
+-- Toggle Selection linewise
+map("x", "<C-/>", function()
+  local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
+  vim.api.nvim_feedkeys(esc, "nx", false)
+  require("Comment.api").toggle.linewise(vim.fn.visualmode())
+end, { desc = "Toggle Comment" })
 
 --[[
 -- Misc
