@@ -56,7 +56,7 @@ gui:
       # - "⠏"
 
     # The "speed" of the spinner in milliseconds.
-    rate: 150
+    rate: 120
 
 # What to do when opening Lazygit outside of a git repo.
 # - 'prompt': (default) ask whether to initialize a new repo or open in the most recent repo
