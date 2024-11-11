@@ -11,11 +11,21 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
--- Force setting formatoptions when entering any buffer
 vim.api.nvim_create_autocmd("FileType", {
   group = my_augroup,
   pattern = "*",
   callback = function()
+    -- Force setting formatoptions when entering any buffer
     vim.opt_local.formatoptions = "jcrqlnt"
   end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = my_augroup,
+  callback = function()
+    if vim.env.TMUX then
+      vim.opt.cmdheight = 1
+    end
+  end,
+  once = true, -- This ensures it only runs once
 })

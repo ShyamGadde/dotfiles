@@ -31,4 +31,4 @@ opt.formatoptions = "jcrqlnt"
 
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 
-vim.opt.diffopt:append("linematch:50")
+opt.diffopt:append("linematch:50")
