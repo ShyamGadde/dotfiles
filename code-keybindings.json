@@ -258,5 +258,9 @@
     "key": "ctrl+y",
     "command": "acceptSelectedSuggestion",
     "when": "acceptSuggestionOnEnter && suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
+  },
+  {
+    "key": "shift+alt+r",
+    "command": "vscode-neovim.restart"
   }
 ]
