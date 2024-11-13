@@ -3,7 +3,6 @@ local unmap = vim.keymap.del
 
 -- Use a command instead of a keymap
 -- map("n", "<leader>L", function() LazyVim.news.changelog() end, { desc = "LazyVim Changelog" })
-unmap("n", "<leader>L")
 -- stylua: ignore
 vim.api.nvim_create_user_command("LazyVimChangelog", function() LazyVim.news.changelog() end, { desc = "LazyVim Changelog" })
 -- map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
@@ -26,10 +25,8 @@ map("n", "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit (cwd)"
 map("n", "<leader>gG", function() Snacks.lazygit({ cwd = LazyVim.root.git() }) end, { desc = "Lazygit (Root Dir)" })
 map("n", "<leader>gl", function() Snacks.lazygit({ args = { "log" } }) end, { desc = "Lazygit Log (cwd)" })
 map("n", "<leader>gL", function() Snacks.lazygit({ args = { "log" }, cwd = LazyVim.root.git() }) end, { desc = "Lazygit Log" })
-unmap("n", "<leader>gB")
 -- Previously mapped to <leader>gB
 map("n", "<leader>go", function() Snacks.gitbrowse() end, { desc = "Open in Browser" })
-unmap("n", "<leader>gf")
 -- Previously mapped to <leader>gf
 map("n", "<leader>gF", function() Snacks.lazygit.log_file() end, { desc = "Lazygit Current File History" })
 -- stylua: ignore end
