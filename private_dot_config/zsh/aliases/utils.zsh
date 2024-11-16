@@ -66,9 +66,8 @@ function mcd() {
 }
 
 # Convert filenames and folder names to kebab-case
-rename_to_kebab_case() {
+function rename_to_kebab_case() {
     for f in *; do
-        # new_name=$(echo "$f" | sed -e 's/ /-/g' -e 's/_/-/g' | tr A-Z a-z)
         new_name=$(echo "$f" | sed -e 's/ /-/g' -e 's/_/-/g' | tr '[:upper:]' '[:lower:]')
         if [ "$f" != "$new_name" ]; then
             mv -i "$f" "$new_name"

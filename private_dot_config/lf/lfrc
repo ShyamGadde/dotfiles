@@ -45,7 +45,8 @@ set incsearch true
 set incfilter true
 
 # Set the path of a previewer file to filter the content of regular files for previewing.
-set previewer ~/.config/lf/pv.sh
+set previewer ~/.config/lf/previewer
+set cleaner ~/.config/lf/cleaner
 
 # use enter for shell commands
 map <enter> shell
