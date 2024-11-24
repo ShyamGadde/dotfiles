@@ -23,15 +23,19 @@ tooltip label {
 
 #workspaces button {
   color: @blue;
+  padding: 0 5px;
+  border-radius: 10;
   box-shadow: none;
   text-shadow: none;
-  padding: 0 5px;
 }
 
 #workspaces button.active {
   background: @blue;
   color: @base;
-  border-radius: 10;
+}
+
+#workspaces button:hover {
+  color: @base;
 }
 
 #battery,
