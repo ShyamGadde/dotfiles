@@ -35,6 +35,7 @@ tooltip label {
 }
 
 #workspaces button:hover {
+  background: @rosewater;
   color: @base;
 }
 
@@ -53,10 +54,6 @@ tooltip label {
   color: @text;
   background: @crust;
   margin: 0 10px;
-}
-
-#custom-notification {
-  color: @mauve;
 }
 
 #clock,
@@ -87,8 +84,28 @@ tooltip label {
   margin-left: 0;
 }
 
-#battery.charging {
+#cpu {
+  color: @maroon;
+}
+
+#memory {
+  color: @peach
+}
+
+#pulseaudio {
+  color: @blue;
+}
+
+#pulseaudio.microphone {
+  color: @sky;
+}
+
+#battery {
   color: @yellow;
+}
+
+#custom-notification {
+  color: @mauve;
 }
 
 .modules-left {
