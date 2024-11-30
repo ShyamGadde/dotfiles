@@ -1,17 +1,49 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+
 git:
+  commit:
+    signOff: true
+
+  # If true, do not spawn a separate process when using GPG
+  overrideGpg: true
+
   paging:
     colorArg: always
     pager: delta --paging=never
 
+  # If true, parse emoji strings in commit messages e.g. render :rocket: as 🚀
+  parseEmoji: true
+
+  truncateCopiedCommitHashesTo: 7
+
 gui:
+  authorColors:
+    "Shyamsundar Gadde": "#89b4fa"
+    "*": "#f38ba8"
+
+  commitHashLength: 7
+
   # If true, increase the height of the focused side window; creating an accordion effect.
   expandFocusedSidePanel: true
-
-  nerdFontsVersion: "3"
 
   # How things are filtered when typing '/'.
   # One of 'substring' (default) | 'fuzzy'
   filterMode: fuzzy
+
+  nerdFontsVersion: "3"
+
+  showDivergenceFromBaseBranch: "arrowAndNumber"
+
+  spinner:
+    # The frames of the spinner animation.
+    frames:
+      - "∙∙∙"
+      - "●∙∙"
+      - "∙●∙"
+      - "∙∙●"
+
+    # The "speed" of the spinner in milliseconds.
+    rate: 120
 
   theme:
     activeBorderColor:
@@ -33,20 +65,6 @@ gui:
       - "#cdd6f4"
     searchingActiveBorderColor:
       - "#f9e2af"
-
-  authorColors:
-    "*": "#b4befe"
-
-  spinner:
-    # The frames of the spinner animation.
-    frames:
-      - "∙∙∙"
-      - "●∙∙"
-      - "∙●∙"
-      - "∙∙●"
-
-    # The "speed" of the spinner in milliseconds.
-    rate: 120
 
 # What to do when opening Lazygit outside of a git repo.
 # - 'prompt': (default) ask whether to initialize a new repo or open in the most recent repo
