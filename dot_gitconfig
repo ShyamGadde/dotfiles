@@ -9,7 +9,7 @@
 	facp = !git add . && git cp
 
 [user]
-	email = 73636812+ShyamGadde@users.noreply.github.com
+	email = shyamgadde1602@gmail.com
 	name = Shyamsundar Gadde
 	signingkey = ~/.ssh/id_ed25519.pub
 
@@ -44,6 +44,9 @@
 
 [delta]
     navigate = true    # use n and N to move between diff sections
+
+[includeIf "gitdir:~/Workspace/rtCamp/"]
+    path = .gitconfig.work
 
 [merge]
 	conflictstyle = diff3
