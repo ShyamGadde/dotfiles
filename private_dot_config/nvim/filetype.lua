@@ -1,6 +1,8 @@
 vim.filetype.add({
   extension = {},
-  filename = {},
+  filename = {
+    [".gitconfig.work"] = "gitconfig",
+  },
   pattern = {
     [".*%.hl"] = "hyprlang",
     ["hypr.*%.conf"] = "hyprlang",
