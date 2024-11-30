@@ -50,6 +50,7 @@ return {
         rainbow_delimiters = true,
         render_markdown = true,
         semantic_tokens = true,
+        snacks = true,
         telescope = {
           enabled = true,
           -- style = "nvchad",
