@@ -289,7 +289,6 @@
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {},
-  "workbench.editor.wrapTabs": true,
   "workbench.editorAssociations": {
     "*.png": "imagePreview.previewEditor",
     "*.md": "default"
@@ -476,6 +475,13 @@
     "zip",
     "zlib"
   ],
+  "intelephense.codeLens.implementations.enable": true,
+  "intelephense.codeLens.overrides.enable": true,
+  "intelephense.codeLens.parent.enable": true,
+  "intelephense.codeLens.references.enable": true,
+  "intelephense.codeLens.usages.enable": true,
+  "intelephense.compatibility.preferPsalmPhpstanPrefixedAnnotations": true,
+  "intelephense.diagnostics.run": "onSave",
   "phpcs.enable": true,
   "phpcs.standard": "WordPress",
   "phpcs.showSources": true,
