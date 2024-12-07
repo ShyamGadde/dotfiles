@@ -14,6 +14,11 @@ return {
             local util = require("lspconfig.util")
             local root = util.root_pattern(".wproot", "composer.json", ".git")(pattern)
 
+            -- Use cwd if root is nil
+            if not root then
+              return cwd
+            end
+
             -- prefer cwd if root is a descendant
             return util.path.is_descendant(cwd, root) and cwd or root
           end,
