@@ -1,12 +1,14 @@
 # shellcheck shell=bash
 
 alias ..='cd ..'
-
+alias c='clear'
+alias e='exit'
 alias vim='nvim'
 
 # Chezmoi
 alias cm='chezmoi'
 alias cmu='chezmoi re-add'
+alias cme='chezmoi edit'
 
 # Verbose and interactive
 alias mv='mv -iv'
