@@ -50,14 +50,14 @@ return {
 
       local action_layout = require("telescope.actions.layout")
 
-      opts.defaults = vim.tbl_deep_extend("force", opts.defaults or {}, {
+      local defaults = vim.tbl_deep_extend("force", opts.defaults or {}, {
         prompt_prefix = " ",
         selection_caret = " ",
-        layout_strategy = "horizontal",
         layout_config = {
           horizontal = {
             preview_width = 0.55,
           },
+          height = 30,
           prompt_position = "top",
         },
         sorting_strategy = "ascending",
@@ -75,6 +75,8 @@ return {
           },
         },
       })
+
+      opts.defaults = require("telescope.themes").get_ivy(defaults)
 
       opts.pickers = vim.tbl_deep_extend("force", opts.pickers or {}, {
         current_buffer_fuzzy_find = {
