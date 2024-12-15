@@ -14,7 +14,15 @@ return {
     "snacks.nvim",
     optional = true,
     opts = function(_, opts)
+      -- dashboard
       opts.dashboard.preset.header = dashboard_header
+      opts.dashboard.sections = {
+        { section = "header" },
+        { section = "keys", gap = 1, padding = 2 },
+        { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 2 },
+        { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 2 },
+        { section = "startup" },
+      }
     end,
   },
 
