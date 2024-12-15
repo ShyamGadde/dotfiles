@@ -1,6 +1,7 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
+    optional = true,
     keys = {
       -- find
       { "<leader>ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
@@ -117,6 +118,7 @@ return {
 
   {
     "nvim-telescope/telescope-symbols.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
     keys = {
       {
         "<leader>s.",
@@ -130,10 +132,7 @@ return {
 
   {
     "2kabhishek/nerdy.nvim",
-    dependencies = {
-      "stevearc/dressing.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
+    dependencies = { "nvim-telescope/telescope.nvim" },
     cmd = "Nerdy",
     keys = {
       { "<leader>si", "<Cmd>Nerdy<CR>", desc = "Nerd Icons/Glyphs" },

@@ -9,8 +9,6 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "rcarriga/nvim-notify",
-    -- "nvim-tree/nvim-web-devicons",
     -- '3rd/image.nvim',
   },
   lazy = leet_arg ~= vim.fn.argv()[1],
@@ -22,7 +20,6 @@ return {
     },
     injector = {
       ["python3"] = {
-        -- before = true,
         before = {
           "from typing import List, Optional",
         },
