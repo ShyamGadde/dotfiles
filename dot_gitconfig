@@ -40,13 +40,16 @@
 	recurse = true
 
 [interactive]
-    diffFilter = delta --color-only
+	diffFilter = delta --color-only
 
 [delta]
-    navigate = true    # use n and N to move between diff sections
+	navigate = true    # use n and N to move between diff sections
+
+[color]
+	ui = true
 
 [includeIf "gitdir:~/Workspace/rtCamp/"]
-    path = .gitconfig.work
+	path = .gitconfig.work
 
 [merge]
 	conflictstyle = diff3
@@ -64,4 +67,4 @@
 	tool = nvimdiff
 
 [difftool "nvimdiff"]
-	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd L\"
+	cmd = nvim -d $LOCAL $REMOTE -c 'wincmd w' -c 'wincmd L'
