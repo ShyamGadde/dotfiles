@@ -13,7 +13,6 @@ return {
   {
     "folke/snacks.nvim",
     optional = true,
-    dependencies = { "hiphish/rainbow-delimiters.nvim" },
     opts = {
       dashboard = {
         preset = {
@@ -25,20 +24,6 @@ return {
           { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 2 },
           { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 2 },
           { section = "startup" },
-        },
-      },
-      indent = {
-        scope = {
-          -- INFO: Disabled for now as the highlight groups don't seem to align with the delimiter colors for some reason.
-          -- hl = {
-          --   "RainbowDelimiterRed",
-          --   "RainbowDelimiterYellow",
-          --   "RainbowDelimiterBlue",
-          --   "RainbowDelimiterOrange",
-          --   "RainbowDelimiterGreen",
-          --   "RainbowDelimiterViolet",
-          --   "RainbowDelimiterCyan",
-          -- },
         },
       },
     },
