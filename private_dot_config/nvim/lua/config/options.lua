@@ -2,33 +2,29 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
-vim.g.lazyvim_picker = "telescope"
 vim.g.root_spec = { { ".git", "lua" }, "lsp", "cwd" }
-
+vim.g.lazyvim_picker = "telescope"
 vim.g.lazyvim_python_lsp = "basedpyright"
 vim.g.lazyvim_python_ruff = "ruff"
 
-local opt = vim.opt
+local set = vim.opt
 
-opt.clipboard = ""
-opt.inccommand = "split"
-opt.breakindent = true
+set.clipboard = ""
+set.inccommand = "split"
+set.breakindent = true
 
 -- Configure tabs and spaces
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.softtabstop = 4
+set.tabstop = 4
+set.shiftwidth = 4
+set.softtabstop = 4
 
 -- Appearance
 vim.diagnostic.config({
   float = { border = "rounded" }, -- Add border to diagnostic popups
 })
-opt.pumblend = 0 -- Popup blend
-opt.listchars = { tab = "󰁔 ", trail = "·", nbsp = "␣" }
+set.pumblend = 0 -- Popup blend
+set.listchars = { tab = "󰁔 ", trail = "·", nbsp = "␣" }
 
--- FIX: These options don't seem to be set for some reason
-opt.formatoptions = "jcrqlnt"
+set.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 
-opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
-
-opt.diffopt:append("linematch:50")
+set.diffopt:append("linematch:50")
