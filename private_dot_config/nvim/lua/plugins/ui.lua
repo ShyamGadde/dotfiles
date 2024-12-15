@@ -22,6 +22,7 @@ return {
 
   {
     "akinsho/bufferline.nvim",
+    optional = true,
     keys = {
       { "<leader>bx", "<Cmd>BufferLinePickClose<CR>", desc = "Pick Buffer to Close" },
     },
@@ -44,6 +45,7 @@ return {
 
   {
     "nvim-lualine/lualine.nvim",
+    optional = true,
     opts = {
       sections = {
         lualine_b = {
@@ -57,6 +59,7 @@ return {
 
   {
     "folke/noice.nvim",
+    optional = true,
     opts = {
       popupmenu = {
         ---@type 'nui'|'cmp'
@@ -65,16 +68,6 @@ return {
       presets = {
         lsp_doc_border = true, -- add a border to hover docs and signature help
       },
-    },
-  },
-
-  {
-    "rcarriga/nvim-notify",
-    keys = {
-      { "<leader>sN", "<Cmd>Telescope notify<CR>", desc = "Notifications" },
-    },
-    opts = {
-      stages = "fade_in_slide_out",
     },
   },
 
@@ -155,6 +148,7 @@ return {
 
   {
     "williamboman/mason.nvim",
+    optional = true,
     opts = {
       ui = {
         border = "rounded",
