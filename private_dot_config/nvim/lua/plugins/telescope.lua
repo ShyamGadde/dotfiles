@@ -24,7 +24,6 @@ return {
       },
       -- git
       { "<leader>gB", "<cmd>Telescope git_branches<cr>", desc = "Branches" },
-      { "<leader>gf", "<cmd>Telescope git_bcommits<cr>", desc = "Telescope Current File History" },
       -- search
       { "<leader>s<space>", "<cmd>Telescope builtin<cr>", desc = "Builtin" },
       { "<leader>s:", "<cmd>Telescope command_history<cr>", desc = "Command History" },

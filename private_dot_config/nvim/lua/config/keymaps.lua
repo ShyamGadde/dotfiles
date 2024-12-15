@@ -13,8 +13,8 @@ map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
 -- Toggle options
 ]]
 -- stylua: ignore start
-map("n", "<leader>uf", function() LazyVim.format.toggle(true) end, { desc = "Toggle Auto Format (Buffer)" })
-map("n", "<leader>uF", function() LazyVim.format.toggle() end, { desc = "Toggle Auto Format (Global)" })
+LazyVim.format.snacks_toggle(true):map("<leader>uf")
+LazyVim.format.snacks_toggle():map("<leader>uF")
 -- stylua: ignore end
 
 --[[
@@ -23,12 +23,10 @@ map("n", "<leader>uF", function() LazyVim.format.toggle() end, { desc = "Toggle 
 -- stylua: ignore start
 map("n", "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit (cwd)" })
 map("n", "<leader>gG", function() Snacks.lazygit({ cwd = LazyVim.root.git() }) end, { desc = "Lazygit (Root Dir)" })
-map("n", "<leader>gl", function() Snacks.lazygit({ args = { "log" } }) end, { desc = "Lazygit Log (cwd)" })
-map("n", "<leader>gL", function() Snacks.lazygit({ args = { "log" }, cwd = LazyVim.root.git() }) end, { desc = "Lazygit Log" })
+map("n", "<leader>gl", function() Snacks.lazygit.log() end, { desc = "Lazygit Log (cwd)" })
+map("n", "<leader>gL", function() Snacks.lazygit.log({ cwd = LazyVim.root.git() }) end, { desc = "Lazygit Log" })
 -- Previously mapped to <leader>gB
-map("n", "<leader>go", function() Snacks.gitbrowse() end, { desc = "Open in Browser" })
--- Previously mapped to <leader>gf
-map("n", "<leader>gF", function() Snacks.lazygit.log_file() end, { desc = "Lazygit Current File History" })
+map({ "n", "x" }, "<leader>go", function() Snacks.gitbrowse() end, { desc = "Git Browse (open)" })
 -- stylua: ignore end
 
 --[[
