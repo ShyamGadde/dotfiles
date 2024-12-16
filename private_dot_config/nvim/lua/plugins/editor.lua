@@ -1,18 +1,4 @@
 return {
-  -- WhichKey
-  {
-    "folke/which-key.nvim",
-    optional = true,
-    opts = {
-      spec = {
-        {
-          mode = "n",
-          { "<leader>t", group = "+terminal" },
-        },
-      },
-    },
-  },
-
   -- File Explorer
   {
     "nvim-neo-tree/neo-tree.nvim",

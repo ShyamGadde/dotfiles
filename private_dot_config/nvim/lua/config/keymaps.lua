@@ -2,20 +2,16 @@ local map = vim.keymap.set
 local unmap = vim.keymap.del
 
 -- Use a command instead of a keymap
--- map("n", "<leader>L", function() LazyVim.news.changelog() end, { desc = "LazyVim Changelog" })
 -- stylua: ignore
-vim.api.nvim_create_user_command("LazyVimChangelog", function() LazyVim.news.changelog() end, { desc = "LazyVim Changelog" })
--- map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
-unmap("n", "<leader>l")
-map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
+vim.api.nvim_create_user_command("LazyVimChangelog", function() LazyVim.news.changelog() end, { desc = "LazyVim Changelog" }) -- Previously mapped to <leader>L
+unmap("n", "<leader>l") -- Motions for leetcode.nvim are now prefixed with <leader>l
+map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" }) -- Previously mapped to <leader>l
 
 --[[
 -- Toggle options
 ]]
--- stylua: ignore start
 LazyVim.format.snacks_toggle(true):map("<leader>uf")
 LazyVim.format.snacks_toggle():map("<leader>uF")
--- stylua: ignore end
 
 --[[
 -- Lazygit
@@ -25,8 +21,8 @@ map("n", "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit (cwd)"
 map("n", "<leader>gG", function() Snacks.lazygit({ cwd = LazyVim.root.git() }) end, { desc = "Lazygit (Root Dir)" })
 map("n", "<leader>gl", function() Snacks.lazygit.log() end, { desc = "Lazygit Log (cwd)" })
 map("n", "<leader>gL", function() Snacks.lazygit.log({ cwd = LazyVim.root.git() }) end, { desc = "Lazygit Log" })
--- Previously mapped to <leader>gB
-map({ "n", "x" }, "<leader>go", function() Snacks.gitbrowse() end, { desc = "Git Browse (open)" })
+unmap({ "x" }, "<leader>gB") -- <leader>gB in normal mode is overridden by telescope git_branches
+map({ "n", "x" }, "<leader>go", function() Snacks.gitbrowse() end, { desc = "Git Browse (open)" }) -- Previously mapped to <leader>gB
 -- stylua: ignore end
 
 --[[
@@ -43,21 +39,21 @@ end, { desc = "Lazydocker" })
 local lazyterm = function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end
 map("n", "<leader>ft", function() Snacks.terminal() end, { desc = "Terminal (cwd)" })
 map("n", "<leader>fT", lazyterm, { desc = "Terminal (Root Dir)" })
-unmap("n", "<c-/>")
+unmap("n", "<c-/>") -- Now this keymap is used for commenting
 unmap("n", "<c-_>")
--- previously mapped to <c-_> and <c-/>
-map("n", "<M-CR>", lazyterm, { desc = "Terminal (Root Dir)" })
+map("n", "<M-CR>", lazyterm, { desc = "Terminal (Root Dir)" }) -- previously mapped to <c-_> and <c-/>
 -- stylua: ignore end
 
 --[[
 -- Neovim Terminal
 ]]
-map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })
+require("which-key").add({ { "<leader>t", group = "+terminal" } })
 map("n", "<leader>tv", "<Cmd>vsplit | terminal<CR>", { desc = "Open Terminal (Vertical Split)" })
 map("n", "<leader>th", "<Cmd>split | terminal<CR>", { desc = "Open Terminal (Horizontal Split)" })
 unmap("t", "<C-/>")
 unmap("t", "<c-_>")
 map("t", "<M-CR>", "<Cmd>close<CR>", { desc = "Hide Terminal" })
+map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })
 
 --[[
 -- Files
