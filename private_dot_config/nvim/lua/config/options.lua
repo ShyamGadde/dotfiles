@@ -25,6 +25,19 @@ vim.diagnostic.config({
 set.pumblend = 0 -- Popup blend
 set.listchars = { tab = "󰁔 ", trail = "·", nbsp = "␣" }
 
-set.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
+set.sessionoptions = {
+  "blank",
+  "buffers",
+  "curdir",
+  "folds",
+  "globals",
+  "help",
+  "skiprtp",
+  "tabpages",
+  "winsize",
+  "winpos",
+  "terminal",
+  "localoptions",
+}
 
 set.diffopt:append("linematch:50")
