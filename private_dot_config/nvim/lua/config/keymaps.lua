@@ -70,16 +70,21 @@ map("n", "<leader>fD", "<Cmd>!rm %<CR><Cmd>bdelete<CR>", { desc = "Delete File a
 -- Comments
 --]]
 -- Toggle current line (linewise) using C-/
-map("n", "<C-/>", function()
-  require("Comment.api").toggle.linewise.current()
-end, { desc = "Toggle Comment" })
+-- stylua: ignore
+map("n", "<C-/>", function() require("Comment.api").toggle.linewise.current() end, { desc = "Toggle Comment" })
+-- stylua: ignore
+map("n", "<C-_>", function() require("Comment.api").toggle.linewise.current() end, { desc = "which_key_ignore" })
 
--- Toggle Selection linewise
-map("x", "<C-/>", function()
+-- Helper function to toggle comments linewise in visualmode
+local toggle_comment = function()
   local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
   vim.api.nvim_feedkeys(esc, "nx", false)
   require("Comment.api").toggle.linewise(vim.fn.visualmode())
-end, { desc = "Toggle Comment" })
+end
+
+-- Toggle Selection linewise
+map("x", "<C-/>", toggle_comment, { desc = "Toggle Comment" })
+map("x", "<C-_>", toggle_comment, { desc = "which_key_ignore" })
 
 --[[
 -- Misc
