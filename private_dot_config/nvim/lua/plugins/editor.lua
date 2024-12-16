@@ -16,10 +16,10 @@ return {
   -- File Explorer
   {
     "nvim-neo-tree/neo-tree.nvim",
+    optional = true,
     dependencies = {
       { "3rd/image.nvim", lazy = true },
     },
-    optional = true,
     keys = {
       {
         "<leader>fe",

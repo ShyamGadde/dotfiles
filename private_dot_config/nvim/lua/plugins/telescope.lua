@@ -17,9 +17,7 @@ return {
       },
       {
         "<leader>fP",
-        function()
-          require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
-        end,
+        LazyVim.pick("files", { cwd = require("lazy.core.config").options.root }),
         desc = "Find Plugin File",
       },
       -- git
