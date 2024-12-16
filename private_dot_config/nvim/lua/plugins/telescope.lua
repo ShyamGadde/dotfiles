@@ -57,7 +57,7 @@ return {
           horizontal = {
             preview_width = 0.55,
           },
-          height = 30,
+          height = 0.65,
           prompt_position = "top",
         },
         sorting_strategy = "ascending",
@@ -93,7 +93,7 @@ return {
       {
         "<leader>U",
         "<cmd>Telescope undo<cr>",
-        desc = "Undo History",
+        desc = "Undo Tree",
       },
     },
     opts = {

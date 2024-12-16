@@ -22,7 +22,7 @@ return {
                 autoSearchPaths = true,
                 useLibraryCodeForTypes = true,
                 diagnosticMode = "openFilesOnly",
-                -- FIX: This doesn't disable diagnostics
+                -- FIX: This apparently doesn't disable diagnostics.
                 ignore = { "*" },
               },
             },

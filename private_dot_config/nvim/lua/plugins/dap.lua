@@ -1,14 +1,16 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    optional = true,
     dependencies = {
       {
         "theHamsta/nvim-dap-virtual-text",
+        optional = true,
         opts = {
           virt_text_pos = "eol",
           commented = false,
           -- Customize virtual text
-          display_callback = function(variable, buf, stackframe, node, options)
+          display_callback = function(variable, _, _, _, options)
             if options.virt_text_pos == "inline" then
               return " = " .. variable.value
             else
@@ -20,17 +22,16 @@ return {
     },
     -- stylua: ignore
     keys = {
-      -- { "<leader>dO", function() require("dap").step_over() end, desc = "Step Over" },
       { "<leader>dO", false },
-      { "<leader>dn", function() require("dap").step_over() end, desc = "Step Over" },
+      { "<leader>dn", function() require("dap").step_over() end, desc = "Step Over" },  -- Previously "<leader>dO"
       { "<leader>dx", function() require("dap").clear_breakpoints() end, desc = "Clear Breakpoints" },
     },
   },
 
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    opts = {
-      ensure_installed = {},
-    },
-  },
+  -- {
+  --   "jay-babu/mason-nvim-dap.nvim",
+  --   opts = {
+  --     ensure_installed = {},
+  --   },
+  -- },
 }

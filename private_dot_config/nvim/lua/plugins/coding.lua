@@ -1,17 +1,9 @@
 return {
-  -- Set buffer options
-  {
-    "tpope/vim-sleuth",
-    event = "LazyFile",
-  },
-
   -- Auto completion
   {
     "hrsh7th/nvim-cmp",
-    dependencies = {
-      -- "hrsh7th/cmp-emoji",
-      "hrsh7th/cmp-cmdline",
-    },
+    optional = true,
+    dependencies = { "hrsh7th/cmp-cmdline" },
     opts = function(_, opts)
       local cmp = require("cmp")
 
@@ -40,37 +32,7 @@ return {
           { name = "cmdline" },
         }),
       })
-
-      -- table.insert(opts.sources, { name = "emoji" })
     end,
-  },
-
-  -- Snippets
-  {
-    "nvim-cmp",
-    keys = {
-      { "<Tab>", false },
-      {
-        "<C-l>",
-        function()
-          return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>" or "<C-l>"
-        end,
-        expr = true,
-        silent = true,
-        mode = { "i", "s" },
-      },
-
-      { "<S-Tab>", false },
-      {
-        "<C-h>",
-        function()
-          return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<C-h>"
-        end,
-        expr = true,
-        silent = true,
-        mode = { "i", "s" },
-      },
-    },
   },
 
   -- Auto pairs
@@ -84,6 +46,39 @@ return {
       --   lua = { "string" }, -- don't add pairs in lua string treesitter nodes
       --   javascript = { "template_string" }, -- don't add pairs in javascript template_string
       -- },
+    },
+  },
+
+  -- Comments
+  {
+    "numToStr/Comment.nvim",
+    event = "LazyFile",
+    opts = {},
+  },
+
+  -- Snippets
+  {
+    "hrsh7th/nvim-cmp",
+    optional = true,
+    keys = {
+      {
+        "<C-l>",
+        function()
+          return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>" or "<C-l>"
+        end,
+        expr = true,
+        silent = true,
+        mode = { "i", "s" },
+      },
+      {
+        "<C-h>",
+        function()
+          return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<C-h>"
+        end,
+        expr = true,
+        silent = true,
+        mode = { "i", "s" },
+      },
     },
   },
 
@@ -120,10 +115,9 @@ return {
     end,
   },
 
-  -- Comments
+  -- Vim Sleuth (set buffer options)
   {
-    "numToStr/Comment.nvim",
+    "tpope/vim-sleuth",
     event = "LazyFile",
-    opts = {},
   },
 }

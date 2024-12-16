@@ -2,8 +2,8 @@ return {
   -- WhichKey
   {
     "folke/which-key.nvim",
+    optional = true,
     opts = {
-      preset = "helix",
       spec = {
         {
           mode = "n",
@@ -19,6 +19,7 @@ return {
     dependencies = {
       { "3rd/image.nvim", lazy = true },
     },
+    optional = true,
     keys = {
       {
         "<leader>fe",
@@ -49,9 +50,6 @@ return {
   },
   {
     "stevearc/oil.nvim",
-    dependencies = {
-      -- "nvim-tree/nvim-web-devicons",
-    },
     lazy = true,
     cmd = { "Oil" },
     keys = {
@@ -67,6 +65,7 @@ return {
   -- Jump
   {
     "folke/flash.nvim",
+    optional = true,
     keys = {
       -- NOTE: This is not needed as quick motions will execute the nvim-surround motions,
       -- e.g., `ds"` will delete the surrounding quotes.
@@ -124,7 +123,7 @@ return {
     },
   },
 
-  -- Edgy integration
+  -- Edgy integrations
   {
     "folke/edgy.nvim",
     optional = true,
@@ -139,6 +138,7 @@ return {
   -- TODOs
   {
     "folke/todo-comments.nvim",
+    optional = true,
     keys = {
       {
         "<leader>xt",
@@ -193,9 +193,6 @@ return {
   {
     "mbbill/undotree",
     cmd = { "UndotreeToggle" },
-    -- keys = {
-    --   { "<leader>U", "<Cmd>UndotreeToggle<CR>", desc = "Undo Tree" },
-    -- },
     config = function()
       vim.g.undotree_WindowLayout = 2
       vim.g.undotree_SetFocusWhenToggle = 1

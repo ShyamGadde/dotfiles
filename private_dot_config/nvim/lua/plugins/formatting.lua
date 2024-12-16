@@ -1,6 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
+    optional = true,
     vscode = true,
     opts = {
       formatters_by_ft = {
@@ -15,6 +16,7 @@ return {
       },
       formatters = {
         shfmt = {
+          -- INFO:
           -- i 4: Sets indentation to 4 spaces.
           -- bn: Places binary operators at the beginning of the next line.
           -- ci: Controls case statement indentation.

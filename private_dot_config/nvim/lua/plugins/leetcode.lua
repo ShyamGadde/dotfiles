@@ -120,7 +120,7 @@ return {
     end
 
     require("which-key").add({
-      { "<leader>l", group = "leetcode", icon = "󱁊" },
+      { "<leader>l", group = "+leetcode", icon = "󱁊" },
       { "<leader>lR", "<Cmd> Leet reset <CR>", desc = "Reset Solution", icon = "" },
       { "<leader>ld", "<Cmd> Leet desc toggle <CR>", desc = "Toggle Description" },
       { "<leader>li", "<Cmd> Leet info <CR>", desc = "Show Question Information" },
