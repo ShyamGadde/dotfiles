@@ -63,6 +63,16 @@ return {
         use_focus = true,
       }
       opts.current_line_blame_formatter = "<author>, <author_time:%R> - <summary>"
+
+      Snacks.toggle({
+        name = "Current Line Blame",
+        get = function()
+          return require("gitsigns.config").config.current_line_blame
+        end,
+        set = function(state)
+          require("gitsigns").toggle_current_line_blame(state)
+        end,
+      }):map("<leader>uB")
     end,
   },
 
