@@ -4,6 +4,9 @@ return {
     optional = true,
     vscode = true,
     opts = {
+      -- NOTE: (Note to self)
+      -- Disable "format_on_save lsp_fallback" for languages that don't
+      -- have a well standardized coding style like C and C++. (refer kickstart.nvim for more info)
       formatters_by_ft = {
         css = {},
         fish = {},
