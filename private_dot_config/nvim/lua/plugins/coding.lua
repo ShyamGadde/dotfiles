@@ -43,8 +43,7 @@ return {
     opts = {
       check_ts = true, -- enable treesitter
       -- ts_config = {
-      --   lua = { "string" }, -- don't add pairs in lua string treesitter nodes
-      --   javascript = { "template_string" }, -- don't add pairs in javascript template_string
+      --   lua = { "string" }, -- Don't add a pair on that treesitter node (i.e., lua string)
       -- },
     },
   },
@@ -113,6 +112,31 @@ return {
       map("o", "ia", "i<")
       map("o", "aa", "a<")
     end,
+  },
+
+  -- TreeSJ
+  {
+    "Wansmer/treesj",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    keys = {
+      {
+        "<localleader>j",
+        function()
+          require("treesj").toggle()
+        end,
+        desc = "Split/Join Codeblock",
+      },
+      {
+        "<localleader>J",
+        function()
+          require("treesj").toggle({ split = { recursive = true } })
+        end,
+        desc = "Split/Join Codeblock Recursively",
+      },
+    },
+    opts = {
+      use_default_keymaps = false,
+    },
   },
 
   -- Vim Sleuth (set buffer options)
