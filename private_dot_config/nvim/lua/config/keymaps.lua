@@ -46,17 +46,18 @@ map("n", "<leader>fT", lazyterm, { desc = "Terminal (Root Dir)" })
 unmap("n", "<c-/>")
 unmap("n", "<c-_>")
 -- previously mapped to <c-_> and <c-/>
-map("n", "<C-CR>", lazyterm, { desc = "Terminal (Root Dir)" })
+map("n", "<M-CR>", lazyterm, { desc = "Terminal (Root Dir)" })
 -- stylua: ignore end
 
 --[[
 -- Neovim Terminal
 ]]
+map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })
 map("n", "<leader>tv", "<Cmd>vsplit | terminal<CR>", { desc = "Open Terminal (Vertical Split)" })
 map("n", "<leader>th", "<Cmd>split | terminal<CR>", { desc = "Open Terminal (Horizontal Split)" })
 unmap("t", "<C-/>")
 unmap("t", "<c-_>")
-map("t", "<C-CR>", "<Cmd>close<CR>", { desc = "Hide Terminal" })
+map("t", "<M-CR>", "<Cmd>close<CR>", { desc = "Hide Terminal" })
 
 --[[
 -- Files
