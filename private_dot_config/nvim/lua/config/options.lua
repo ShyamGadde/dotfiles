@@ -26,7 +26,6 @@ vim.diagnostic.config({
 set.listchars = { tab = "󰁔 ", trail = "·", nbsp = "␣" }
 
 set.sessionoptions = {
-  "blank",
   "buffers",
   "curdir",
   "folds",
