@@ -7,15 +7,15 @@ vim.api.nvim_create_user_command("LazyVimChangelog", function() LazyVim.news.cha
 unmap("n", "<leader>l") -- Motions for leetcode.nvim are now prefixed with <leader>l
 map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" }) -- Previously mapped to <leader>l
 
---[[
--- Toggle options
-]]
+--------------------
+-- Toggle options --
+--------------------
 LazyVim.format.snacks_toggle(true):map("<leader>uf")
 LazyVim.format.snacks_toggle():map("<leader>uF")
 
---[[
--- Lazygit
-]]
+-------------
+-- Lazygit --
+-------------
 -- stylua: ignore start
 map("n", "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit (cwd)" })
 map("n", "<leader>gG", function() Snacks.lazygit({ cwd = LazyVim.root.git() }) end, { desc = "Lazygit (Root Dir)" })
@@ -25,16 +25,16 @@ unmap({ "x" }, "<leader>gB") -- <leader>gB in normal mode is overridden by teles
 map({ "n", "x" }, "<leader>go", function() Snacks.gitbrowse() end, { desc = "Git Browse (open)" }) -- Previously mapped to <leader>gB
 -- stylua: ignore end
 
---[[
--- Lazydocker
-]]
+----------------
+-- Lazydocker --
+----------------
 map("n", "<leader>D", function()
   Snacks.terminal.open({ "lazydocker" }, { cwd = LazyVim.root.get(), esc_esc = false, ctrl_hjkl = false })
 end, { desc = "Lazydocker" })
 
---[[
--- Floating terminal
-]]
+-----------------------
+-- Floating terminal --
+-----------------------
 -- stylua: ignore start
 local lazyterm = function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end
 map("n", "<leader>ft", function() Snacks.terminal() end, { desc = "Terminal (cwd)" })
@@ -44,9 +44,9 @@ unmap("n", "<c-_>")
 map("n", "<M-CR>", lazyterm, { desc = "Terminal (Root Dir)" }) -- previously mapped to <c-_> and <c-/>
 -- stylua: ignore end
 
---[[
--- Neovim Terminal
-]]
+---------------------
+-- Neovim Terminal --
+---------------------
 require("which-key").add({ { "<leader>t", group = "+terminal" } })
 map("n", "<leader>tv", "<Cmd>vsplit | terminal<CR>", { desc = "Open Terminal (Vertical Split)" })
 map("n", "<leader>th", "<Cmd>split | terminal<CR>", { desc = "Open Terminal (Horizontal Split)" })
@@ -55,17 +55,17 @@ unmap("t", "<c-_>")
 map("t", "<M-CR>", "<Cmd>close<CR>", { desc = "Hide Terminal" })
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })
 
---[[
--- Files
-]]
+-----------
+-- Files --
+-----------
 map("n", "<leader>fx", "<Cmd>!chmod +x %<CR>", { desc = "Make Current File Executable" })
 map("n", "<leader>fs", "<Cmd>w<CR>", { desc = "Save File" })
 map("n", "<leader>fd", "<Cmd>!rm %<CR>", { desc = "Delete File" })
 map("n", "<leader>fD", "<Cmd>!rm %<CR><Cmd>bdelete<CR>", { desc = "Delete File and Buffer" })
 
---[[
--- Comments
---]]
+--------------
+-- Comments --
+--------------
 -- Toggle current line (linewise) using C-/
 -- stylua: ignore
 map("n", "<C-/>", function() require("Comment.api").toggle.linewise.current() end, { desc = "Toggle Comment" })
@@ -83,9 +83,9 @@ end
 map("x", "<C-/>", toggle_comment, { desc = "Toggle Comment" })
 map("x", "<C-_>", toggle_comment, { desc = "which_key_ignore" })
 
---[[
--- Misc
---]]
+----------
+-- Misc --
+----------
 -- Don't jump when using '*' or '#'
 map("n", "*", "*N")
 map("n", "#", "#N")
