@@ -6,6 +6,7 @@ vim.g.root_spec = { { ".git", "lua" }, "lsp", "cwd" }
 vim.g.lazyvim_picker = "telescope"
 vim.g.lazyvim_python_lsp = "basedpyright"
 vim.g.lazyvim_python_ruff = "ruff"
+vim.g.lazyvim_php_lsp = "intelephense"
 
 local set = vim.opt
 
@@ -22,7 +23,6 @@ set.softtabstop = 4
 vim.diagnostic.config({
   float = { border = "rounded" }, -- Add border to diagnostic popups
 })
-set.pumblend = 0 -- Popup blend
 set.listchars = { tab = "󰁔 ", trail = "·", nbsp = "␣" }
 
 set.sessionoptions = {
