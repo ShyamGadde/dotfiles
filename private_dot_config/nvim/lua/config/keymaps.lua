@@ -87,7 +87,20 @@ map("x", "<C-_>", toggle_comment, { desc = "which_key_ignore" })
 -- Misc --
 ----------
 -- Don't jump when using '*' or '#'
-map("n", "*", "*N")
-map("n", "#", "#N")
+map({ "n", "x" }, "*", "*N")
+map({ "n", "x" }, "#", "#N")
 -- Delete single character without copying into register
 map("n", "x", '"_x')
+-- Add empty lines before and after cursor line
+map("n", "go", "<Cmd>call append(line('.'),     repeat([''], v:count1))<CR>", { desc = "Put empty line below" })
+map("n", "gO", "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>", { desc = "Put empty line above" })
+-- Copy/paste with system clipboard
+map({ "n", "x" }, "<localleader>y", '"+y', { desc = "Copy to system clipboard" })
+map("n", "<localleader>p", '"+p', { desc = "Paste from system clipboard" })
+-- - Paste in Visual with `P` to not copy selected text (`:h v_P`)
+map("x", "<localleader>p", '"+P', { desc = "Paste from system clipboard" })
+-- Reselect latest changed, put, or yanked text
+-- stylua: ignore
+map( "n", "gV", '"`[" . strpart(getregtype(), 0, 1) . "`]"', { expr = true, replace_keycodes = false, desc = "Visually select changed text" })
+-- Search inside visually highlighted text. Use `silent = false` for it to make effect immediately.
+map("x", "g/", "<esc>/\\%V", { silent = false, desc = "Search inside visual selection" })
