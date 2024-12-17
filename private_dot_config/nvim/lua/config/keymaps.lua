@@ -41,7 +41,7 @@ map("n", "<leader>ft", function() Snacks.terminal() end, { desc = "Terminal (cwd
 map("n", "<leader>fT", lazyterm, { desc = "Terminal (Root Dir)" })
 unmap("n", "<c-/>") -- Now this keymap is used for commenting
 unmap("n", "<c-_>")
-map("n", "<M-CR>", lazyterm, { desc = "Terminal (Root Dir)" }) -- previously mapped to <c-_> and <c-/>
+map("n", "<A-CR>", lazyterm, { desc = "Terminal (Root Dir)" }) -- previously mapped to <c-_> and <c-/>
 -- stylua: ignore end
 
 ---------------------
@@ -52,7 +52,7 @@ map("n", "<leader>tv", "<Cmd>vsplit | terminal<CR>", { desc = "Open Terminal (Ve
 map("n", "<leader>th", "<Cmd>split | terminal<CR>", { desc = "Open Terminal (Horizontal Split)" })
 unmap("t", "<C-/>")
 unmap("t", "<c-_>")
-map("t", "<M-CR>", "<Cmd>close<CR>", { desc = "Hide Terminal" })
+map("t", "<A-CR>", "<Cmd>close<CR>", { desc = "Hide Terminal" })
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })
 
 -----------
