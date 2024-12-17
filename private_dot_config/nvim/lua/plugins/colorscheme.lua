@@ -6,6 +6,7 @@ return {
       custom_highlights = function(colors)
         return {
           GitSignsChange = { fg = colors.blue }, -- Can't tell the difference between yellow and green, me colorblind. Hence, me override.
+          WinSeparator = { fg = colors.blue },
         }
       end,
       dim_inactive = {
