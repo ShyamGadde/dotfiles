@@ -7,6 +7,7 @@ vim.g.lazyvim_picker = "telescope"
 vim.g.lazyvim_python_lsp = "basedpyright"
 vim.g.lazyvim_python_ruff = "ruff"
 vim.g.lazyvim_php_lsp = "intelephense"
+vim.g.lazyvim_cmp = "blink.cmp"
 
 local set = vim.opt
 
