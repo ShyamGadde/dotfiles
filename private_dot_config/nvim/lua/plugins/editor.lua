@@ -190,4 +190,21 @@ return {
       -- vim.g.undotree_DiffCommand = "git diff --no-index --unified=0 --patience"
     end,
   },
+
+  -- WhichKey
+  {
+    "folke/which-key.nvim",
+    optional = true,
+    opts = {
+      preset = "helix",
+      icons = {
+        rules = {
+          { pattern = "copy", icon = "", color = "white" },
+          { pattern = "paste", icon = "", color = "white" },
+          { pattern = "refactor", icon = "", color = "orange" },
+          { pattern = "undo", icon = "", color = "red" },
+        },
+      },
+    },
+  },
 }
