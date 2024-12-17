@@ -26,3 +26,16 @@ function gunwipall() {
         git reset "$_commit" || return 1
     fi
 }
+
+# Lazygit
+alias lazygit='env TERM=screen-256color lazygit' # BUG: This a temporary workaround for Truecolors not working properly for delta in lazygit inside tmux
+function lg() {
+    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+
+    lazygit "$@"
+
+    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
+        cd "$(cat $LAZYGIT_NEW_DIR_FILE)" || exit
+        rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+    fi
+}
