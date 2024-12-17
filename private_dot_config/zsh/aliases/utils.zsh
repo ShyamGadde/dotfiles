@@ -19,6 +19,7 @@ alias mkdir='mkdir -pv'
 alias edit-grub="sudo \$EDITOR /etc/default/grub"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
+alias lazygit='env TERM=screen-256color lazygit' # BUG: This a temporary workaround for Truecolors not working properly for delta in lazygit inside tmux
 alias lg='lazygit'
 alias lzd='lazydocker'
 
