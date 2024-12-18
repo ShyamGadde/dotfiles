@@ -129,12 +129,17 @@ return {
     },
   },
 
+  -- Edgy integrations
   {
     "folke/edgy.nvim",
     optional = true,
     opts = {
       options = {
         left = { size = 40 },
+      },
+      right = {
+        { title = "Copilot Chat", ft = "copilot-chat", size = { width = 0.3 } },
+        { title = "Grug Far", ft = "grug-far", size = { width = 0.4 } },
       },
     },
   },
