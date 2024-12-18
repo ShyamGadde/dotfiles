@@ -66,6 +66,25 @@ function mcd() {
     mkdir -p "$1" && cd "$1" || return
 }
 
+function list_oldfiles() {
+    # Get the oldfiles list from Neovim.
+    local oldfiles=($(nvim -u NONE --headless +'lua io.write(table.concat(vim.v.oldfiles, "\n") .. "\n")' +qa))
+    # Filter invalid paths or files not found.
+    local valid_files=()
+    for file in "${oldfiles[@]}"; do
+        if [[ -f "$file" && "$file" != /tmp/* ]]; then
+            valid_files+=("$file")
+        fi
+    done
+
+    # Use fzf to select from valid files.
+    local files=($(printf "%s\n" "${valid_files[@]}" | grep -v '\[.*' | fzf --multi --height=50%))
+
+    # Open selected files in Neovim
+    [[ ${#files[@]} -gt 0 ]] && nvim "${files[@]}"
+}
+alias lof='list_oldfiles'
+
 # Convert filenames and folder names to kebab-case
 function rename_to_kebab_case() {
     for f in *; do
