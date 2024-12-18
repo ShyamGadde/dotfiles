@@ -75,3 +75,25 @@ notARepository: quit
 
 # If true, display a confirmation when subprocess terminates. This allows you to view the output of the subprocess before returning to Lazygit.
 promptToReturnFromSubprocess: false
+
+customCommands:
+  - key: "<c-u>"
+    description: "Push to a specific remote repository"
+    context: "global"
+    loadingText: "Pushing"
+    prompts:
+      - type: "menuFromCommand"
+        title: "Select a Remote Repository to Push To"
+        key: "Remote"
+        command: bash -c "git remote --verbose | grep '/.* (push)'"
+        filter: '(?P<remote>.*)\s+(?P<url>.*) \(push\)'
+        valueFormat: "{{ .remote }}"
+        labelFormat: "{{ .remote | bold | cyan }} {{ .url }}"
+      - type: "menu"
+        title: "Select Push Method"
+        key: "PushType"
+        options:
+          - value: "push"
+          - value: "push --force-with-lease"
+          - value: "push --force"
+    command: "git {{.Form.PushType | quote}} {{.Form.Remote | quote}}"
