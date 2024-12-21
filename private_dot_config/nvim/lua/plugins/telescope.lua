@@ -66,10 +66,10 @@ return {
         vimgrep_arguments = vimgrep_arguments,
         mappings = {
           n = {
-            ["<M-p>"] = action_layout.toggle_preview,
+            ["<A-p>"] = action_layout.toggle_preview,
           },
           i = {
-            ["<M-p>"] = action_layout.toggle_preview,
+            ["<A-p>"] = action_layout.toggle_preview,
           },
         },
       })
@@ -79,6 +79,19 @@ return {
       opts.pickers = vim.tbl_deep_extend("force", opts.pickers or {}, {
         current_buffer_fuzzy_find = {
           previewer = false,
+        },
+        find_files = {
+          mappings = {
+            n = {
+              ["cd"] = function(prompt_bufnr)
+                local selection = require("telescope.actions.state").get_selected_entry()
+                local dir = vim.fn.fnamemodify(selection.path, ":p:h")
+                require("telescope.actions").close(prompt_bufnr)
+                -- Depending on what you want put `cd`, `lcd`, `tcd`
+                vim.cmd(string.format("silent lcd %s", dir))
+              end,
+            },
+          },
         },
       })
     end,
