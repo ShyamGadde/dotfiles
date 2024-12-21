@@ -41,7 +41,7 @@ return {
     event = "InsertEnter",
     dependencies = { "hrsh7th/nvim-cmp" },
     opts = {
-      check_ts = true, -- enable treesitter
+      check_ts = true, -- Enable treesitter
       -- ts_config = {
       --   lua = { "string" }, -- Don't add a pair on that treesitter node (i.e., lua string)
       -- },

@@ -3,7 +3,7 @@ return {
     "nvim-telescope/telescope.nvim",
     optional = true,
     keys = {
-      -- find
+      -- Find.
       { "<leader>ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
       { "<leader>fF", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
       { "<leader>fr", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
@@ -20,9 +20,9 @@ return {
         LazyVim.pick("files", { cwd = require("lazy.core.config").options.root }),
         desc = "Find Plugin File",
       },
-      -- git
+      -- Git.
       { "<leader>gB", "<cmd>Telescope git_branches<cr>", desc = "Branches" },
-      -- search
+      -- Search.
       { "<leader>s<space>", "<cmd>Telescope builtin<cr>", desc = "Builtin" },
       { "<leader>s:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
       { "<leader>sc", "<cmd>Telescope commands<cr>", desc = "Commands" },

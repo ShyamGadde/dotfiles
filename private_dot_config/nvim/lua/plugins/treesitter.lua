@@ -11,7 +11,7 @@ return {
         "phpdoc",
       })
 
-      -- Autoinstall languages that are not installed
+      -- Auto install languages that are not installed
       opts.auto_install = true
     end,
   },

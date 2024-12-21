@@ -25,7 +25,7 @@ return {
       { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (Root Dir)", remap = true },
     },
     opts = {
-      enable_cursor_hijack = true, -- If enabled neotree will keep the cursor on the first letter of the filename when moving in the tree.
+      enable_cursor_hijack = true, -- If enabled neo-tree will keep the cursor on the first letter of the filename when moving in the tree.
       use_popups_for_input = false,
       window = {
         mappings = {
@@ -81,17 +81,17 @@ return {
     "folke/flash.nvim",
     optional = true,
     keys = {
-      -- NOTE: This is not needed as quick motions will execute the nvim-surround motions,
+      -- NOTE: This is not needed as quick motions will execute the `nvim-surround` motions,
       -- e.g., `ds"` will delete the surrounding quotes.
-      -- e.g., `c<pause>s` will use flash to select the end of selection starting from the cursor.
+      -- E.g., `c<pause>s` will use flash to select the end of selection starting from the cursor.
 
-      -- disable the default flash keymap as it clashes with nvim-surround.
+      -- disable the default flash keymap as it clashes with `nvim-surround`.
       -- { "s", mode = { "n", "x", "o" }, false },
     },
     opts = {
       modes = {
         char = {
-          -- hide after jump when not using jump labels
+          -- Hide after jump when not using jump labels
           autohide = true,
           jump_labels = true,
         },
@@ -137,7 +137,7 @@ return {
     },
   },
 
-  -- TODOs
+  -- TODO
   {
     "folke/todo-comments.nvim",
     optional = true,
