@@ -63,7 +63,7 @@ return {
               return cwd
             end
 
-            -- prefer cwd if root is a descendant
+            -- Prefer cwd if root is a descendant.
             return util.path.is_descendant(cwd, root) and cwd or root
           end,
           settings = {

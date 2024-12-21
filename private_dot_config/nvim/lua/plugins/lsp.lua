@@ -101,8 +101,8 @@ return {
         yamlls = {},
       },
 
-      -- you can do any additional lsp server setup here
-      -- return true if you don't want this server to be setup with lspconfig
+      -- You can do any additional LSP server setup here,
+      -- return true if you don't want this server to be setup with `nvim-lspconfig`.
       setup = {
         -- This function will be called for all LSP servers
         -- ["*"] = function(server, opts) end,

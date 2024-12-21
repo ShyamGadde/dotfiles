@@ -76,7 +76,7 @@ return {
         backend = "nui",
       },
       presets = {
-        lsp_doc_border = true, -- add a border to hover docs and signature help
+        lsp_doc_border = true, -- Add a border to hover docs and signature help.
       },
     },
   },
@@ -129,7 +129,7 @@ return {
     },
   },
 
-  -- Edgy integrations
+  -- Edgy integration
   {
     "folke/edgy.nvim",
     optional = true,

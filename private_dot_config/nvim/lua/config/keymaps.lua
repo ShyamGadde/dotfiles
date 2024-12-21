@@ -4,7 +4,7 @@ local unmap = vim.keymap.del
 -- Use a command instead of a keymap
 -- stylua: ignore
 vim.api.nvim_create_user_command("LazyVimChangelog", function() LazyVim.news.changelog() end, { desc = "LazyVim Changelog" }) -- Previously mapped to <leader>L
-unmap("n", "<leader>l") -- Motions for leetcode.nvim are now prefixed with <leader>l
+unmap("n", "<leader>l") -- Motions for `leetcode.nvim` are now prefixed with <leader>l
 map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" }) -- Previously mapped to <leader>l
 
 --------------------
@@ -21,7 +21,7 @@ map("n", "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit (cwd)"
 map("n", "<leader>gG", function() Snacks.lazygit({ cwd = LazyVim.root.git() }) end, { desc = "Lazygit (Root Dir)" })
 map("n", "<leader>gl", function() Snacks.lazygit.log() end, { desc = "Lazygit Log (cwd)" })
 map("n", "<leader>gL", function() Snacks.lazygit.log({ cwd = LazyVim.root.git() }) end, { desc = "Lazygit Log" })
-unmap({ "x" }, "<leader>gB") -- <leader>gB in normal mode is overridden by telescope git_branches
+unmap({ "x" }, "<leader>gB") -- `<leader>gB` in normal mode is overridden by telescope git_branches
 map({ "n", "x" }, "<leader>go", function() Snacks.gitbrowse() end, { desc = "Git Browse (open)" }) -- Previously mapped to <leader>gB
 -- stylua: ignore end
 
