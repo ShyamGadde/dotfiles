@@ -38,7 +38,6 @@ return {
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    dependencies = { "hrsh7th/nvim-cmp" },
     opts = {
       check_ts = true, -- enable treesitter
       -- ts_config = {
@@ -52,32 +51,6 @@ return {
     "numToStr/Comment.nvim",
     event = "LazyFile",
     opts = {},
-  },
-
-  -- Snippets
-  {
-    "hrsh7th/nvim-cmp",
-    optional = true,
-    keys = {
-      {
-        "<C-l>",
-        function()
-          return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>" or "<C-l>"
-        end,
-        expr = true,
-        silent = true,
-        mode = { "i", "s" },
-      },
-      {
-        "<C-h>",
-        function()
-          return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<C-h>"
-        end,
-        expr = true,
-        silent = true,
-        mode = { "i", "s" },
-      },
-    },
   },
 
   -- Edit surrounding
