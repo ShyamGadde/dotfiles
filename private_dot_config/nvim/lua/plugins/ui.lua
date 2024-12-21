@@ -73,7 +73,7 @@ return {
     opts = {
       popupmenu = {
         ---@type 'nui'|'cmp'
-        backend = "cmp",
+        backend = "nui",
       },
       presets = {
         lsp_doc_border = true, -- add a border to hover docs and signature help
