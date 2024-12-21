@@ -31,6 +31,39 @@ return {
 
         emmet_ls = {},
 
+        harper_ls = {
+          settings = {
+            ["harper-ls"] = {
+              -- userDictPath = "$XDG_CONFIG_HOME/harper-ls",
+              -- fileDictPath = "$XDG_DATA_HOME/harper-ls/file_dictionaries",
+              diagnosticSeverity = "hint", -- Can also be "information", "warning", or "error"
+              linters = {
+                an_a = true,
+                avoid_curses = true,
+                correct_number_suffix = true,
+                linking_verbs = false,
+                long_sentences = true,
+                matcher = true,
+                multiple_sequential_pronouns = true,
+                number_suffix_capitalization = true,
+                repeated_words = true,
+                sentence_capitalization = true,
+                spaces = true,
+                spell_check = true,
+                spelled_numbers = false,
+                terminating_conjunctions = true,
+                unclosed_quotes = true,
+                wrong_quotes = false,
+              },
+              codeActions = {
+                -- Set this to true if you want consistent code actions (actions which aren't dependent on specific words)
+                -- to appear at the top.
+                forceStable = false,
+              },
+            },
+          },
+        },
+
         hyprls = {
           root_dir = function()
             return vim.fn.getcwd()
