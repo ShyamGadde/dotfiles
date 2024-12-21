@@ -1,37 +1,38 @@
 return {
   -- Auto completion
   {
-    "saghen/blink.cmp",
+    "hrsh7th/nvim-cmp",
     optional = true,
-    opts = {
-      keymap = {
-        -- Don't accept suggestion on Enter.
-        ["<CR>"] = {},
-        ["<C-y>"] = { "select_and_accept" },
-        ["<C-l>"] = { "snippet_forward", "fallback" },
-        ["<C-h>"] = { "snippet_backward", "fallback" },
-        -- Add ability to select the nth item with Alt + n for the first 5 items.
-        -- stylua: ignore start
-        ["<A-1>"] = { function(cmp) cmp.accept({ index = 1 }) end },
-        ["<A-2>"] = { function(cmp) cmp.accept({ index = 2 }) end },
-        ["<A-3>"] = { function(cmp) cmp.accept({ index = 3 }) end },
-        ["<A-4>"] = { function(cmp) cmp.accept({ index = 4 }) end },
-        ["<A-5>"] = { function(cmp) cmp.accept({ index = 5 }) end },
-        -- stylua: ignore end
-      },
-      completion = {
-        menu = {
-          -- border = "rounded",
-          winblend = 10,
+    dependencies = { "hrsh7th/cmp-cmdline" },
+    opts = function(_, opts)
+      local cmp = require("cmp")
+
+      -- Add borders to completions popups
+      opts.window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      }
+
+      opts.mapping = vim.tbl_extend("force", opts.mapping or {}, {
+        ["<CR>"] = {}, -- Don't select on 'Enter'
+      })
+
+      cmp.setup.cmdline({ "/", "?" }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = "buffer" },
         },
-        documentation = {
-          window = {
-            -- border = "rounded",
-            winblend = 10,
-          },
-        },
-      },
-    },
+      })
+
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "path" },
+        }, {
+          { name = "cmdline" },
+        }),
+      })
+    end,
   },
 
   -- Auto pairs
