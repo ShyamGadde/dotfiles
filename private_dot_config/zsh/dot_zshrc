@@ -1,4 +1,4 @@
-# shellcheck shell=zsh
+# shellcheck shell=bash
 
 if command -v pfetch &> /dev/null; then
     pfetch
@@ -111,8 +111,8 @@ export NVM_AUTO_USE=true # Automatically use the version of node specified in .n
 export NVM_LAZY_LOAD=true
 export NVM_LAZY_LOAD_EXTRA_COMMANDS=(
     'code'
-    'vim'
     'nvim'
+    'vim'
 )
 
 zinit --wait --lucid for \
