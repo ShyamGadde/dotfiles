@@ -45,21 +45,21 @@ function zshrc() {
     if command -v chezmoi > /dev/null; then
         EDITOR='chezmoi edit'
     fi
-    $SHELL -c "cd $ZDOTDIR; ${EDITOR:-nvim} ."
+    $SHELL -c "cd $ZDOTDIR && ${EDITOR:-nvim} ."
 }
 
 function vimrc() {
     if command -v chezmoi > /dev/null; then
         EDITOR='chezmoi edit'
     fi
-    $SHELL -c "cd $XDG_CONFIG_HOME/nvim; ${EDITOR:-nvim} ."
+    $SHELL -c "cd $XDG_CONFIG_HOME/nvim && ${EDITOR:-nvim} ."
 }
 
 function hyprrc() {
     if command -v chezmoi > /dev/null; then
         EDITOR='chezmoi edit'
     fi
-    $SHELL -c "cd $XDG_CONFIG_HOME/hypr; ${EDITOR:-nvim} ."
+    $SHELL -c "cd $XDG_CONFIG_HOME/hypr && ${EDITOR:-nvim} ."
 }
 
 function mcd() {
