@@ -64,7 +64,7 @@ zle -N zle-keymap-select
 echo -ne '\e[5 q'
 
 # Use beam shape cursor for each new prompt.
-precmd() {
+function precmd() {
     echo -ne '\e[5 q'
 }
 
@@ -87,7 +87,7 @@ _comp_options+=(globdots) # Include hidden files.
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # Case insensitive completion
 zstyle ':completion:*' rehash true                        # Automatically find new executables in path
 # zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"   # Colored completion (different colors for dirs/files/etc)
-zstyle ':completion:*' completer _expand _complete _ignored _approximate
+zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle ':completion:*' menu select
 zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
 zstyle ':completion:*:descriptions' format '%U%F{cyan}%d%f%u'
