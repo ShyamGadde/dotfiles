@@ -3,9 +3,6 @@ install.sh
 code-settings.json
 code-keybindings.json
 
-# TODO: Remove
-.config/nvim-old/
-
 # Ignore on non Linus machines
 {{- if ne .chezmoi.os "linux" }}
 .gtkrc-2.0
