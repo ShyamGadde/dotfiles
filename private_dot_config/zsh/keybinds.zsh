@@ -1,10 +1,10 @@
-# shellcheck shell=zsh
+# shellcheck shell=bash
 
-# Use vim keys in tab complete menu:
-# bindkey -M menuselect 'h' vi-backward-char
-# bindkey -M menuselect 'j' down-line-or-history
-# bindkey -M menuselect 'k' up-line-or-history
-# bindkey -M menuselect 'l' vi-forward-char
+# Use vim keys in tab completion menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' down-line-or-history
+bindkey -M menuselect 'k' up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
 
 # [Backspace] - delete backward
 bindkey -M emacs '^?' backward-delete-char
