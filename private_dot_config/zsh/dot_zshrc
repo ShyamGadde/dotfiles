@@ -74,6 +74,29 @@ precmd() {
 # NOTE: Load starship after enabling the vi mode.
 eval "$(starship init zsh)"
 
+###############################
+### Setup Completion Styles ###
+###############################
+zstyle :compinstall filename "$ZDOTDIR/.zshrc"
+
+# NOTE: Should be called before compinit
+zmodload zsh/complist
+
+_comp_options+=(globdots) # Include hidden files.
+
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # Case insensitive completion
+zstyle ':completion:*' rehash true                        # Automatically find new executables in path
+# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"   # Colored completion (different colors for dirs/files/etc)
+zstyle ':completion:*' completer _expand _complete _ignored _approximate
+zstyle ':completion:*' menu select
+zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
+zstyle ':completion:*:descriptions' format '%U%F{cyan}%d%f%u'
+
+# Speed up completions
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.cache/zcache
+
 ####################
 ### Load plugins ###
 ####################
