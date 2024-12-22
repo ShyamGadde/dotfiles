@@ -43,9 +43,10 @@ typeset -U path cdpath fpath manpath
 # Modifying WORDCHARS to change word boundaries
 # Removing '/', '.', ':', '_', and '-' from WORDCHARS so they're not considered part of a word
 WORDCHARS=${WORDCHARS//[\/.:_-]/}
-# ----------------
-# Vi mode
-# ----------------
+
+###############
+### Vi mode ###
+###############
 bindkey -v
 export KEYTIMEOUT=1 # The delay of pressing Esc key in vi mode is 0.4s by default, this makes it shorter (0.01s)
 
@@ -67,15 +68,15 @@ precmd() {
     echo -ne '\e[5 q'
 }
 
-# ----------------
-# Load Prompt
-# ----------------
+###################
+### Load Prompt ###
+###################
 # NOTE: Load starship after enabling the vi mode.
 eval "$(starship init zsh)"
 
-# ----------------
-# Load plugins
-# ----------------
+####################
+### Load plugins ###
+####################
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d "$ZINIT_HOME" ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d "$ZINIT_HOME"/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
@@ -105,7 +106,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # NVM
-# FIX: completions not working with zinit
 export NVM_COMPLETION=true
 export NVM_AUTO_USE=true # Automatically use the version of node specified in .nvmrc
 export NVM_LAZY_LOAD=true
@@ -128,19 +128,17 @@ zinit --wait --lucid for \
     @zsh-users/zsh-completions
 # NOTE: FZF has to be loaded before atuin so that atuin can override the CTRL-R keybinding of FZF
 
-zinit --wait=1 --lucid for \
+zinit --wait --lucid --link --is-snippet for \
+    "$ZDOTDIR"/aliases.zsh \
+    \
+    "$ZDOTDIR"/keybinds.zsh
+
+zinit --wait=3 --lucid for \
     @hlissner/zsh-autopair \
     \
     --atload="eval $(pyenv init -)" \
     --atload="eval $(pyenv virtualenv-init -)" \
-    --atload="eval $(zoxide init --cmd cd zsh)" \
     @lukechilds/zsh-nvm
-
-# shellcheck disable=SC2046
-zinit --wait=1 --lucid --link --is-snippet for \
-    $(fd --type f . "$ZDOTDIR"/aliases | tr '\n' ' \ ') \
-    \
-    "$ZDOTDIR"/keybinds.zsh
 
 # Arch Linux command-not-found support, you must have package pkgfile installed
 # https://wiki.archlinux.org/index.php/Pkgfile#.22Command_not_found.22_hook
