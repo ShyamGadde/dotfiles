@@ -133,41 +133,80 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 export NVM_COMPLETION=true
 export NVM_AUTO_USE=true # Automatically use the version of node specified in .nvmrc
 export NVM_LAZY_LOAD=true
-export NVM_LAZY_LOAD_EXTRA_COMMANDS=(
-    'code'
-    'nvim'
-    'vim'
-)
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('code' 'nvim' 'vim')
 
+############################################################################################################################################
+#                                       ZINIT Notes
+#                                    -----------------
+#
+# - `ZINIT[COMPINIT_OPTS]=-C`: The `-C` option for `compinit` tells Zsh not to scan the `$fpath` directories for completion functions.
+# - `blockf`: This will block the traditional method of adding completions.
+#             Zinit uses its own method (based on symlinks instead of adding a number of directories to `$fpath`).
+# - `wait`: Defers the loading of a plugin until after `.zshrc` processing is complete and the first prompt is displayed.
+#   - A value of `0` means it will be loaded 0 seconds after `.zshrc` is processed, which is same as just `wait`.
+#   - The exclamation mark in `wait='!...'` causes Zinit to reset the prompt after loading plugin – it is needed for themes.
+#   - Turbo with the empty `wait` ice will postpone the loading 1 ms after that.
+# - `lucid`: Causes the under-prompt message saying 'Loaded <plugin-name>' that normally appears
+#            for every Turbo-loaded plugin to not show.
+# - `atload`: Execute code after loading plugin.
+#   - The exclamation mark in `atload='!...'` is to track the functions allowing the plugin to be unloaded.
+# - `atinit`: Execute code before loading plugin.
+# - `atpull`: Execute code after updating plugin.
+# - `nocd`: Don't `cd` into the plugin's directory when executing the `atload` ice – it could make the path that's displayed
+#           by the theme to point to that directory.
+# - `id-as`: Nickname a plugin or snippet.
+#   - There's a special value to this ice – `auto`. It causes the nickname to be automatically set to the last
+#     component of the plugin name or snippet URL.
+#   - An empty string will work the same as `auto`.
+# - `zicompinit`: equals to `autoload compinit; compinit`
+# - `zicdreplay`: execute `compdef ...` calls that plugins did – they were recorded, so that `compinit` can be called later
+#                 (`compinit` provides the `compdef` function, so it must be ran before issuing the taken-over `compdef`'s
+#                 with `zicdreplay`)
+# - `if`: Load plugin or snippet only when given condition is fulfilled.
+#
+# Syntax-highlighting plugins (like `fast-syntax-highlighting`) theoretically expect to be loaded last, even after the
+# completion initialization (i.e. `compinit` function). However, in practice, you just have to ensure that such plugin is loaded
+# after plugins that are issuing `compdef`'s – which basically means completions that aren't using the underscore-starting
+# function file. The completion initialization still has to be performed before syntax-highlighting plugin, hence the
+# `atinit` ice, which will load `compinit` right before loading the plugin.
+############################################################################################################################################
+
+# NOTE: FZF should to be loaded before atuin so that atuin can override the CTRL-R keybinding of FZF
 zinit --wait --lucid for \
-    --atinit="zicompinit; zicdreplay" --atload="fast-theme XDG:catppuccin-mocha -q" \
+    --nocd \
+    --atinit="ZINIT[COMPINIT_OPTS]=-C; zicompinit; autoload -U bashcompinit && bashcompinit; zicdreplay" \
+    --atload="fast-theme XDG:catppuccin-mocha -q" \
     @zdharma-continuum/fast-syntax-highlighting \
     \
-    --atload="_zsh_autosuggest_start" \
-    @zsh-users/zsh-autosuggestions \
-    \
     --blockf --atpull="zinit creinstall -q ." \
+    @zsh-users/zsh-completions \
+    \
+    --nocd \
+    --atload="!_zsh_autosuggest_start" \
     --atload="source <(fzf --zsh)" \
     --atload="eval $(atuin init zsh --disable-up-arrow)" \
-    @zsh-users/zsh-completions
-# NOTE: FZF has to be loaded before atuin so that atuin can override the CTRL-R keybinding of FZF
-
-zinit --wait --lucid --link --is-snippet for \
-    "$ZDOTDIR"/aliases.zsh \
+    --atload="eval $(zoxide init --cmd cd zsh)" \
+    @zsh-users/zsh-autosuggestions \
     \
-    "$ZDOTDIR"/keybinds.zsh
+    @hlissner/zsh-autopair
 
-zinit --wait=3 --lucid for \
-    @hlissner/zsh-autopair \
-    \
+# shellcheck disable=SC2046
+zinit --wait --lucid --is-snippet --id-as='auto' for \
+    "$ZDOTDIR"/keybinds.zsh \
+    $(fd --type f . "$ZDOTDIR"/aliases | tr '\n' ' \ ')
+
+zinit --wait='!2' --lucid for \
+    --nocd \
+    --completions \
     --atload="eval $(pyenv init -)" \
     --atload="eval $(pyenv virtualenv-init -)" \
     @lukechilds/zsh-nvm
 
 # Arch Linux command-not-found support, you must have package pkgfile installed
 # https://wiki.archlinux.org/index.php/Pkgfile#.22Command_not_found.22_hook
-if [[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]]; then
-    zinit --wait=5 --lucid --link --is-snippet for \
-        --atload="[[ -e /usr/share/doc/find-the-command/ftc.zsh ]] && source /usr/share/doc/find-the-command/ftc.zsh" \
-        /usr/share/doc/pkgfile/command-not-found.zsh
-fi
+# NOTE: The reason for using the `atload` ice hack for loading `ftc.zsh` is that it actually sources `ftc.bash` in its original directory.
+# Zinit copies/symlinks the snippet to its own directory, so the original path is lost.
+zinit --wait=5 --lucid --is-snippet --id-as='auto' for \
+    --if="[[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]]" \
+    --atload="[[ -e /usr/share/doc/find-the-command/ftc.zsh ]] && source /usr/share/doc/find-the-command/ftc.zsh" \
+    /usr/share/doc/pkgfile/command-not-found.zsh
