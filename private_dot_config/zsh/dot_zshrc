@@ -84,12 +84,11 @@ zmodload zsh/complist
 
 _comp_options+=(globdots) # Include hidden files.
 
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # Case insensitive completion
-zstyle ':completion:*' rehash true                        # Automatically find new executables in path
-# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"   # Colored completion (different colors for dirs/files/etc)
-zstyle ':completion:*' completer _complete _ignored _approximate
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'               # Case insensitive completion
+zstyle ':completion:*' rehash true                                      # Automatically find new executables in path
+zstyle ':completion:*' completer _complete _match _ignored _approximate # Fuzzy matching of completions
 zstyle ':completion:*' menu select
-zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
+zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s' # In menu-style completion, give a status bar
 zstyle ':completion:*:descriptions' format '%U%F{cyan}%d%f%u'
 
 # Speed up completions
@@ -104,6 +103,8 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d "$ZINIT_HOME" ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d "$ZINIT_HOME"/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
+
+zinit --pack for ls_colors
 
 # FZF
 export FZF_DEFAULT_COMMAND="fd --type f"
@@ -195,7 +196,7 @@ zinit --wait --lucid --is-snippet --id-as='auto' for \
     "$ZDOTDIR"/keybinds.zsh \
     $(fd --type f . "$ZDOTDIR"/aliases | tr '\n' ' \ ')
 
-zinit --wait='!2' --lucid for \
+zinit --wait='!1' --lucid for \
     --nocd \
     --completions \
     --atload="eval $(pyenv init -)" \
@@ -206,7 +207,7 @@ zinit --wait='!2' --lucid for \
 # https://wiki.archlinux.org/index.php/Pkgfile#.22Command_not_found.22_hook
 # NOTE: The reason for using the `atload` ice hack for loading `ftc.zsh` is that it actually sources `ftc.bash` in its original directory.
 # Zinit copies/symlinks the snippet to its own directory, so the original path is lost.
-zinit --wait=5 --lucid --is-snippet --id-as='auto' for \
+zinit --wait=5 --lucid --is-snippet --id-as='auto' --nocd for \
     --if="[[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]]" \
     --atload="[[ -e /usr/share/doc/find-the-command/ftc.zsh ]] && source /usr/share/doc/find-the-command/ftc.zsh" \
     /usr/share/doc/pkgfile/command-not-found.zsh
