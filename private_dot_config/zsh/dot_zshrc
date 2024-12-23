@@ -201,7 +201,10 @@ zinit --wait='!0' --lucid --nocd --completions for \
     zoxide init --cmd cd zsh >! $XDG_CACHE_HOME/zzoxide.zsh; \
     pyenv init - >! $XDG_CACHE_HOME/zpyenv.zsh; \
     pyenv virtualenv-init - >! $XDG_CACHE_HOME/zpyenvvenv.zsh; \
-    gh copilot alias -- zsh >! $XDG_CACHE_HOME/zghcopilot.zsh;" \
+    gh copilot alias -- zsh >! $XDG_CACHE_HOME/zghcopilot.zsh; \
+    local f; for f in $XDG_CACHE_HOME/{zfzf,zatuin,zzoxide,zpyenv,zpyenvvenv,zghcopilot}.zsh; do \
+        zcompile \$f; \
+    done" \
     --atpull='%atclone' --run-atpull \
     --multisrc="$XDG_CACHE_HOME/{zfzf,zatuin,zzoxide,zpyenv,zpyenvvenv,zghcopilot}.zsh" \
     @lukechilds/zsh-nvm
