@@ -34,9 +34,6 @@ setopt prompt_subst           # Enable command substitution in prompt
 setopt rc_expand_param        # Array expansion with parameters
 setopt share_history          # Share history between all sessions
 
-# Skip the not really helping Ubuntu global compinit
-export skip_global_compinit=1
-
 # Remove duplicates in path variables
 typeset -U path cdpath fpath manpath
 
