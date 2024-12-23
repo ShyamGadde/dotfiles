@@ -16,7 +16,7 @@ code-keybindings.json
 .vscode/argv.json
 {{- end }}
 
-{{- if ne .chezmoi.osRelease.id "arch" }}
+{{- if (and (eq .chezmoi.os "linux") (ne .chezmoi.osRelease.id "arch")) }}
 
 # Ignore on non Arch Linux machines.
 .config/zsh/aliases/arch-linux-aliases.zsh
