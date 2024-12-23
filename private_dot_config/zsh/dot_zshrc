@@ -175,6 +175,11 @@ export NVM_LAZY_LOAD_EXTRA_COMMANDS=('code' 'nvim' 'vim')
 # `atinit` ice, which will load `compinit` right before loading the plugin.
 ############################################################################################################################################
 
+# shellcheck disable=SC2046
+zinit --wait --lucid --is-snippet --id-as='auto' for \
+    "$ZDOTDIR"/keybinds.zsh \
+    $(fd --type f . "$ZDOTDIR"/aliases | tr '\n' ' \ ')
+
 # NOTE: FZF should to be loaded before atuin so that atuin can override the CTRL-R keybinding of FZF
 zinit --wait --lucid for \
     --nocd \
@@ -193,11 +198,6 @@ zinit --wait --lucid for \
     @zsh-users/zsh-autosuggestions \
     \
     @hlissner/zsh-autopair
-
-# shellcheck disable=SC2046
-zinit --wait --lucid --is-snippet --id-as='auto' for \
-    "$ZDOTDIR"/keybinds.zsh \
-    $(fd --type f . "$ZDOTDIR"/aliases | tr '\n' ' \ ')
 
 zinit --wait='!1' --lucid for \
     --nocd \
