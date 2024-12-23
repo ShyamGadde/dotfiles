@@ -11,28 +11,28 @@ SAVEHIST=$HISTSIZE
 
 # ZSH options
 setopt append_history         # This is default but set for share_history
-setopt share_history          # Share history between all sessions
+setopt complete_in_word       # Allow completion within a word
+setopt correct                # Auto correct commands
+setopt extended_glob          # Enable extended globbing
 setopt extended_history       # Save each command's beginning timestamp and duration
-setopt hist_ignore_all_dups   # Ignore duplicates in history
-setopt hist_save_no_dups      # Do not save duplicates in history
-setopt hist_find_no_dups      # Do not show duplicates when searching history
+setopt hash_list_all          # Do not ignore the path when hashing commands
 setopt hist_expire_dups_first # Remove duplicates first when trimming history
+setopt hist_find_no_dups      # Do not show duplicates when searching history
+setopt hist_ignore_all_dups   # Ignore duplicates in history
 setopt hist_ignore_space      # Ignore commands that start with a space
-setopt no_flow_control        # Disable Ctrl-S and Ctrl-Q output freezing
-setopt prompt_subst           # Enable command substitution in prompt
+setopt hist_save_no_dups      # Do not save duplicates in history
+setopt interactive_comments   # Allow comments even in interactive shells
 setopt long_list_jobs         # Display PID of jobs when suspending them
+setopt no_beep                # Disable beep on error
+setopt no_case_glob           # Case insensitive globbing
+setopt no_flow_control        # Disable Ctrl-S and Ctrl-Q output freezing
+setopt no_glob_dots           # Do not include . and .. in globbing
 setopt no_nomatch             # Do not fail on failed globbing and avoid the 'zsh: no matches found...'
 setopt notify                 # Report the status of background jobs immediately
-setopt hash_list_all          # Do not ignore the path when hashing commands
-setopt complete_in_word       # Allow completion within a word
-setopt interactive_comments   # Allow comments even in interactive shells
-setopt extended_glob          # Enable extended globbing
-setopt no_beep                # Disable beep on error
-setopt no_glob_dots           # Do not include . and .. in globbing
-setopt no_case_glob           # Case insensitive globbing
-setopt rc_expand_param        # Array expansion with parameters
 setopt numeric_glob_sort      # Sort filenames numerically when it makes sense
-setopt correct                # Auto correct commands
+setopt prompt_subst           # Enable command substitution in prompt
+setopt rc_expand_param        # Array expansion with parameters
+setopt share_history          # Share history between all sessions
 
 # Skip the not really helping Ubuntu global compinit
 export skip_global_compinit=1
@@ -84,17 +84,18 @@ zmodload zsh/complist
 
 _comp_options+=(globdots) # Include hidden files.
 
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'               # Case insensitive completion
-zstyle ':completion:*' rehash true                                      # Automatically find new executables in path
 zstyle ':completion:*' completer _complete _match _ignored _approximate # Fuzzy matching of completions
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'               # Case insensitive completion
 zstyle ':completion:*' menu select
-zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s' # In menu-style completion, give a status bar
+zstyle ':completion:*' rehash true # Automatically find new executables in path
+# In menu-style completion, give a status bar
+zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
 zstyle ':completion:*:descriptions' format '%U%F{cyan}%d%f%u'
 
 # Speed up completions
 zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.cache/zcache
+zstyle ':completion:*' use-cache on
 
 ####################
 ### Load plugins ###
@@ -153,8 +154,10 @@ export NVM_LAZY_LOAD_EXTRA_COMMANDS=('code' 'nvim' 'vim')
 #   - The exclamation mark in `atload='!...'` is to track the functions allowing the plugin to be unloaded.
 # - `atinit`: Execute code before loading plugin.
 # - `atpull`: Execute code after updating plugin.
+#   - The `%atclone` is a special string that denotes that the `atclone` hook should be copied onto the `atpull` hook.
 # - `nocd`: Don't `cd` into the plugin's directory when executing the `atload` ice – it could make the path that's displayed
 #           by the theme to point to that directory.
+# - `nocompile='!'`: Invokes compilation after the `atclone` ice-mod (the exclamation mark causes this).
 # - `id-as`: Nickname a plugin or snippet.
 #   - There's a special value to this ice – `auto`. It causes the nickname to be automatically set to the last
 #     component of the plugin name or snippet URL.
