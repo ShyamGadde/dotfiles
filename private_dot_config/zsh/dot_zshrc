@@ -181,7 +181,6 @@ zinit --wait --lucid --is-snippet --id-as='auto' for \
     "$ZDOTDIR"/keybinds.zsh \
     $(fd --type f . "$ZDOTDIR"/aliases | tr '\n' ' \ ')
 
-# NOTE: FZF should to be loaded before atuin so that atuin can override the CTRL-R keybinding of FZF
 zinit --wait --lucid for \
     --atinit="ZINIT[COMPINIT_OPTS]=-C; zicompinit; autoload -U bashcompinit && bashcompinit; zicdreplay" \
     --nocd --atload="fast-theme XDG:catppuccin-mocha -q" \
@@ -195,6 +194,7 @@ zinit --wait --lucid for \
     \
     @hlissner/zsh-autopair
 
+# NOTE: Atuin should be loaded after FZF so that it can override the CTRL-R keybinding of FZF.
 zinit --wait='!0' --lucid --nocd --completions for \
     --atclone="fzf --zsh >! $XDG_CACHE_HOME/zfzf.zsh; \
     atuin init zsh --disable-up-arrow >! $XDG_CACHE_HOME/zatuin.zsh; \
