@@ -169,6 +169,8 @@ export NVM_LAZY_LOAD_EXTRA_COMMANDS=('code' 'nvim' 'vim')
 #                 (`compinit` provides the `compdef` function, so it must be ran before issuing the taken-over `compdef`'s
 #                 with `zicdreplay`)
 # - `if`: Load plugin or snippet only when given condition is fulfilled.
+# - `run-atpull`: Always run the `atpull` hook (when updating), not only when there are new commits to be downloaded.
+# - `multisrc`: Allows to specify multiple files for sourcing.
 #
 # Syntax-highlighting plugins (like `fast-syntax-highlighting`) theoretically expect to be loaded last, even after the
 # completion initialization (i.e. `compinit` function). However, in practice, you just have to ensure that such plugin is loaded
@@ -191,17 +193,19 @@ zinit --wait --lucid for \
     --blockf --atpull="zinit creinstall -q ." \
     @zsh-users/zsh-completions \
     \
-    --atload="source <(fzf --zsh)" \
-    --atload="eval $(atuin init zsh --disable-up-arrow)" \
-    --atload="eval $(zoxide init --cmd cd zsh)" \
     --nocd --atload="!_zsh_autosuggest_start" \
     @zsh-users/zsh-autosuggestions \
     \
     @hlissner/zsh-autopair
 
-zinit --wait='!1' --lucid --nocd --completions for \
-    --atload="eval $(pyenv init -)" \
-    --atload="eval $(pyenv virtualenv-init -)" \
+zinit --wait='!0' --lucid --nocd --completions for \
+    --atclone="fzf --zsh >! $XDG_CACHE_HOME/zfzf.zsh; \
+    atuin init zsh --disable-up-arrow >! $XDG_CACHE_HOME/zatuin.zsh; \
+    zoxide init --cmd cd zsh >! $XDG_CACHE_HOME/zzoxide.zsh; \
+    pyenv init - >! $XDG_CACHE_HOME/zpyenv.zsh; \
+    pyenv virtualenv-init - >! $XDG_CACHE_HOME/zpyenvvenv.zsh;" \
+    --atpull='%atclone' --run-atpull \
+    --multisrc="$XDG_CACHE_HOME/{zfzf,zatuin,zzoxide,zpyenv,zpyenvvenv}.zsh" \
     @lukechilds/zsh-nvm
 
 # Arch Linux command-not-found support, you must have package pkgfile installed
