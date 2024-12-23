@@ -3,8 +3,9 @@ install.sh
 code-settings.json
 code-keybindings.json
 
-# Ignore on non Linus machines
 {{- if ne .chezmoi.os "linux" }}
+
+# Ignore on non Linus machines.
 .gtkrc-2.0
 .mime.types
 .config/{hypr,Code,obsidian,rofi,swappy,swaync,systemd,waybar,waypaper}
@@ -15,8 +16,15 @@ code-keybindings.json
 .vscode/argv.json
 {{- end }}
 
-# Ignore on non MacOS machines
+{{- if ne .chezmoi.osRelease.id "arch" }}
+
+# Ignore on non Arch Linux machines.
+.config/zsh/aliases/arch-linux-aliases.zsh
+{{- end }}
+
 {{- if ne .chezmoi.os "darwin" }}
+
+# Ignore on non MacOS machines.
 .config/karabiner
 .hushlogin
 .local/bin/,bootstrap-mac
