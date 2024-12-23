@@ -200,9 +200,10 @@ zinit --wait='!0' --lucid --nocd --completions for \
     atuin init zsh --disable-up-arrow >! $XDG_CACHE_HOME/zatuin.zsh; \
     zoxide init --cmd cd zsh >! $XDG_CACHE_HOME/zzoxide.zsh; \
     pyenv init - >! $XDG_CACHE_HOME/zpyenv.zsh; \
-    pyenv virtualenv-init - >! $XDG_CACHE_HOME/zpyenvvenv.zsh;" \
+    pyenv virtualenv-init - >! $XDG_CACHE_HOME/zpyenvvenv.zsh; \
+    gh copilot alias -- zsh >! $XDG_CACHE_HOME/zghcopilot.zsh;" \
     --atpull='%atclone' --run-atpull \
-    --multisrc="$XDG_CACHE_HOME/{zfzf,zatuin,zzoxide,zpyenv,zpyenvvenv}.zsh" \
+    --multisrc="$XDG_CACHE_HOME/{zfzf,zatuin,zzoxide,zpyenv,zpyenvvenv,zghcopilot}.zsh" \
     @lukechilds/zsh-nvm
 
 # Arch Linux command-not-found support, you must have package pkgfile installed
