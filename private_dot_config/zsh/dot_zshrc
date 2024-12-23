@@ -134,6 +134,8 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 # NVM
 export NVM_COMPLETION=true
 export NVM_AUTO_USE=true # Automatically use the version of node specified in .nvmrc
+# NOTE: This is significantly faster (1200ms down to 180ms). However, accurate completions for `nvm use`
+# might not be available until it is fully loaded.
 export NVM_LAZY_LOAD=true
 export NVM_LAZY_LOAD_EXTRA_COMMANDS=('code' 'nvim' 'vim')
 
@@ -182,26 +184,22 @@ zinit --wait --lucid --is-snippet --id-as='auto' for \
 
 # NOTE: FZF should to be loaded before atuin so that atuin can override the CTRL-R keybinding of FZF
 zinit --wait --lucid for \
-    --nocd \
     --atinit="ZINIT[COMPINIT_OPTS]=-C; zicompinit; autoload -U bashcompinit && bashcompinit; zicdreplay" \
-    --atload="fast-theme XDG:catppuccin-mocha -q" \
+    --nocd --atload="fast-theme XDG:catppuccin-mocha -q" \
     @zdharma-continuum/fast-syntax-highlighting \
     \
     --blockf --atpull="zinit creinstall -q ." \
     @zsh-users/zsh-completions \
     \
-    --nocd \
-    --atload="!_zsh_autosuggest_start" \
     --atload="source <(fzf --zsh)" \
     --atload="eval $(atuin init zsh --disable-up-arrow)" \
     --atload="eval $(zoxide init --cmd cd zsh)" \
+    --nocd --atload="!_zsh_autosuggest_start" \
     @zsh-users/zsh-autosuggestions \
     \
     @hlissner/zsh-autopair
 
-zinit --wait='!1' --lucid for \
-    --nocd \
-    --completions \
+zinit --wait='!1' --lucid --nocd --completions for \
     --atload="eval $(pyenv init -)" \
     --atload="eval $(pyenv virtualenv-init -)" \
     @lukechilds/zsh-nvm
@@ -210,7 +208,7 @@ zinit --wait='!1' --lucid for \
 # https://wiki.archlinux.org/index.php/Pkgfile#.22Command_not_found.22_hook
 # NOTE: The reason for using the `atload` ice hack for loading `ftc.zsh` is that it actually sources `ftc.bash` in its original directory.
 # Zinit copies/symlinks the snippet to its own directory, so the original path is lost.
-zinit --wait=5 --lucid --is-snippet --id-as='auto' --nocd for \
+zinit --wait=2 --lucid --is-snippet --id-as='auto' --nocd for \
     --if="[[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]]" \
     --atload="[[ -e /usr/share/doc/find-the-command/ftc.zsh ]] && source /usr/share/doc/find-the-command/ftc.zsh" \
     /usr/share/doc/pkgfile/command-not-found.zsh
