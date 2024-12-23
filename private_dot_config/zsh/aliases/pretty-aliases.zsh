@@ -10,18 +10,20 @@ alias ip='ip -color=auto'
 alias cat='bat --style header --style snip --style changes --style header'
 
 # Replace ls with exa
-# INFO: Functions are used here instead of plain aliases to allow for completions.
-for cmd in ls la ll lt l. lla; do
-    case $cmd in
-        ls) args="" ;;
-        la) args="-a" ;;
-        ll) args="-l" ;;
-        lt) args="-T" ;;
-        l.) args="-ald .*" ;;
-        lla) args="-al" ;;
-    esac
-    eval "function $cmd() { eza --color=always --group-directories-first --icons $args \"\$@\"; }"
+typeset -A cmd_args=(
+    [ls]=""
+    [la]="-a"
+    [ll]="-l"
+    [lt]="-T"
+    [l.]="-ald .*"
+    [lla]="-al"
+)
+
+# shellcheck disable=SC2296
+for cmd in "${(k)cmd_args[@]}"; do
+    # INFO: Functions are used here instead of plain aliases to allow for completions.
+    eval "function $cmd() { eza --color=always --group-directories-first --icons ${cmd_args[$cmd]} \"\$@\"; }"
 
     # Define completions for above functions.
-    compdef $cmd=eza
+    compdef "$cmd"=eza
 done
