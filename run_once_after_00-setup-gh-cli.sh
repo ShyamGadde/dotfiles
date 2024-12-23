@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-gh auth login
+gh auth login -s read:project
 
 # Download extensions:
 gh extension install github/gh-copilot
