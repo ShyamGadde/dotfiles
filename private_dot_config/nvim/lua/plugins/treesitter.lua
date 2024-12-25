@@ -6,9 +6,6 @@ return {
         "cpp",
         "css",
         "dockerfile",
-        "gitignore",
-        "php",
-        "phpdoc",
       })
 
       -- Auto install languages that are not installed
