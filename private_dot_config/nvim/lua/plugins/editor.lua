@@ -62,7 +62,7 @@ return {
         virt_text_priority = 100,
         use_focus = true,
       }
-      opts.current_line_blame_formatter = "<author>, <author_time:%R> - <summary>"
+      opts.current_line_blame_formatter = "      <author>, <author_time:%R> - <summary>"
 
       Snacks.toggle({
         name = "Current Line Blame",
