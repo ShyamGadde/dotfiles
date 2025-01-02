@@ -8,6 +8,7 @@ return {
           GitSignsChange = { fg = colors.blue }, -- Can't tell the difference between yellow and green, me colorblind. Hence, me override.
           WinSeparator = { fg = colors.blue },
           NeoTreeWinSeparator = { fg = colors.blue },
+          BlinkCmpMenuSelection = { fg = colors.crust, bg = colors.blue },
         }
       end,
       dim_inactive = {
