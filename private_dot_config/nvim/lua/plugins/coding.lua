@@ -20,16 +20,8 @@ return {
         -- stylua: ignore end
       },
       completion = {
-        menu = {
-          -- border = "rounded",
-          winblend = 10,
-        },
-        documentation = {
-          window = {
-            -- border = "rounded",
-            winblend = 10,
-          },
-        },
+        -- menu = { border = "rounded" },
+        -- documentation = { window = { border = "rounded" } },
       },
     },
   },
