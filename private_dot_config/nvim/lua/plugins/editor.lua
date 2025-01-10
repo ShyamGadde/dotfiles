@@ -189,7 +189,6 @@ return {
         rules = {
           { pattern = "copy", icon = "", color = "white" },
           { pattern = "paste", icon = "", color = "white" },
-          { pattern = "refactor", icon = "", color = "orange" },
           { pattern = "undo", icon = "", color = "red" },
         },
       },
