@@ -2,20 +2,15 @@
   process-unmapped-keys yes
 )
 
-(defsrc
-  esc
-  caps a s d f j k l ;
-  lalt
-)
-
 (defvar
   tap-time 150
   hold-time 200
 )
 
 (defalias
-  escctrl (tap-hold 100 100 esc lctl)
   activate-hrm (layer-while-held home-row-mods)
+  activate-nav (layer-while-held navigation)
+  escctrl (tap-hold 100 100 esc lctl)
   a-mod (tap-hold $tap-time $hold-time a lmet)
   s-mod (tap-hold $tap-time $hold-time s lalt)
   d-mod (tap-hold $tap-time $hold-time d lsft)
@@ -24,16 +19,29 @@
   k-mod (tap-hold $tap-time $hold-time k rsft)
   l-mod (tap-hold $tap-time $hold-time l ralt)
   semicolon-mod (tap-hold $tap-time $hold-time ; rmet)
+  spc-mod (tap-hold $tap-time $hold-time spc @activate-nav)
+)
+
+(defsrc
+  esc
+  caps a s d f h j k l ;
+  lalt spc
 )
 
 (deflayer base
   _
-  @escctrl _ _ _ _ _ _ _ _
-  @activate-hrm
+  @escctrl _ _ _ _ _ _ _ _ _
+  @activate-hrm _
 )
 
 (deflayer home-row-mods
   _
-  caps @a-mod @s-mod @d-mod @f-mod @j-mod @k-mod @l-mod @semicolon-mod
+  caps @a-mod @s-mod @d-mod @f-mod _ @j-mod @k-mod @l-mod @semicolon-mod
+  _ @spc-mod
+)
+
+(deflayer navigation
   _
+  _ _ _ _ _ left down up right _
+  _ _
 )
