@@ -27,5 +27,3 @@ case "$(file -Lb --mime-type "$file")" in
     pdftotext "$file" -
     ;;
 esac
-
-# pistol "$file"

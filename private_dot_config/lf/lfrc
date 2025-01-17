@@ -1,7 +1,26 @@
-# interpreter for shell commands
+# ----------------------------------------------------- Usage -----------------------------------------------------
+# - `half-up` (default `<c-u>`) and `half-down` (default `<c-d>`) commands move half a page at a time.
+# - `page-up` (default `<c-b>` and `<pgup>`) and `page-down` (default `<c-f>` and `<pgdn>`) commands move a full page at a time.
+# - `top` (default `gg` and `<home>`) and `bottom` (default `G` and `<end>`) commands move to the beginning and end of the list.
+# - `toggle` (default `<space>`) command toggles selection.
+# - `invert` (default `v`) command inverts selections in the current directory.
+# - `unmark` (default `u`) command unmarks all selections.
+# - `copy` (default `y`) command copies the current file or selections.
+# - `cut` (default `d`) command cuts the current file or selections.
+# - `paste` (default `p`) command pastes the copied or cut files to the current directory.
+# - `clear` (default `c`) command clears copied or cut files.
+# - `read` (default `:`) command reads a builtin or custom command.
+# - `shell` (default `$`) command runs a command in the shell.
+# - `shell-pipe` (default `%`) command runs a command in the shell while piping the input from the UI and output to the UI.
+# - `shell-wait` (default `!`) command runs a command in the shell waits for a key press afterwards.
+# - `shell-async` (default `&`) command runs a command in the background.
+# - Some default keybindings are provided (prefixed with `z`) to toggle options or change their values:
+# - Some default keybindings are provided (prefixed with `s`) to change the values of `sortby` and `info` options.
+
+# Interpreter for shell commands.
 set shell bash
 
-# set '-eu' options for shell commands
+# Set '-eu' options for shell commands.
 # These options are used to have safer shell commands. Option '-e' is used to
 # exit on error and option '-u' is used to give error for unset variables.
 # Option '-f' disables pathname expansion which can be useful when $f, $fs, and
@@ -10,17 +29,17 @@ set shell bash
 # times.
 set shellopts '-eu'
 
-# set internal field separator (IFS) to "\n" for shell commands
+# Set internal field separator (IFS) to "\n" for shell commands.
 # This is useful to automatically split file names in $fs and $fx properly
 # since default file separator used in these variables (i.e. 'filesep' option)
 # is newline. You need to consider the values of these options and create your
 # commands accordingly.
 set ifs "\n"
 
-# leave some space at the top and the bottom of the screen
+# Leave some space at the top and the bottom of the screen.
 set scrolloff 10
 
-# Use the `dim` attribute instead of underline for the cursor in the preview pane
+# Use the `dim` attribute instead of underline for the cursor in the preview pane.
 set cursorpreviewfmt "\033[7;2m"
 
 # Format string of the box drawing characters enabled by the drawbox option.
@@ -44,25 +63,61 @@ set incsearch true
 # Apply filter pattern after each keystroke during filtering.
 set incfilter true
 
+# This makes it possible to use environment variables in settings.
+# E.g., `eval set previewer "$HOME/.config/lf/previewer"`
+cmd eval &{{
+    cmd="send $id"
+    for arg; do
+        cmd="$cmd $(eval "printf '%s' \"$arg\"" | sed 's/\\/\\\\/g;s/ /\\ /g;s/"/\\"/g')"
+    done
+    lf -remote "$cmd"
+}}
+
 # Set the path of a previewer file to filter the content of regular files for previewing.
 set previewer ~/.config/lf/previewer
 set cleaner ~/.config/lf/cleaner
 
-# use enter for shell commands
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+map C edit-config
+
+cmd toggle-preview %{{
+    if [ "$lf_preview" = true ]; then
+        lf -remote "send $id :set preview false; set ratios 1:5"
+    else
+        lf -remote "send $id :set preview true; set ratios 1:2:3"
+    fi
+}}
+map zp toggle-preview
+
+# Use enter for shell commands.
 map <enter> shell
 
-# show the result of execution of previous commands
+# Press `.` to repeat the last command typed on the command line.
+map . :read; cmd-history-prev; cmd-enter
+
+cmd move-parent &{{
+    dironly="setlocal \"$(dirname -- "$PWD" | sed 's/\\/\\\\/g;s/"/\\"/g')\" dironly"
+    lf -remote "send $id :updir; $dironly true; $1; $dironly false; open"
+}}
+
+map J move-parent down
+map K move-parent up
+
+# Show the result of execution of previous commands.
 map ` !true
 
-# execute current file (must be executable)
+# Execute current file (must be executable).
 map x $$f
 map X !$f
 
-# dedicated keys for file opener actions
+# Dedicated keys for file opener actions.
 map o &mimeopen $f
 map O $mimeopen --ask $f
 
-# define a custom 'open' command
+# Define a custom 'open' command.
 # This command is called when current file is not a directory. You may want to
 # use either file extensions and/or mime types here. Below uses an editor for
 # text files and a file opener for the rest.
@@ -73,37 +128,55 @@ cmd open &{{
     esac
 }}
 
-# touch command.
-map a :push %touch<space>
+# `touch` command.
+cmd touch %{{
+    IFS=" "
+    file="$*"
+    touch -- "$file"
+    lf -remote "send $id select \"$(printf '%s' "$file" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
+}}
+map a push :touch<space>
 
-# mkdir command. See wiki if you want it to select created dir
+# `mkdir` command. See wiki if you want it to select created dir.
 map A :push %mkdir<space>
 
-# define a custom 'rename' command without prompt for overwrite
-# cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
-# map r push :rename<space>
+# Command for creating links.
+# `y` (select for copy) and `P` to paste symlink.
+# `d` (select for cut) and `P` to paste hard link.
+cmd link %{{
+    set -- $(cat ~/.local/share/lf/files)
+    mode="$1"
+    shift
+    if [ "$#" -lt 1 ]; then
+        lf -remote "send $id echoerr No files to link"
+        exit
+    fi
+    case "$mode" in
+        # 'copy' mode indicates a symlink.
+        copy) ln -sr -t . -- "$@";;
+        # While 'move' mode indicates a hard link.
+        move)
+            ln -t . -- "$@"
+            lf -remote "send clear"
+            ;;
+    esac
+}}
+map P :link
 
-# make sure trash folder exists
+cmd bulk-rename $printf '%s\n' "$fx" | vidir -
+map R bulk-rename
+
+# Make sure trash folder exists.
 %mkdir -p ~/.trash
 
-# move current file or selected files to trash folder
+# Move current file or selected files to trash folder.
 # (also see 'man mv' for backup/overwrite options)
 cmd trash %set -f; mv $fx ~/.trash
 
-# define a custom 'delete' command
-# cmd delete ${{
-#     set -f
-#     printf "$fx\n"
-#     printf "delete?[y/n]"
-#     read ans
-#     [ "$ans" = "y" ] && rm -rf $fx
-# }}
-
-# use '<delete>' key for either 'trash' or 'delete' command
+# Use '<delete>' key for either 'trash'.
 map <delete> trash
-# map <delete> delete
 
-# extract the current file with the right command
+# Extract the current file with the right command.
 # (xkcd link: https://xkcd.com/1168/)
 cmd extract ${{
     set -f
@@ -117,7 +190,7 @@ cmd extract ${{
     esac
 }}
 
-# compress current file or selected files with tar and gunzip
+# Compress current file or selected files with tar and gunzip.
 cmd tar ${{
     set -f
     mkdir $1
@@ -126,11 +199,31 @@ cmd tar ${{
     rm -rf $1
 }}
 
-# compress current file or selected files with zip
+# Compress current file or selected files with zip.
 cmd zip ${{
     set -f
     mkdir $1
     cp -r $fx $1
     zip -r $1.zip $1
     rm -rf $1
+}}
+
+# Yank paths into clipboard.
+cmd yank-filepath $printf '%s' "$f" | wl-copy
+cmd yank-dirpath &printf '%s' "$PWD" | wl-copy
+cmd yank-basename &basename -a -- $fx | head -c-1 | wl-copy
+
+# Integrate Zoxide with lf.
+cmd z %{{
+    result="$(zoxide query --exclude "$PWD" "$@" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    lf -remote "send $id cd \"$result\""
+}}
+
+cmd zi ${{
+    result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    lf -remote "send $id cd \"$result\""
+}}
+
+cmd on-cd &{{
+    zoxide add "$PWD"
 }}
