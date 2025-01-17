@@ -5,6 +5,11 @@ alias c='clear'
 alias e='exit'
 alias vim='nvim'
 
+function lfcd() {
+    # `command` is needed in case `lfcd` is aliased to `lf`
+    cd "$(command lf -print-last-dir "$@")" || return
+}
+
 # Chezmoi
 alias cm='chezmoi'
 alias cmu='chezmoi re-add'
