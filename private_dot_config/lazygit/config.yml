@@ -96,4 +96,4 @@ customCommands:
           - value: "push"
           - value: "push --force-with-lease"
           - value: "push --force"
-    command: "git {{.Form.PushType | quote}} {{.Form.Remote | quote}}"
+    command: "git {{.Form.PushType}} {{.Form.Remote | quote}}"
