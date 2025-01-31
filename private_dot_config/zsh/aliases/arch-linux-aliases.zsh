@@ -12,6 +12,8 @@ alias big="expac -H M '%m\t%n' | sort -h | nl"                                # 
 
 [ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 
+alias checkaurupdates='yay -Qua' # Print available AUR updates.
+
 alias update-mirrors="sudo reflector --verbose --protocol https --age 24 --fastest 15 --save /etc/pacman.d/mirrorlist && bat /etc/pacman.d/mirrorlist" # Get the fastest mirrors
 
 function update() {
