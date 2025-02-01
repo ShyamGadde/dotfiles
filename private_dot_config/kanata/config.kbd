@@ -1,58 +1,70 @@
 (defcfg
-  process-unmapped-keys yes
+    process-unmapped-keys yes
 )
 
 (defvar
-  tap-time 150
-  hold-time 200
+    tap-time 150
+    hold-time 200
 )
 
 (defalias
-  activate-hrm (layer-while-held home-row-mods)
-  activate-navkp (layer-while-held nav-keypad)
-  escctrl (tap-hold 100 100 esc lctl)
-  a-mod (tap-hold $tap-time $hold-time a lmet)
-  s-mod (tap-hold $tap-time $hold-time s lalt)
-  d-mod (tap-hold $tap-time $hold-time d lsft)
-  f-mod (tap-hold $tap-time $hold-time f lctl)
-  j-mod (tap-hold $tap-time $hold-time j rctl)
-  k-mod (tap-hold $tap-time $hold-time k rsft)
-  l-mod (tap-hold $tap-time $hold-time l ralt)
-  semicolon-mod (tap-hold $tap-time $hold-time ; rmet)
-  spc-mod (tap-hold $tap-time $hold-time spc @activate-navkp)
-  kp=+ (fork NumpadEqual kp+ (lsft rsft))
-  kp8* (fork kp8 kp* (lsft rsft))
+    activate-hrm (layer-while-held home-row-mods)
+    activate-navkp (layer-while-held nav-keypad)
+    escctrl (tap-hold 100 100 esc lctl)
+    a-mod (tap-hold $tap-time $hold-time a lmet)
+    s-mod (tap-hold $tap-time $hold-time s lalt)
+    d-mod (tap-hold $tap-time $hold-time d lsft)
+    f-mod (tap-hold $tap-time $hold-time f lctl)
+    j-mod (tap-hold $tap-time $hold-time j rctl)
+    k-mod (tap-hold $tap-time $hold-time k rsft)
+    l-mod (tap-hold $tap-time $hold-time l ralt)
+    semicolon-mod (tap-hold $tap-time $hold-time ; rmet)
+    spc-mod (tap-hold $tap-time $hold-time spc @activate-navkp)
+    kp=+ (fork NumpadEqual kp+ (lsft rsft))
+    kp8* (fork kp8 kp* (lsft rsft))
 )
 
-(defsrc
-  esc
-  1 2 3 4 5 6 7 8 9 0 - =
-  caps a s d f g h j k l ; ' ret
-  , . /
-  lalt spc
+(platform (macos)
+    (defsrc
+        esc
+        1 2 3 4 5 6 7 8 9 0 - =
+        caps a s d f g h j k l ; ' ret
+        , . /
+        lmet spc
+    )
+)
+
+(platform (linux win winiov2 wintercept)
+    (defsrc
+        esc
+        1 2 3 4 5 6 7 8 9 0 - =
+        caps a s d f g h j k l ; ' ret
+        , . /
+        lalt spc
+    )
 )
 
 (deflayer base
-  _
-  _ _ _ _ _ _ _ _ _ _ _ _
-  @escctrl _ _ _ _ _ _ _ _ _ _ _ _
-  _ _ _
-  @activate-hrm _
+    _
+    _ _ _ _ _ _ _ _ _ _ _ _
+    @escctrl _ _ _ _ _ _ _ _ _ _ _ _
+    _ _ _
+    @activate-hrm _
 )
 
 (deflayer home-row-mods
-  _
-  _ _ _ _ _ _ _ _ _ _ _ _
-  caps @a-mod @s-mod @d-mod @f-mod _ _ @j-mod @k-mod @l-mod @semicolon-mod _ _
-  _ _ _
-  _ @spc-mod
+    _
+    _ _ _ _ _ _ _ _ _ _ _ _
+    caps @a-mod @s-mod @d-mod @f-mod _ _ @j-mod @k-mod @l-mod @semicolon-mod _ _
+    _ _ _
+    _ @spc-mod
 )
 
 ;; Layer for Numpad and arrow keys using vim-style hjkl.
 (deflayer nav-keypad
-  _
-  kp1 kp2 kp3 kp4 kp5 kp6 kp7 @kp8* kp9 kp0 kp- @kp=+
-  _ _ _ _ _ _ left down up right _ _ kprt
-  kp, kp. kp/
-  _ _
+    _
+    kp1 kp2 kp3 kp4 kp5 kp6 kp7 @kp8* kp9 kp0 kp- @kp=+
+    _ _ _ _ _ _ left down up right _ _ kprt
+    kp, kp. kp/
+    _ _
 )
