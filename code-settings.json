@@ -281,7 +281,6 @@
   // Source Control
   // =====================
   "git.autofetch": true,
-  "git.blame.editorDecoration.enabled": true,
   "git.confirmSync": false,
   "scm.defaultViewMode": "tree",
   "github.gitProtocol": "ssh",
@@ -296,22 +295,23 @@
   // =====================
   "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
-  "workbench.colorTheme": "Catppuccin Mocha",
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorCustomizations": {},
+  "window.commandCenter": true,
+  "window.customMenuBarAltFocus": false,
+  "window.customTitleBarVisibility": "auto",
   "workbench.editorAssociations": {
     "*.png": "imagePreview.previewEditor",
     "*.md": "default"
   },
+  "window.menuBarVisibility": "toggle",
+  "window.newWindowProfile": "Default",
+  "window.titleBarStyle": "custom",
+  "workbench.colorCustomizations": {},
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.experimental.enableNewProfilesUI": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.list.horizontalScrolling": true,
   "workbench.startupEditor": "readme",
   "workbench.tree.enableStickyScroll": true,
-  "workbench.experimental.enableNewProfilesUI": true,
-  "window.titleBarStyle": "custom",
-  "window.menuBarVisibility": "compact",
-  "window.customMenuBarAltFocus": false,
-  "window.commandCenter": true,
-  "window.customTitleBarVisibility": "auto",
-  "window.newWindowProfile": "Default",
   // =====================
   // React
   // =====================
