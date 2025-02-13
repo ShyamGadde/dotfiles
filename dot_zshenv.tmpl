@@ -24,17 +24,23 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Set $PATH if ~/.local/bin exists
 if [ -d "$HOME/.local/bin" ]; then
-    export PATH=$PATH:$HOME/.local/bin
+    export PATH=$HOME/.local/bin:$PATH
 fi
 
 # GO
 if command -v go &> /dev/null; then
     GOPATH="$(go env GOPATH)"
-    export PATH=$PATH:$GOPATH/bin
+    export PATH=$GOPATH/bin:$PATH
 fi
 
 # PHP Composer
 if command -v composer &> /dev/null; then
     export COMPOSER_HOME="$HOME/.composer"
-    export PATH=$PATH:$HOME/.composer/vendor/bin
+    export PATH=$HOME/.composer/vendor/bin:$PATH
+fi
+
+# Temurin JDK 17
+if [[ -d "/usr/lib/jvm/java-21-temurin" ]]; then
+    export JAVA_HOME="/usr/lib/jvm/java-21-temurin"
+    export PATH="$JAVA_HOME/bin:$PATH"
 fi
