@@ -378,6 +378,10 @@
   "css.lint.compatibleVendorPrefixes": "warning",
   "css.lint.zeroUnits": "warning",
   // =====================
+  // Java
+  // =====================
+  "java.jdt.ls.java.home": "/usr/lib/jvm/java-21-temurin",
+  // =====================
   // JSON
   // =====================
   "[json]": {
