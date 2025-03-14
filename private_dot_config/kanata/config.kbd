@@ -55,7 +55,7 @@
 (deflayer home-row-mods
     _
     _ _ _ _ _ _ _ _ _ _ _ _
-    caps @a-mod @s-mod @d-mod @f-mod _ _ @j-mod @k-mod @l-mod @semicolon-mod _ _
+    _ @a-mod @s-mod @d-mod @f-mod _ _ @j-mod @k-mod @l-mod @semicolon-mod _ _
     _ _ _
     _ @spc-mod
 )
@@ -64,7 +64,7 @@
 (deflayer nav-keypad
     _
     kp1 kp2 kp3 kp4 kp5 kp6 kp7 @kp8* kp9 kp0 kp- @kp=+
-    _ _ _ _ _ _ left down up right _ _ kprt
+    caps _ _ _ _ _ left down up right _ _ kprt
     kp, kp. kp/
     _ _
 )
