@@ -15,6 +15,7 @@ HOMEBREW_CASKS=(
     obsidian
     postman
     rectangle
+    scroll-reverser
     slack
     visual-studio-code
     whatsapp
@@ -28,6 +29,10 @@ for cask in "${HOMEBREW_CASKS[@]}"; do
         echo "** $cask is already installed"
     fi
 done
+
+# Setup MiddleClick
+brew install --cask --no-quarantine middleclick
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/MiddleClick.app", hidden:true}'
 
 # Setup Obsidian vault
 if ! [[ -d ~/Braindump ]]; then
