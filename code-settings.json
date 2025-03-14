@@ -79,7 +79,7 @@
   "github.copilot.chat.editor.temporalContext.enabled": true,
   "github.copilot.chat.edits.temporalContext.enabled": true,
   "accessibility.voice.ignoreCodeBlocks": true,
-  "github.copilot.chat.edits.codesearch.enabled": true,
+  "github.copilot.chat.codesearch.enabled": true,
   "chat.promptFiles": true,
   // =====================
   // Emmet
@@ -128,7 +128,7 @@
   },
   "notebook.editorOptionsCustomizations": {},
   "notebook.output.textLineLimit": 500,
-  "notebook.inlineValues": true,
+  "notebook.inlineValues": "on",
   // ========================
   // Markdown
   // ========================
@@ -224,16 +224,7 @@
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
-        "scope": [
-          "comment"
-          //"keyword",
-          //"storage.type",
-          //"storage.modifier",
-          //"entity.name.function",
-          //"entity.name.tag.doctype",
-          //"entity.other.attribute-name",
-          //"variable.language.this"
-        ],
+        "scope": ["comment"],
         "settings": {
           "fontStyle": "italic"
         }
@@ -285,7 +276,7 @@
   "scm.defaultViewMode": "tree",
   "github.gitProtocol": "ssh",
   "git.mergeEditor": true,
-  "scm.experimental.showHistoryGraph": true,
+  "diffEditor.hideUnchangedRegions.enabled": true,
   // =====================
   // Zen mode
   // =====================
@@ -307,7 +298,6 @@
   "window.titleBarStyle": "custom",
   "workbench.colorCustomizations": {},
   "workbench.colorTheme": "Catppuccin Mocha",
-  "workbench.experimental.enableNewProfilesUI": true,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.list.horizontalScrolling": true,
   "workbench.startupEditor": "readme",
