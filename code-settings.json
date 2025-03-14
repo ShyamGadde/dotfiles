@@ -81,6 +81,11 @@
   "accessibility.voice.ignoreCodeBlocks": true,
   "github.copilot.chat.codesearch.enabled": true,
   "chat.promptFiles": true,
+  "github.copilot.chat.newWorkspaceCreation.enabled": true,
+  "chat.renderRelatedFiles": true,
+  "editor.inlineSuggest.edits.showCollapsed": true,
+  "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
+  "chat.experimental.statusIndicator.enabled": true,
   // =====================
   // Emmet
   // =====================
@@ -206,6 +211,7 @@
   "terminal.integrated.fontLigatures.featureSettings": "'calt', 'cv02', 'cv04', 'cv05', 'cv06', 'cv07', 'cv09', 'cv10', 'cv11', 'cv12', 'cv16', 'cv18', 'cv19', 'cv20', 'ss19', 'zero'",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.tabs.title": "${process}${progress}",
+  "terminal.integrated.suggest.enabled": true,
   // ========================
   // Editor settings
   // ========================
@@ -302,6 +308,7 @@
   "workbench.list.horizontalScrolling": true,
   "workbench.startupEditor": "readme",
   "workbench.tree.enableStickyScroll": true,
+  "workbench.settings.useWeightedKeySearch": true,
   // =====================
   // React
   // =====================
