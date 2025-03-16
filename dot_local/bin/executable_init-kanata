@@ -1,0 +1,103 @@
+#!/bin/bash
+
+LOG_FILE='/var/log/kanata.log'
+exec 1>> "$LOG_FILE" 2>&1
+
+# Service tracking (indexed arrays).
+service_names=("karabiner_daemon" "kanata") # Start order (reverse for stop).
+service_pids=()
+
+# Function to check if a specific PID is still running.
+check_pid() { kill -0 "$1" 2> /dev/null; }
+
+# Function to start a specific service.
+start_service() {
+    # Create a log-safe version of the command string
+    local log_cmd
+    printf -v log_cmd '%q ' "$@" # Shell-quote each argument
+    log_cmd="${log_cmd% }"       # Remove trailing space
+
+    echo "Starting: $log_cmd"
+
+    "$@" &
+    local pid=$!
+    service_pids+=("$pid")
+    sleep 2 # Allow startup time.
+
+    if check_pid "$pid"; then
+        echo "Started (PID: $pid)"
+        return 0
+    else
+        echo "FAILED: $log_cmd"
+        return 1
+    fi
+}
+
+# Function to stop a process gracefully.
+stop_process() {
+    local name=$1
+    local pid=$2
+
+    if [[ -n "$pid" ]] && check_pid "$pid"; then
+        echo "Stopping $name (PID: $pid)"
+        kill "$pid"
+
+        # Wait for process to stop.
+        for _ in {1..5}; do
+            check_pid "$pid" || break
+            sleep 1
+        done
+
+        # Force kill if still running.
+        if check_pid "$pid"; then
+            echo "Force killing $name"
+            kill -9 "$pid"
+        fi
+    else
+        echo "$name not running"
+    fi
+}
+
+# Function to stop all services.
+stop_services() {
+    echo "Stopping all services at $(date)"
+
+    # Stop in reverse order
+    for ((i = ${#service_names[@]} - 1; i >= 0; i--)); do
+        name=${service_names[i]}
+        pid=${service_pids[i]}
+        stop_process "$name" "$pid"
+    done
+
+    trap - SIGTERM SIGINT # Reset trap.
+    exit 0
+}
+
+# Handle stop signal.
+trap stop_services SIGTERM SIGINT
+
+# --- Main Execution ---
+echo "=== Starting keyboard setup at $(date) ==="
+
+# Step 1: Activate Karabiner VirtualHIDDevice Manager.
+"/Applications/.Karabiner-VirtualHIDDevice-Manager.app/Contents/MacOS/Karabiner-VirtualHIDDevice-Manager" activate || {
+    echo 'FATAL: Karabiner activation failed'
+    exit 1
+}
+
+# Step 2: Start Karabiner DriverKit Daemon.
+start_service "/Library/Application Support/org.pqrs/Karabiner-DriverKit-VirtualHIDDevice/Applications/Karabiner-VirtualHIDDevice-Daemon.app/Contents/MacOS/Karabiner-VirtualHIDDevice-Daemon"
+
+# Step 3: Start Kanata
+start_service "/opt/homebrew/bin/kanata" "--cfg" "/Users/shyam/.config/kanata/config.kbd"
+
+# Verify all services started.
+if [ ${#service_pids[@]} -ne ${#service_names[@]} ]; then
+    echo 'CRITICAL: Some services failed to start'
+    stop_services
+fi
+
+echo "=== Setup completed at $(date) ==="
+
+# Keep alive until terminated.
+while :; do sleep 1; done

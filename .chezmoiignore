@@ -25,8 +25,8 @@ code-keybindings.json
 {{- if ne .chezmoi.os "darwin" }}
 
 # Ignore on non MacOS machines.
-.config/karabiner
+.config/{karabiner,BetterDisplay.plist}
 .hushlogin
-.local/bin/,bootstrap-mac
+.local/bin/{,bootstrap-mac,init-kanata}
 Library
 {{- end }}
