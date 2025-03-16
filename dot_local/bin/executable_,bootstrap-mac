@@ -4,6 +4,9 @@ HOMEBREW_CASKS=(
     1password
     act # Run your GitHub Actions locally
     aldente
+    anki
+    betterdisplay
+    bitwarden
     docker
     font-jetbrains-mono-nerd-font
     font-monocraft
@@ -17,8 +20,10 @@ HOMEBREW_CASKS=(
     rectangle
     scroll-reverser
     slack
+    spotify
     visual-studio-code
     whatsapp
+    zotero
 )
 
 for cask in "${HOMEBREW_CASKS[@]}"; do
