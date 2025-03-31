@@ -37,7 +37,7 @@
 
 (platform (macos)
     (deflayer base
-        _ brdn brup _ _ _ _ prev pp next mute vold volu
+        _ brdn brup mctl sls dtn dnd prev pp next mute vold volu
         _ _ _ _ _ _ _ _ _ _ _ _
         @escctrl _ _ _ _ _ _ _ _ _ _ _ _
         _ _ _
