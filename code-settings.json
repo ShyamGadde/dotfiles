@@ -64,7 +64,6 @@
   // =====================
   // Copilot
   // =====================
-  "accessibility.voice.keywordActivation": "quickChat",
   "github.copilot.enable": {
     "*": true,
     "plaintext": false,
