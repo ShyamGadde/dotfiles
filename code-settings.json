@@ -292,13 +292,11 @@
   "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
   "window.commandCenter": true,
-  "window.customMenuBarAltFocus": false,
   "window.customTitleBarVisibility": "auto",
   "workbench.editorAssociations": {
     "*.png": "imagePreview.previewEditor",
     "*.md": "default"
   },
-  "window.menuBarVisibility": "toggle",
   "window.newWindowProfile": "Default",
   "window.titleBarStyle": "custom",
   "workbench.colorCustomizations": {},
@@ -307,7 +305,6 @@
   "workbench.list.horizontalScrolling": true,
   "workbench.startupEditor": "readme",
   "workbench.tree.enableStickyScroll": true,
-  "workbench.settings.useWeightedKeySearch": true,
   // =====================
   // React
   // =====================
