@@ -389,8 +389,8 @@
   // Python
   // =====================
   "[python]": {
-    "editor.defaultFormatter": "charliermarsh.ruff"
-    //"editor.rulers": [88]
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.rulers": [88]
   },
   "python.analysis.inlayHints.variableTypes": true,
   "python.analysis.inlayHints.functionReturnTypes": true,
