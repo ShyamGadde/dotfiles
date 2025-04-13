@@ -4,6 +4,7 @@ HOMEBREW_CASKS=(
     1password
     act # Run your GitHub Actions locally
     anki
+    betterdisplay
     discord
     docker
     font-jetbrains-mono-nerd-font
@@ -13,12 +14,15 @@ HOMEBREW_CASKS=(
     google-chrome
     hiddenbar
     jetbrains-toolbox
+    karabiner-elements
     kitty
     obsidian
     postman
+    raycast
     scroll-reverser
     slack
     spotify
+    stats
     visual-studio-code
     whatsapp
     zotero
