@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+PACKAGES=(
+    atuin
+    base-devel
+    bash-completion
+    bat
+    bitwarden-cli
+    btop
+    chezmoi
+    composer
+    curl
+    eza
+    fd
+    fzf
+    git
+    git-delta
+    git-lfs
+    github-cli
+    gping
+    imagemagick
+    jq
+    lazydocker-bin
+    lazygit
+    lf
+    local-by-flywheel
+    lua
+    man-db
+    man-pages
+    moreutils
+    neovim
+    perl-file-mimeinfo
+    pfetch-rs-bin
+    php
+    ripgrep
+    starship
+    tableplus
+    tealdeer
+    tmux
+    ugrep
+    wget
+    zoxide
+)
+
+sudo pacman -Syu
+paru -S --noconfirm --needed "${PACKAGES[@]}"

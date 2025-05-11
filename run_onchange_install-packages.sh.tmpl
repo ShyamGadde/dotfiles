@@ -1,71 +1,19 @@
 #!/usr/bin/env bash
 
-# Common packages
-PACKAGES=(
-    atuin
-    bash-completion
-    bat
-    bitwarden-cli
-    btop
-    chezmoi
-    curl
-    eza
-    fd
-    fzf
-    git
-    git-delta
-    git-lfs
-    gping
-    imagemagick
-    jq
-    lazygit
-    lf
-    lua
-    man-db
-    moreutils
-    neovim
-    ripgrep
-    starship
-    tealdeer
-    tmux
-    ugrep
-    wget
-    zoxide
-)
-
 {{ if eq .chezmoi.os "darwin" -}}
 
-PACKAGES+=(
-    coreutils
-    gh
-    pkg-config
-    gnu-sed
-    lazydocker
-    pfetch-rs
-)
+brew update
 
-brew update && brew upgrade
+# Brewfile hash: {{ include "private_dot_config/homebrew/Brewfile" | sha256sum }}
+brew bundle install --cleanup --file={{ joinPath .chezmoi.sourceDir "private_dot_config/homebrew/Brewfile" | quote }}
 
-for pkg in "${PACKAGES[@]}"; do
-    if ! brew list --formula "$pkg" &> /dev/null; then
-        brew install "$pkg"
-    else
-        echo "## $pkg is already installed"
-    fi
-done
+brew upgrade
 
 {{ else if eq .chezmoi.osRelease.id "arch" -}}
 
-PACKAGES+=(
-    base-devel
-    github-cli
-    lazydocker-bin
-    man-pages
-    perl-file-mimeinfo
-    pfetch-rs-bin
-)
+# INFO: As the SHA256 sum of `,install-pkgs-arch` is included in a comment in the script, the contents of the script will change whenever the contents of `,install-pkgs-arch` are changed, so chezmoi will re-run the script whenever the contents of `,install-pkgs-arch` change.
 
-sudo pacman -Syu
-paru -S --noconfirm --needed "${PACKAGES[@]}"
+# ,install-pkgs-arch hash: {{ include "dot_local/bin/executable_,install-pkgs-arch" | sha256sum }}
+{{ joinPath .chezmoi.sourceDir "dot_local/bin/executable_,install-pkgs-arch" | quote }}
 
-{{- end }}
+{{ end -}}

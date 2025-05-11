@@ -20,6 +20,7 @@ code-keybindings.json
 
 # Ignore on non Arch Linux machines.
 .config/zsh/aliases/arch-linux-aliases.zsh
+.local/bin/,install-pkgs-arch
 {{- end }}
 
 {{- if ne .chezmoi.os "darwin" }}
