@@ -25,7 +25,6 @@ code-keybindings.json
 {{- if ne .chezmoi.os "darwin" }}
 
 # Ignore on non MacOS machines.
-.config/BetterDisplay.plist
 .hushlogin
 .local/bin/{,bootstrap-mac,init-kanata}
 Library
