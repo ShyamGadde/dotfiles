@@ -26,6 +26,7 @@ code-keybindings.json
 
 # Ignore on non MacOS machines.
 .config/zsh/aliases/brew.zsh
+.config/homebrew/Brewfile
 .hushlogin
 .local/bin/,bootstrap-mac
 Library

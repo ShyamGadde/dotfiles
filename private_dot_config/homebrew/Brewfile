@@ -1,0 +1,218 @@
+# ------------------------------------------------------
+# Homebrew Formulae
+# ------------------------------------------------------
+
+# Improved shell history for zsh, bash, fish and nushell
+brew "atuin"
+
+# Programmable completion for Bash 3.2
+brew "bash-completion"
+
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+
+# Secure and free password manager for all of your devices
+brew "bitwarden-cli"
+
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
+
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+
+# General-purpose scripting language
+brew "php"
+
+# Dependency Manager for PHP
+brew "composer"
+
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+
+# Modern, maintained replacement for ls
+brew "eza"
+
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+
+# Command-line fuzzy finder written in Go
+brew "fzf"
+
+# GitHub command-line tool
+brew "gh"
+
+# Distributed revision control system
+brew "git"
+
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+
+# Git extension for versioning large files
+brew "git-lfs"
+
+# GNU implementation of the famous stream editor
+brew "gnu-sed"
+
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+
+# Ping, but with a graph
+brew "gping"
+
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
+
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+
+# Cross-platform software keyboard remapper for Linux, macOS and Windows
+brew "kanata"
+
+# Lazier way to manage everything docker
+brew "lazydocker"
+
+# Simple terminal UI for git commands
+brew "lazygit"
+
+# Terminal file manager
+brew "lf"
+
+# Powerful, lightweight programming language
+brew "lua"
+
+# Unix documentation system
+brew "man-db"
+
+# Mac App Store command-line interface
+brew "mas"
+
+# Collection of tools that nobody wrote when UNIX was young
+brew "moreutils"
+
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+
+# Pretty system information tool written in Rust
+brew "pfetch-rs"
+
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+
+# Cross-shell prompt for astronauts
+brew "starship"
+
+# Very fast implementation of tldr in Rust
+brew "tealdeer"
+
+# Terminal multiplexer
+brew "tmux"
+
+# Ultra fast grep with query UI, fuzzy search, archive search, and more
+brew "ugrep"
+
+# Internet file retriever
+brew "wget"
+
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+
+# ------------------------------------------------------
+# Homebrew Casks
+# ------------------------------------------------------
+
+# Memory training application
+cask "anki"
+
+# Display management tool
+cask "betterdisplay"
+
+# 3D model editor for boxy models and pixel art textures
+cask "blockbench"
+
+# OpenAI's official ChatGPT desktop app
+cask "chatgpt"
+
+# Voice and text chat software
+cask "discord"
+
+# App to build and share containerised applications and microservices
+cask "docker"
+
+# Fonts
+cask "font-jetbrains-mono-nerd-font"
+cask "font-monocraft"
+cask "font-recursive"
+
+# Download accelerator and organiser
+cask "free-download-manager"
+
+# JetBrains tools manager
+cask "jetbrains-toolbox"
+
+# Keyboard customiser
+cask "karabiner-elements"
+
+# GPU-based terminal emulator
+cask "kitty"
+
+# WordPress local development tool by Flywheel
+cask "local"
+
+# Utility to extend trackpad functionality
+cask "middleclick"
+
+# Sandbox construction video game
+cask "minecraft"
+
+# App to write, plan, collaborate, and get organised
+cask "notion"
+
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+
+# Get up and running with large language models locally
+cask "ollama"
+
+# Collaboration platform for API development
+cask "postman"
+
+# Minecraft launcher
+cask "prismlauncher"
+
+# Control your tools with a few keystrokes
+cask "raycast"
+
+# Tool to reverse the direction of scrolling
+cask "scroll-reverser"
+
+# Music streaming service
+cask "spotify"
+
+# System monitor for the menu bar
+cask "stats"
+
+# Native GUI tool for relational databases
+cask "tableplus"
+
+# Open-source code editor
+cask "visual-studio-code"
+
+# Collect, organise, cite, and share research sources
+cask "zotero"
+
+# ------------------------------------------------------
+# Mac App Store Apps
+# ------------------------------------------------------
+
+mas "Bitwarden", id: 1352778147
+mas "Dropover", id: 1355679052
+mas "Hand Mirror", id: 1502839586
+mas "Hidden Bar", id: 1452453066
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Toggl Track", id: 1291898086
