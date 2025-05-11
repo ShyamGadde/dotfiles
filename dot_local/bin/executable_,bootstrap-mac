@@ -1,47 +1,9 @@
 #!/usr/bin/env bash
 
-HOMEBREW_CASKS=(
-    1password
-    act # Run your GitHub Actions locally
-    anki
-    betterdisplay
-    discord
-    docker
-    font-jetbrains-mono-nerd-font
-    font-monocraft
-    font-recursive
-    free-download-manager
-    google-chrome
-    hiddenbar
-    jetbrains-toolbox
-    karabiner-elements
-    kitty
-    obsidian
-    postman
-    raycast
-    scroll-reverser
-    slack
-    spotify
-    stats
-    visual-studio-code
-    whatsapp
-    zotero
-)
-
-for cask in "${HOMEBREW_CASKS[@]}"; do
-    if ! brew list --cask "$cask" &> /dev/null; then
-        echo "Installing $cask..."
-        brew install --cask "$cask"
-    else
-        echo "** $cask is already installed"
-    fi
-done
-
 # Install Rosetta 2
 softwareupdate --install-rosetta --agree-to-license
 
 # Setup MiddleClick
-brew install --cask --no-quarantine middleclick
 osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/MiddleClick.app", hidden:true}'
 
 # Setup Obsidian vault

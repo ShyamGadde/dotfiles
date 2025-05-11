@@ -162,7 +162,7 @@ cask "kitty"
 cask "local"
 
 # Utility to extend trackpad functionality
-cask "middleclick"
+cask "middleclick", args: { no_quarantine: true }
 
 # Sandbox construction video game
 cask "minecraft"
