@@ -25,6 +25,7 @@ code-keybindings.json
 {{- if ne .chezmoi.os "darwin" }}
 
 # Ignore on non MacOS machines.
+.config/zsh/aliases/brew.zsh
 .hushlogin
 .local/bin/,bootstrap-mac
 Library
