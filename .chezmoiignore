@@ -26,6 +26,6 @@ code-keybindings.json
 
 # Ignore on non MacOS machines.
 .hushlogin
-.local/bin/{,bootstrap-mac,init-kanata}
+.local/bin/,bootstrap-mac
 Library
 {{- end }}
