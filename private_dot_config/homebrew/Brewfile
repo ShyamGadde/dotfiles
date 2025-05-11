@@ -1,4 +1,10 @@
 # ------------------------------------------------------
+# Homebrew Taps
+# ------------------------------------------------------
+
+tap "felixkratz/formulae"
+
+# ------------------------------------------------------
 # Homebrew Formulae
 # ------------------------------------------------------
 
@@ -13,6 +19,9 @@ brew "bat"
 
 # Secure and free password manager for all of your devices
 brew "bitwarden-cli"
+
+# Window borders for macOS
+brew "felixkratz/formulae/borders"
 
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
