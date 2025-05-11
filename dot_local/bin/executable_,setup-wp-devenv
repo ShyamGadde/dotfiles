@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+if ! command -v composer &>/dev/null; then
+    echo "Composer is not installed."
+    exit 1
+fi
+
+export COMPOSER_HOME="$HOME/.composer"
+export PATH=$PATH:$HOME/.composer/vendor/bin
+
+# Install PHP CodeSniffer
+composer global require "squizlabs/php_codesniffer=*"
+
+# Install WPCS and PHPCompatibility
+composer global require dealerdirect/phpcodesniffer-composer-installer \
+    automattic/vipwpcs \
+    phpcompatibility/php-compatibility \
+    phpcompatibility/phpcompatibility-wp:* --update-no-dev
+
+# Set the default standard to WordPress
+phpcs --config-set default_standard WordPress
