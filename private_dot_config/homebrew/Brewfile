@@ -44,6 +44,9 @@ brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+
 # Command-line fuzzy finder written in Go
 brew "fzf"
 
@@ -125,6 +128,9 @@ brew "ugrep"
 # Internet file retriever
 brew "wget"
 
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 
@@ -196,6 +202,9 @@ cask "raycast"
 
 # Tool to reverse the direction of scrolling
 cask "scroll-reverser"
+
+# Screenshot measurement and annotation tool
+cask "shottr"
 
 # Music streaming service
 cask "spotify"
