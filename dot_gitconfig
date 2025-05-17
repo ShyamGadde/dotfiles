@@ -1,13 +1,32 @@
+# --- CORE SETTINGS ---
 [core]
 	pager = delta
+	fsmonitor = true
+	untrackedCache = true
+
+[column]
+	ui = auto
+
+[branch]
+	sort = -committerdate
+
+[push]
+	default = simple
+	autoSetupRemote = true
+	followTags = true
+
+[fetch]
+	prune = true
+	pruneTags = true
+	# all = true
+
+[pull]
+	rebase = true
 
 [init]
 	defaultBranch = main
 
-[alias]
-	cp = !git commit -m "Update" && git push
-	facp = !git add . && git cp
-
+# --- IDENTITY & ALIASES ---
 [user]
 	email = shyamgadde1602@gmail.com
 	name = Shyamsundar Gadde
@@ -16,11 +35,18 @@
 [gpg]
 	format = ssh
 
+[alias]
+	cp = !git commit -m "Update" && git push
+	facp = !git add . && git cp
+
+# --- COMMIT, TAG, AUTH ---
 [commit]
 	gpgsign = true
+	verbose = true
 
 [tag]
 	gpgSign = true
+	sort = version:refname
 
 [credential "https://github.com"]
 	helper = !/usr/bin/gh auth git-credential
@@ -28,26 +54,30 @@
 [credential "https://gist.github.com"]
 	helper = !/usr/bin/gh auth git-credential
 
+# --- DIFF & PRESENTATION ---
 [delta]
-	navigate = true    # use n and N to move between diff sections
-
-[interactive]
-	diffFilter = delta --color-only
-
-[color]
-	ui = true
+	navigate = true    # Use n and N to move between diff sections
 
 [diff]
-	algorithm = patience
+	algorithm = histogram
 	compactionHeuristic = true
 	colorMoved = dimmed_zebra
+	mnemonicPrefix = true
+	renames = true
 	tool = nvimdiff
 
 [difftool "nvimdiff"]
 	cmd = nvim -d $LOCAL $REMOTE -c 'wincmd w' -c 'wincmd L'
 
+[color]
+	ui = true
+
+[interactive]
+	diffFilter = delta --color-only
+
+# --- MERGE & REBASE WORKFLOW ---
 [merge]
-	conflictstyle = diff3
+	conflictstyle = zdiff3
 	prompt = false
 	tool = nvimdiff4
 
@@ -55,6 +85,20 @@
 	cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J' -c 'set diffopt&' -c 'set diffopt+=algorithm:patience'
 	keepBackup = false
 
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+
+[rerere]
+	enabled = true
+	autoupdate = true
+
+# --- HELP & MISC ---
+[help]
+	autocorrect = prompt
+
+# --- FILES, SUBMODULES, LFS ---
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
@@ -64,5 +108,6 @@
 [submodule]
 	recurse = true
 
+# --- CONDITIONAL INCLUDE ---
 [includeIf "gitdir:~/Workspace/rtCamp/"]
 	path = .gitconfig.work
