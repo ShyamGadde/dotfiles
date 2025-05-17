@@ -11,15 +11,7 @@
 [user]
 	email = shyamgadde1602@gmail.com
 	name = Shyamsundar Gadde
-	signingkey = ~/.ssh/id_ed25519.pub
-
-[credential "https://github.com"]
-	helper =
-	helper = !/usr/bin/gh auth git-credential
-
-[credential "https://gist.github.com"]
-	helper =
-	helper = !/usr/bin/gh auth git-credential
+	signingkey = ~/.ssh/id_ed25519
 
 [gpg]
 	format = ssh
@@ -30,26 +22,29 @@
 [tag]
 	gpgSign = true
 
-[filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
 
-[submodule]
-	recurse = true
-
-[interactive]
-	diffFilter = delta --color-only
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
 
 [delta]
 	navigate = true    # use n and N to move between diff sections
 
+[interactive]
+	diffFilter = delta --color-only
+
 [color]
 	ui = true
 
-[includeIf "gitdir:~/Workspace/rtCamp/"]
-	path = .gitconfig.work
+[diff]
+	algorithm = patience
+	compactionHeuristic = true
+	colorMoved = dimmed_zebra
+	tool = nvimdiff
+
+[difftool "nvimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE -c 'wincmd w' -c 'wincmd L'
 
 [merge]
 	conflictstyle = diff3
@@ -60,11 +55,14 @@
 	cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J' -c 'set diffopt&' -c 'set diffopt+=algorithm:patience'
 	keepBackup = false
 
-[diff]
-	algorithm = patience
-	compactionHeuristic = true
-	colorMoved = dimmed_zebra
-	tool = nvimdiff
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
 
-[difftool "nvimdiff"]
-	cmd = nvim -d $LOCAL $REMOTE -c 'wincmd w' -c 'wincmd L'
+[submodule]
+	recurse = true
+
+[includeIf "gitdir:~/Workspace/rtCamp/"]
+	path = .gitconfig.work
