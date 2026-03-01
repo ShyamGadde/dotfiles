@@ -59,7 +59,7 @@
     "swift": "swift",
     "typescript": "ts-node",
     "v": "v run",
-    "vbscript": "cscript //Nologo"
+    "vbscript": "cscript //Nologo",
   },
   // =====================
   // Copilot
@@ -68,10 +68,10 @@
     "*": true,
     "plaintext": false,
     "markdown": true,
-    "scminput": false
+    "scminput": false,
   },
   "github.copilot.advanced": {
-    "authProvider": "github"
+    "authProvider": "github",
   },
   "github.copilot.editor.enableAutoCompletions": true,
   "github.copilot.nextEditSuggestions.enabled": true,
@@ -89,7 +89,7 @@
   // Emmet
   // =====================
   "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
+    "javascript": "javascriptreact",
   },
   // =====================
   // Error Lens
@@ -128,7 +128,7 @@
   "notebook.lineNumbers": "on",
   "notebook.cellToolbarLocation": {
     "default": "right",
-    "jupyter-notebook": "left"
+    "jupyter-notebook": "left",
   },
   "notebook.editorOptionsCustomizations": {},
   "notebook.output.textLineLimit": 500,
@@ -160,8 +160,8 @@
       "label": "try/except",
       "description": "Surrounds the selection with a try/except block",
       "snippet": "try:\n\t${TM_SELECTED_TEXT}\nexcept ${1:Exception}:\n\t${2:pass}",
-      "languageIds": ["python"]
-    }
+      "languageIds": ["python"],
+    },
   },
   // ========================
   // SVG Preview
@@ -177,20 +177,20 @@
       "icon": "flame",
       "background": "#f00",
       "iconColour": "#f00",
-      "foreground": "#fff"
+      "foreground": "#fff",
     },
     "TODO:": {
       "icon": "check",
       "background": "#0f0",
       "iconColour": "#0f0",
-      "foreground": "#000"
-    }
+      "foreground": "#000",
+    },
   },
   // ========================
   // VSCode Neovim
   // ========================
   "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
+    "asvetliakov.vscode-neovim": 1,
   },
   // ========================
   // VSIntellicode
@@ -231,13 +231,13 @@
       {
         "scope": ["comment"],
         "settings": {
-          "fontStyle": "italic"
-        }
-      }
-    ]
+          "fontStyle": "italic",
+        },
+      },
+    ],
   },
   "editor.quickSuggestions": {
-    "strings": "on"
+    "strings": "on",
   },
   "editor.accessibilitySupport": "off",
   "editor.inlineSuggest.enabled": true,
@@ -247,7 +247,7 @@
   "editor.formatOnSave": true,
   "editor.showFoldingControls": "always",
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit"
+    "source.organizeImports": "explicit",
   },
   "editor.stickyScroll.enabled": true,
   "editor.formatOnType": true,
@@ -264,14 +264,14 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "files.associations": {
-    "*.css": "css"
+    "*.css": "css",
   },
   // =====================
   // Minimap
   // =====================
   "editor.minimap.scale": 2,
   "editor.minimap.renderCharacters": false,
-  "editor.minimap.autohide": true,
+  "editor.minimap.autohide": "mouseover",
   "editor.minimap.enabled": false,
   // =====================
   // Source Control
@@ -294,8 +294,10 @@
   "window.commandCenter": true,
   "window.customTitleBarVisibility": "auto",
   "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
     "*.png": "imagePreview.previewEditor",
-    "*.md": "default"
+    "*.md": "default",
+    "{git,gitlens}:/**/*.{md,csv,svg}": "default",
   },
   "window.newWindowProfile": "Default",
   "window.titleBarStyle": "custom",
@@ -309,7 +311,7 @@
   // React
   // =====================
   "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "reactSnippets.settings.importReactOnTop": false,
   // =====================
@@ -317,7 +319,7 @@
   // =====================
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "javascript.suggest.paths": false,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
@@ -356,7 +358,7 @@
   // =====================
   "[html]": {
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "html.format.indentInnerHtml": true,
   "html.format.templating": true,
@@ -365,7 +367,7 @@
   // =====================
   "[css]": {
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "css.format.spaceAroundSelectorSeparator": true,
   "css.lint.compatibleVendorPrefixes": "warning",
@@ -379,18 +381,22 @@
   // =====================
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   // =====================
   // Python
   // =====================
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
-    "editor.rulers": [88]
+    "editor.rulers": [88],
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit",
+    },
   },
   "python.analysis.inlayHints.variableTypes": true,
   "python.analysis.inlayHints.functionReturnTypes": true,
@@ -403,8 +409,9 @@
     "editor.insertSpaces": false,
     "editor.tabSize": 4,
     "editor.defaultFormatter": "persoderlind.vscode-phpcbf",
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
+  "php.validate.executablePath": "/opt/homebrew/bin/php",
   "intelephense.format.braces": "k&r",
   "intelephense.stubs": [
     "apache",
@@ -479,7 +486,7 @@
     "xsl",
     "Zend OPcache",
     "zip",
-    "zlib"
+    "zlib",
   ],
   "intelephense.codeLens.implementations.enable": true,
   "intelephense.codeLens.overrides.enable": true,
@@ -497,7 +504,7 @@
     "*/vendors/*",
     "*/wp-admin/*",
     "*/wp-includes/*",
-    "*/mu-plugins/*"
+    "*/mu-plugins/*",
   ],
   "phpcbf.enable": true,
   "phpcbf.standard": "WordPress",
@@ -510,15 +517,15 @@
     "editor.quickSuggestions": {
       "comments": "on",
       "strings": "on",
-      "other": "on"
-    }
+      "other": "on",
+    },
   },
   "markdown.preview.fontFamily": "'Recursive Mono Casual Static', apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
   // =====================
   // Dockerfile
   // =====================
   "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker",
   },
   // ==========================
   // Miscellaneous settings
@@ -527,5 +534,16 @@
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.untrustedFiles": "open",
   "accessibility.underlineLinks": true,
-  "security.promptForLocalFileProtocolHandling": false
+  "security.promptForLocalFileProtocolHandling": false,
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "docker.extension.enableComposeLanguageServer": false,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "workbench.editor.empty.hint": "hidden",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "editor.largeFileOptimizations": false,
 }
