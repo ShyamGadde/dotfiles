@@ -154,7 +154,10 @@ cask "chatgpt"
 cask "discord"
 
 # App to build and share containerised applications and microservices
-cask "docker"
+cask "docker-desktop"
+
+# Screen colour temperature controller
+cask "flux-app"
 
 # Fonts
 cask "font-jetbrains-mono-nerd-font"
@@ -189,7 +192,7 @@ cask "notion"
 cask "obsidian"
 
 # Get up and running with large language models locally
-cask "ollama"
+cask "ollama-app"
 
 # Collaboration platform for API development
 cask "postman"
@@ -214,6 +217,9 @@ cask "stats"
 
 # Native GUI tool for relational databases
 cask "tableplus"
+
+# To-do list
+cask "todoist-app"
 
 # Open-source code editor
 cask "visual-studio-code"
