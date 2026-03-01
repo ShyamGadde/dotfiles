@@ -3,37 +3,26 @@
 git:
   commit:
     signOff: true
-
   # If true, do not spawn a separate process when using GPG
   overrideGpg: true
-
-  paging:
-    colorArg: always
-    pager: delta --paging=never
-
+  pagers:
+    - colorArg: always
+      pager: delta --paging=never
   # If true, parse emoji strings in commit messages e.g. render :rocket: as 🚀
   parseEmoji: true
-
   truncateCopiedCommitHashesTo: 7
-
 gui:
   authorColors:
     "Shyamsundar Gadde": "#89b4fa"
     "*": "#f38ba8"
-
   commitHashLength: 7
-
   # If true, increase the height of the focused side window; creating an accordion effect.
   expandFocusedSidePanel: true
-
   # How things are filtered when typing '/'.
   # One of 'substring' (default) | 'fuzzy'
   filterMode: fuzzy
-
   nerdFontsVersion: "3"
-
   showDivergenceFromBaseBranch: "arrowAndNumber"
-
   spinner:
     # The frames of the spinner animation.
     frames:
@@ -41,10 +30,8 @@ gui:
       - "●∙∙"
       - "∙●∙"
       - "∙∙●"
-
     # The "speed" of the spinner in milliseconds.
     rate: 120
-
   theme:
     activeBorderColor:
       - "#fab388"
@@ -65,17 +52,14 @@ gui:
       - "#cdd6f4"
     searchingActiveBorderColor:
       - "#f9e2af"
-
 # What to do when opening Lazygit outside of a git repo.
 # - 'prompt': (default) ask whether to initialize a new repo or open in the most recent repo
 # - 'create': initialize a new repo
 # - 'skip': open most recent repo
 # - 'quit': exit Lazygit
 notARepository: quit
-
 # If true, display a confirmation when subprocess terminates. This allows you to view the output of the subprocess before returning to Lazygit.
 promptToReturnFromSubprocess: false
-
 customCommands:
   - key: "<c-u>"
     description: "Push to a specific remote repository"
